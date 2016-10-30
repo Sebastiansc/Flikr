@@ -1,3 +1,5 @@
+```js
+
 {
   currentUser: {
     id: 1,

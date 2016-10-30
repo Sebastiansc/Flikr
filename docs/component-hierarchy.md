@@ -17,13 +17,13 @@
         - GalleryItemHeader
         - GalleryItemFooter
 
-* NavBarContainer
+**NavBarContainer**
   - NavBar
     - NavBarItem
       - NavBarDropItem
     - SearchBox
 
-- Footer
+**Footer**
   - FooterItem
 
 
@@ -44,11 +44,11 @@
     - CameraRollItem
       - CameraRollItemOptions
 
-- PhotoStream
+**PhotoStream**
   - PhotoStreamSorter
   - ImageItem
 
-- Albums
+**Albums**
   - NewAlbum
   - AlbumItem
 

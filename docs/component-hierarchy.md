@@ -74,6 +74,13 @@
     - ImageItem
   - Footer
 
+**TagsContainer**
+  * NavBarContainer
+    - TagIndex
+      - TagTime
+        - TagItem
+  - Footer
+
 
     |Path   | Component   |
     |-------|-------------|
@@ -86,4 +93,4 @@
     | "/home/profile/albums" | "Albums"
     | "/home/profile/camera_roll" | "CameraRollContainer"
     | "/home/profile/photo_stream" | "PhotoStream"
-    | "/home/albums/:albumId" | "AlbumContainer"
+    | "/home/tags" | "TagsContainer"

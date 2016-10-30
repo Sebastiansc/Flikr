@@ -42,8 +42,10 @@
 
 ### Tags
 
-- Photo's tags will appear in the PhotoDetail template
 - `GET /api/tags`
+  - index of all tags
+- `GET /api/tags/:photo_id`
+  - return all tags for a photo
 - `POST /api/photos/:photo_id/tags`: add tag to photo by name
 - `DELETE /api/photos/:photo_id/tags/:tag_name`: remove tag from photo by
   name

@@ -45,24 +45,24 @@ sufficient CSS styling:
 **Objective:** Photos can be created, read and destroyed through
 the API.
 
-### Phase 3: Notebooks (2 day)
+### Phase 3: Albums (2 day)
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+**Objective:** Photos may belong to Albums that can be created, read, edited and destroyed through the API.
 
 ### Phase 4: Tags (1 days)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Photos can be tagged with multiple tags, and tags are searchable.
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Comments (2 days)
 
-**objective:** Allow rich text editing of notes.
+**objective:** Comments can be created, read and destroyed through the api
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: - Pagination / continuous scroll for Explore and Main templates (1 day)
 
-**objective:** Add infinite scroll to Notes Index
+**objective:** Add continuous scroll to Photo Display templates
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
+- [ ] Follows
+- [ ] Groups
+- [ ] Favorites
 - [ ] Multiple sessions

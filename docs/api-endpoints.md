@@ -58,3 +58,8 @@
 - `Patch /api/comments/:id`
   - updates comment if user owns it
 - `Delete /api/comments/:id`
+
+## Likes
+- `Get /api/likes/:photo_id`
+- `Post /api/likes/:photo_id`
+- `Delete /api/likes/:photo_id`

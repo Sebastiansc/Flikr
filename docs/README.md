@@ -45,17 +45,21 @@ sufficient CSS styling:
 **Objective:** Photos can be created, read and destroyed through
 the API.
 
-### Phase 3: Albums (2 day)
+### Phase 3: Comments (2 days)
 
-**Objective:** Photos may belong to Albums that can be created, read, edited and destroyed through the API.
+**objective:** Comments can be created, read and destroyed through the api
 
 ### Phase 4: Tags (1 days)
 
 **Objective:** Photos can be tagged with multiple tags, and tags are searchable.
 
-### Phase 5: Comments (2 days)
+### Phase 5: Albums (2 day)
 
-**objective:** Comments can be created, read and destroyed through the api
+**Objective:** Photos may belong to Albums that can be created, read, edited and destroyed through the API.
+
+### Phase 6: Likes (1 day)
+
+**Objective:** Photos can be liked. Likes can be created, read and destroyed through the API
 
 ### Phase 6: - Pagination / continuous scroll for Explore and Main templates (1 day)
 

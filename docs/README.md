@@ -19,7 +19,7 @@ sufficient CSS styling:
 - [ ] Albums
 - [ ] Tags
 - [ ] Comments
-- [ ] Production README [sample](docs/production_readme.md)
+- [ ] Production README [sample](../production_readme.md)
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -30,9 +30,9 @@ sufficient CSS styling:
 
 [wireframes]: ./wireframes
 [components]: ./component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[sample-state]: ./sample-state.md
+[api-endpoints]: ./api-endpoints.md
+[schema]: ./schema.md
 
 ## Implementation Timeline
 

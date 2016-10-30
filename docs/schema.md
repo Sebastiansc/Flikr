@@ -13,10 +13,11 @@ session_token   | string    | not null, indexed, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-url         | string    | not null
+file_path   | string    | not null
+title       | string    | not null
+description | string    | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 album_id    | integer   | not null, foreign key (references albums), indexed
-archived    | boolean   | not null, default: false
 
 ## albums
 column name | data type | details
@@ -35,7 +36,7 @@ name        | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+body        | string    | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 photo_id    | integer   | not null, foreign key (references photos), indexed
 
@@ -43,7 +44,7 @@ photo_id    | integer   | not null, foreign key (references photos), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-follower_id | integer   | not null, foreign key (references users), indexed
+follower_id | integer   | not null, foreign key (references users), indexed, unique [followed_id]
 followed_id | integer   | not null, foreign key (references users), indexed
 
 ## taggings

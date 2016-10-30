@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Greeting = ({username, logout}) => {
-  debugger;
+const Greeting = ({username, logout, login}) => {
   if (username){
     return (
       <div>
@@ -15,7 +14,11 @@ const Greeting = ({username, logout}) => {
       <div>
         <Link to='/signup'>Sign Up</Link>
         <br/>
-        <Link to='/login'>Sign In</Link>
+        <Link to='/login'>Login</Link>
+        <br/>
+        <a onClick={ () => login({username: "guest", password: "password"})}>
+          Guest Login
+        </a>
       </div>
     );
   }

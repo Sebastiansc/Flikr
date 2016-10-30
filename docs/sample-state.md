@@ -3,7 +3,9 @@
 {
   currentUser: {
     id: 1,
-    username: "app-academy"
+    username: "app-academy",
+    profile_pic: "path/to/pic"
+    favorites: [ "...photo ids"]
   },
   forms: {
     signUp: {errors: []},
@@ -22,17 +24,22 @@
          id: 1
          name: "Summer"
        }
+     },
+     favorites: [
+       { username: "User", profile_pic: "path/to/pic"},
+       { username: "User2", profile_pic: "path/to/pic2"}
+     ]
+   }
+  },
+  albums: {
+     1: {
+      title: "Collection",
+      description: "Vacations"
      }
-   }
- },
- albums: {
-   1: {
-    title: "Collection",
-    description: "Vacations"
-   }
- },
- comments: [
-  {body: "Comment blabla", author_id: 2 },
-  {body: "Comment fufu", author_id: 3 }
- ]
+  },
+  comments: [
+    {body: "Comment blabla", author_id: 2 },
+    {body: "Comment fufu", author_id: 3 }
+  ],
+  tags: [ "... tag names" ]
 }

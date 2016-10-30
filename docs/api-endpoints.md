@@ -51,15 +51,15 @@
   name
 
 ## Comments
-- `Get /api/comments/:photo_id`
+- `Get /api/comments/`
   - index of all comments for a photo
-- `Get /api/comments/:photo_id/count`
+- `Get /api/comments/count`
   - returns photo's number of comments
 - `Patch /api/comments/:id`
   - updates comment if user owns it
 - `Delete /api/comments/:id`
 
-## Likes
-- `Get /api/likes/:photo_id`
-- `Post /api/likes/:photo_id`
-- `Delete /api/likes/:photo_id`
+## Favorites
+- `Get /api/likes`
+- `Post /api/likes`
+- `Delete /api/likes/:id`

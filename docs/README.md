@@ -57,7 +57,7 @@ the API.
 
 **Objective:** Photos may belong to Albums that can be created, read, edited and destroyed through the API.
 
-### Phase 6: Likes (1 day)
+### Phase 6: Favorites (1 day)
 
 **Objective:** Photos can be liked. Likes can be created, read and destroyed through the API
 
@@ -68,5 +68,4 @@ the API.
 ### Bonus Features (TBD)
 - [ ] Follows
 - [ ] Groups
-- [ ] Favorites
 - [ ] Multiple sessions

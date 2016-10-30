@@ -48,7 +48,7 @@ id          | integer   | not null, primary key
 follower_id | integer   | not null, foreign key (references users), indexed, unique [followed_id]
 followed_id | integer   | not null, foreign key (references users), indexed
 
-## follows
+## favorites
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

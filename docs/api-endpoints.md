@@ -22,6 +22,7 @@
 
 - `GET /api/photos`
   - accepts `tag_name` query param to list photos by tag
+  - send back all comments, favorites and tags for each photo
   - accepts pagination params
 - `GET /api/photos/:id`
 - `POST /api/photos`
@@ -41,25 +42,19 @@
   - index of all photos for an album
 
 ### Tags
-
 - `GET /api/tags`
   - index of all tags
-- `GET /api/tags/:photo_id`
-  - return all tags for a photo
-- `POST /api/photos/:photo_id/tags`: add tag to photo by name
-- `DELETE /api/photos/:photo_id/tags/:tag_name`: remove tag from photo by
+- `POST /api/tags`: add tag to photo by name
+  - accepts photo_id and tagname in the body of the request
+- `DELETE /api/tags/:photo_id/:tag_name`: remove tag from photo by
   name
 
 ## Comments
-- `Get /api/comments/`
-  - index of all comments for a photo
-- `Get /api/comments/count`
-  - returns photo's number of comments
+- `Post /api/comments`
+  - accepts photo_id and body in the body of the request
 - `Patch /api/comments/:id`
-  - updates comment if user owns it
 - `Delete /api/comments/:id`
 
 ## Favorites
-- `Get /api/likes`
 - `Post /api/likes`
 - `Delete /api/likes/:id`

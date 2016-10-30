@@ -25,6 +25,10 @@
          name: "Summer"
        }
      },
+     comments: [
+       {body: "Comment blabla", author_id: 2 },
+       {body: "Comment fufu", author_id: 3 }
+     ],
      favorites: [
        { username: "User", profile_pic: "path/to/pic"},
        { username: "User2", profile_pic: "path/to/pic2"}
@@ -37,9 +41,5 @@
       description: "Vacations"
      }
   },
-  comments: [
-    {body: "Comment blabla", author_id: 2 },
-    {body: "Comment fufu", author_id: 3 }
-  ],
   tags: [ "... tag names" ]
 }

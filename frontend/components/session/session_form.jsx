@@ -11,9 +11,7 @@ class SessionForm extends React.Component {
   }
 
   componentDidUpdate(){
-    if (this.props.loggedIn) {
-      this.props.router.push("/");
-    }
+    if (this.props.loggedIn) this.props.router.push("/");
   }
 
   handleSubmit(e) {

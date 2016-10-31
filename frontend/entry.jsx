@@ -5,16 +5,15 @@ import { login, logout, signup } from './actions/session_actions';
 import Root from './components/root.jsx';
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
 
   let store;
   if (window.currentUser ) {
     store = configureStore({session : {
-      username: window.currentUser.username,
+      currentUser: {
+        username: window.currentUser.username,
+        id: window.currentUser.id
+      },
       errors: [],
-      id: window.currentUser.id
     }});
   } else {
     store = configureStore();

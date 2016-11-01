@@ -54,3 +54,15 @@
 .entry-form-change-link {
   margin-left: 10px;
 }
+
+.signin-errors {
+  list-style: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.signin-errors li {
+  padding: .5em;
+  text-align: left;
+}

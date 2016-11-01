@@ -1,15 +1,23 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-export default class UserDropDown extends React.Component {
+class UserDropDown extends React.Component {
   constructor(props){
     super(props);
+  }
+
+  componentDidUpdate(){
+    if(!this.props.user) this.props.router.push('/');
   }
 
   render(){
     return(
       <div className='user-drop-down'>
-        <img>Profile</img>
+        <span>Image</span><img></img>
+        <button onClick={() => this.props.logout()}>Logout</button>
       </div>
     );
   }
 }
+
+export default withRouter(UserDropDown);

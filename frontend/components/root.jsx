@@ -20,6 +20,7 @@ const Root = ({ store }) => {
         <Route path='/' component={SessionFormContainer}>
           <Route path='signup' component={SessionFormContainer}/>
         </Route>
+        <Route path='/home/main' component={App}/>
       </Router>
     </Provider>
   );

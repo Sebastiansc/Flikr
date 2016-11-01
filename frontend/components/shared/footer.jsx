@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <div className='footer'>
-    <ul>
+    <ul className='footer-main-nav'>
       <li>About</li>
       <li>Jobs</li>
       <li>Blog</li>
@@ -16,7 +16,7 @@ const Footer = () => (
         <li>Terms</li>
         <li>Help</li>
       </ul>
-      <div>Flikr by Sebastian Cruz</div>
+      <div className='footer-rights'>Flikr by Sebastian Cruz</div>
       <ul>
         <li>Face<img></img></li>
         <li>Tumblr<img></img></li>
@@ -25,3 +25,5 @@ const Footer = () => (
     </div>
   </div>
 );
+
+export default Footer;

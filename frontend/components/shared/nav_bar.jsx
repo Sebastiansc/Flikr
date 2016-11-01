@@ -11,7 +11,7 @@ export default class NavBar extends React.Component {
     return(
       <nav className='nav-bar'>
         <ul>
-          <li><img>Flikr</img></li>
+          <li>Flikr</li>
           <li>You</li>
           <li>Explore</li>
         </ul>

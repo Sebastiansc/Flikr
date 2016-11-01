@@ -20,14 +20,6 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  displayErrors(){
-    return (
-      <ul>
-        {this.props.errors.map((error,i) => <li key={i}>{error}</li>)}
-      </ul>
-    );
-  }
-
   update(e, property){
     this.setState({[property]: e.target.value});
   }
@@ -53,6 +45,15 @@ class SessionForm extends React.Component {
       );
     }
   }
+
+  displayErrors(){
+    return (
+      <ul className='signin-errors'>
+        {this.props.errors.map((error,i) => <li key={i}>{error}</li>)}
+      </ul>
+    );
+  }
+
 
   render(){
     return (

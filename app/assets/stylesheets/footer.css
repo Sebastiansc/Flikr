@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background: #212124;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+.footer ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-main-nav {
+  width: 90%;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.foot-bottom-row {
+  border-top: 1px solid #38383a;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.foot-bottom-row ul{
+  width: 15%;
+}

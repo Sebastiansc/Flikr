@@ -1,0 +1,38 @@
+.nav-bar {
+  display: flex;
+  background-color: rgba(21,21,23,.95);
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  width: 100%;
+  justify-content: space-around;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  align-items: center;
+}
+
+.nav-bar ul:first-child {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.user-drop-down {
+  padding-top: 26px;
+}
+
+.search-box{
+  background: hsla(0,0%,100%,.8);
+}
+
+.search-box input{
+  padding: 7px 15px 7px 5px;
+  font-size: 14px;
+  background: transparent;
+  border:none;
+  border-radius: 5px;
+}

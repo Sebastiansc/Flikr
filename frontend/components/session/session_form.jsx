@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
   }
 
   componentDidUpdate(){
-    if (this.props.loggedIn) this.props.router.push("/");
+    if (this.props.loggedIn) this.props.router.push("/home/main");
   }
 
   handleSubmit(e) {
@@ -34,14 +34,14 @@ class SessionForm extends React.Component {
 
   oppositePath(){
     if(window.location.hash === "#/signup"){
-      return "#/login";
-    } else { return "#/signup"; }
+      return "/";
+    } else { return "/signup"; }
   }
 
   navLink(){
     return (
       <Link to={this.oppositePath()}>
-        {this.oppositePath() === '#/signup' ? "Log In" : "Sign Up"}
+        Sign up
       </Link>
     );
   }
@@ -49,30 +49,33 @@ class SessionForm extends React.Component {
 
   render(){
     return (
-      <div className="signin">
-        <h1>{this.props.formType}</h1>
-        {this.displayErrors()}
+      <div className="signin-main">
+        <div className="signin-gradient"></div>
+        <div className="signin">
+          <h1>{this.props.formType}</h1>
+          {this.displayErrors()}
 
-        <form onSubmit={ e => this.handleSubmit(e)}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            value={this.state.username}
-            id="username"
-            onChange={e => this.update(e, "username")}>
-          </input>
+          <form onSubmit={ e => this.handleSubmit(e)}>
+            <input
+              type="text"
+              value={this.state.username}
+              id="username"
+              placeholder="Enter your username"
+              onChange={e => this.update(e, "username")}>
+            </input>
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            onChange={ e => this.update(e, "password") }>
-          </input>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              onChange={ e => this.update(e, "password") }>
+            </input>
 
-          <button>Submit</button>
-        </form>
+            <button>Submit</button>
+          </form>
 
-        {this.navLink()}
+          <p>Dont have an account? {this.navLink()}</p>
+        </div>
       </div>
     );
   }

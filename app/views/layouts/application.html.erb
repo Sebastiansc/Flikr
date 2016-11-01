@@ -14,6 +14,12 @@
           user: current_user).html_safe %>
       <% end %>
     </script>
+    <script type="text/javascript">
+      window.cloudinaryOptions = {
+        cloud: '<%= ENV['CLOUD_NAME']%>',
+        uploadPreset: '<%= ENV['UPLOAD_PRESET']%>'
+      }
+    </script>
 
   </head>
 

@@ -10,16 +10,16 @@ const Root = ({ store }) => {
     if(state.session.currentUser) replace('/');
   };
 
+  // const toLogin = (nextState, replace) => {
+  //   replace('/login');
+  // };
+
   return(
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path='/' component={SessionFormContainer}/>
-        <Route path='/home' component={App}>
-          <Route path="/login"
-             component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/signup"
-            component={SessionFormContainer}
-            onEnter={_redirectIfLoggedIn}/>
+        <Route path='/' component={App}>
+          <IndexRoute component={SessionFormContainer}/>
+          <Route path='signup' component={SessionFormContainer}/>
         </Route>
       </Router>
     </Provider>

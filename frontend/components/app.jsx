@@ -1,11 +1,13 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
+import NavBarContainer from './shared/nav_bar_container';
+import Footer from './shared/footer';
 
 const App = ({ children }) => (
   <div>
-    <h1>Slickr</h1>
-    <GreetingContainer />
+    <NavBarContainer/>
     {children}
+    <Footer/>
   </div>
 );
 

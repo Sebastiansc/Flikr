@@ -9,6 +9,9 @@
 
 /* Document
    ========================================================================== */
+body, html, div{
+  height: inherit;
+}
 
 html {
   font-family: sans-serif; /* 1 */

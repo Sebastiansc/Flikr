@@ -8,14 +8,13 @@
     * NavBarContainer
     - Footer
 
-**MainContainer**
-  * HomeNav
-    - HomeNavItem
+**ImageContainer**
+  * NavBarContainer
   * ImageGallery
-    * ImageGalleryItemContainer
-      - ImageGalleryItem
-        - GalleryItemHeader
-        - GalleryItemFooter
+    - ImageGalleryItem
+      - GalleryItemHeader
+      - GalleryItemFooter
+  - Footer
 
 **NavBarContainer**
   - NavBar
@@ -27,7 +26,7 @@
   - FooterItem
 
 
-**ExploreContainer**
+**ImageContainer**
   * NavBarContainer
   - ExploreGallery
     - ExploreGalleryItem
@@ -39,7 +38,7 @@
   - ProfileNav
   - Footer
 
-* CameraRollContainer
+**CameraRollContainer**
   - CameraRollOptions
     - CameraRollItem
       - CameraRollItemOptions

@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="signin">
         <h1>{this.props.formType}</h1>
         {this.displayErrors()}
 

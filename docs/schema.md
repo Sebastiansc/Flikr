@@ -14,7 +14,7 @@ session_token   | string    | not null, indexed, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-file_path   | string    | not null
+image_url   | string    | not null
 title       | string    | not null
 description | string    | not null
 author_id   | integer   | not null, foreign key (references users), indexed

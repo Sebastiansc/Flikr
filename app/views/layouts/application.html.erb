@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
+    <script src="http://widget.cloudinary.com/global/all.js" charset="utf-8"></script>
     <script type="text/javascript">
       <% if logged_in? %>
           window.currentUser = <%= render("api/user.json.jbuilder",
@@ -16,8 +16,8 @@
     </script>
     <script type="text/javascript">
       window.cloudinaryOptions = {
-        cloud: '<%= ENV['CLOUD_NAME']%>',
-        uploadPreset: '<%= ENV['UPLOAD_PRESET']%>'
+        cloud_name: '<%= ENV['CLOUD_NAME']%>',
+        upload_preset: '<%= ENV['UPLOAD_PRESET']%>'
       }
     </script>
 

@@ -16,7 +16,7 @@
 .signin form {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 260px;
 }
 
 .signin form > * {
@@ -52,7 +52,9 @@
 }
 
 .entry-form-change-link {
-  margin-left: 10px;
+  margin-left: 15px;
+  color: rgb(85, 26, 139);
+  cursor: pointer;
 }
 
 .signin-errors {
@@ -65,4 +67,9 @@
 .signin-errors li {
   padding: .5em;
   text-align: left;
+}
+
+.signin-bottom-row {
+  margin: 10px 0;
+  height: auto;
 }

@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
   }
 
   componentDidUpdate(){
-    if (this.props.loggedIn) this.props.router.push('/home/main');
+    if (this.props.loggedIn) this.props.router.push('/home');
   }
 
   handleSubmit(e) {
@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
   changeFormLink(){
     if(window.location.hash === '#/') {
       return (
-        <div>
+        <div className="signin-bottom-row">
           <span>Dont have an account?</span>
           <span className='entry-form-change-link' >
             <Link to='/signup'>Sign up</Link>
@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
       );
     } else {
       return(
-        <div>
+        <div className="signin-bottom-row">
           <span>Alredy have an account?</span>
           <span className='entry-form-change-link' >
             <Link to='/'>Sign in</Link>
@@ -81,6 +81,16 @@ class SessionForm extends React.Component {
 
             <button>Submit</button>
           </form>
+          <div className="signin-bottom-row">
+            <span>Feeling Lazy?</span>
+            <a
+              className='entry-form-change-link'
+              onClick={ () => this.props.login(
+                {username: "guest",
+                  password: "password"})}>
+                  Guest Sign in
+            </a>
+          </div>
 
           {this.changeFormLink()}
         </div>

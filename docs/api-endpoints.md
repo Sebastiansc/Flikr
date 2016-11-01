@@ -46,7 +46,7 @@
   - index of all tags
 - `POST /api/tags`: add tag to photo by name
   - accepts photo_id and tagname in the body of the request
-- `DELETE /api/tags/:photo_id/:tag_name`: remove tag from photo by
+- `DELETE /api/tags`: remove tag from photo by
   name
 
 ## Comments

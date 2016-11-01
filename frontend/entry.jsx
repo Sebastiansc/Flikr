@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import { login, logout, signup } from './actions/session_actions';
 import Root from './components/root.jsx';
-import { createPhoto } from './actions/photo_actions';
+import { createPhoto, requestPhotos } from './actions/photo_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -15,11 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
         id: window.currentUser.id
       },
       errors: [],
+      photos: {}
     }});
   } else {
     store = configureStore();
   }
-  
+
+  window.requestPhotos = requestPhotos;
   window.createPhoto = createPhoto;
   window.store = store;
   const root = document.getElementById("root");

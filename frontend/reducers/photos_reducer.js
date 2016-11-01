@@ -13,7 +13,6 @@ const PhotosReducer = (state = _defaultState, action) => {
     case RECEIVE_PHOTOS:
       return action.photos;
     case RECEIVE_PHOTO:
-      debugger;
       newState[action.photo.id] = action.photo;
       return newState;
     case REMOVE_PHOTO:
@@ -23,3 +22,5 @@ const PhotosReducer = (state = _defaultState, action) => {
       return state;
   }
 };
+
+export default PhotosReducer;

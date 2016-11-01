@@ -19,7 +19,7 @@ export default ({ getState, dispatch }) => next => action => {
   switch(action.type) {
     case REQUEST_PHOTOS:
       success = photos => dispatch(receivePhotos(photos));
-      fetchPhotos(success);
+      fetchPhotos(null, success);
       return next(action);
     case CREATE_PHOTO:
       postPhoto(action.photo, success);

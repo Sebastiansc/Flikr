@@ -4,6 +4,7 @@
   padding: 50px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
   border-radius: 3px;
+  text-align: center;
 }
 
 .signin-main {
@@ -29,6 +30,7 @@
 }
 
 .signin button {
+  margin-top: 5px;
   background: #4ca9ff;
   height: 45px;
   padding: .65em;
@@ -45,6 +47,10 @@
 }
 
 .signin-gradient {
-  height: 7px;
+  height: 10px;
   background: linear-gradient(to right,#188fff 0,#400090 100%);
+}
+
+.entry-form-change-link {
+  margin-left: 10px;
 }

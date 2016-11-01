@@ -17,8 +17,7 @@ const Root = ({ store }) => {
   return(
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path='/' component={App}>
-          <IndexRoute component={SessionFormContainer}/>
+        <Route path='/' component={SessionFormContainer}>
           <Route path='signup' component={SessionFormContainer}/>
         </Route>
       </Router>

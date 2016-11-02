@@ -14,11 +14,13 @@ export default class NavBar extends React.Component {
         <div className='nav-container'>
           <ul>
             <li><Link to='home'>Flikr</Link></li>
-            <li>You</li>
             <li><Link to='home/explore'>Explore</Link></li>
+            <li>You</li>
           </ul>
-          <SearchBox />
-          <UserDropDown logout={this.props.logout} user={this.props.currentUser}/>
+          <div className='nav-right'>
+            <SearchBox />
+            <UserDropDown logout={this.props.logout} user={this.props.currentUser}/>
+          </div>
         </div>
       </nav>
     );

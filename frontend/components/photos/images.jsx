@@ -3,7 +3,7 @@ import ExploreGallery from './explore';
 import MainGallery from './main';
 
 const Images = props => {
-  let child;
+  let child, gallery;
   if (window.location.hash === '#/home/main'){
     child = <MainGallery
             photos={props.photos}
@@ -12,11 +12,15 @@ const Images = props => {
     child = <ExploreGallery
             photos={props.photos}
             requestPhotos={props.requestPhotos}/>;
+    gallery = <h1>Explore</h1>;
   }
 
   return (
-    <div>
-      {child}
+    <div className='container'>
+      {gallery}
+      <div>
+        {child}
+      </div>
     </div>
   );
 };

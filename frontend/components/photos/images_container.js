@@ -8,7 +8,7 @@ const mapStateToProps = ({ photos }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPhotos: () => dispatch(requestPhotos())
+  requestPhotos: () => dispatch(requestPhotos()),
 });
 
 export default connect(

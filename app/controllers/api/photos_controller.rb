@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all
+    @photos = Photo.all.includes(:author)
   end
 
   def show
@@ -36,6 +36,6 @@ class Api::PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:img_url, :description, :title)
+    params.require(:photo).permit(:img_url, :description, :title, :width, :height)
   end
 end

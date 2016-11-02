@@ -8,7 +8,7 @@ export default class SearchBox extends React.Component{
   render(){
     return(
       <form className='search-box'>
-        <input type='submit'></input>
+        <input type='submit' value="S"></input>
         <input type='text' placeholder='Search photos, people...'></input>
       </form>
     );

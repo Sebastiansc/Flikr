@@ -4,8 +4,7 @@ import { receivePhotos,
          REQUEST_PHOTOS,
          CREATE_PHOTO,
          DELETE_PHOTO,
-         UPDATE_PHOTO
-       } from '../actions/photo_actions';
+         UPDATE_PHOTO} from '../actions/photo_actions';
 
 import { fetchPhotos,
          postPhoto,

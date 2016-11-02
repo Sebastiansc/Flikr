@@ -1,20 +1,40 @@
 import React from 'react';
 import ExploreGalleryItem from './explore_gallery_item';
-import Masonry from 'react-masonry-component';
+import JustifiedLayout from 'react-justified-layout';
 
-const masonryOptions = {
-    transitionDuration: 0.5
-};
+export default class ExploreGallery extends React.Component{
+  constructor(props){
+    super(props);
+  }
 
-const ExploreGallery = props => (
-  <div className='explore-gallery'>
-    <h3>Explore</h3>
-    <Masonry className={'my-gallery-class'} options={masonryOptions}>
-      {props.photos.map( photo => (
-        <ExploreGalleryItem photo={photo}/>
-      ))}
-    </Masonry>
-  </div>
-);
+  componentWillMount(){
+    this.props.requestPhotos();
+  }
 
-export default ExploreGallery;
+  render(){
+    return(
+      <div className='explore-gallery'>
+        <h3>Explore</h3>
+        <JustifiedLayout
+          showWidows={false}
+          boxSpacing={{ horizontal: 5, vertical: 5}}>
+          {this.props.photos.map(photo => (
+            <ExploreGalleryItem
+              style={{height: (photo.height / 4), width: (photo.width / 4)}}
+              key={photo.id} photo={photo}/>
+          ))}
+        </JustifiedLayout>
+      </div>
+    );
+  }
+}
+
+// {this.props.photos.map( photo => {
+//   // const aspectRatio = (photo.width / 10) / (photo.height / 10);
+//   // aspectRatio={aspectRatio}
+//   return (
+//     <ExploreGalleryItem
+//       style={{height: 100, width: 200}}
+//       key={photo.id} photo={photo}/>
+//   );
+// })}

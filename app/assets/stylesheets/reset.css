@@ -9,9 +9,9 @@
 
 /* Document
    ========================================================================== */
-body, html, div{
+/*body, html, div{
   height: inherit;
-}
+}*/
 
 ul {
   list-style: none;

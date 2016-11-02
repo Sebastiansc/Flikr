@@ -1,0 +1,29 @@
+.explore-thumb img {
+  width: 100%;
+  height: auto;
+}
+
+.explore-thumb {
+  position: relative;
+  margin: 0;
+  display: inline-block;
+}
+
+.my-gallery-class {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.explore-item-bottom {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  left: 5px;
+  font-size: 14px;
+  color: white;
+  display: hidden;
+}
+
+.explore-item-bottom:hover {
+  display: block
+}

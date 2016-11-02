@@ -8,18 +8,21 @@ export default class ExploreGalleryItem extends React.Component{
 
   render(){
     return(
-      <div className='explore-item'>
-        <figure>
-          <img>{this.props.photo.image_url}</img>
-        </figure>
+      <figure className='explore-thumb'>
+        <img style={{
+            height: (this.props.photo.height / 4),
+             width: (this.props.photo.width / 4)}}
+          src={this.props.photo.img_url}></img>
         <div className='explore-item-bottom'>
-          <div className='explore-item-text'>
+          <span className='explore-item-title'>
             {this.props.photo.title}
-          </div>
+          </span>
+
+          <span> by {this.props.photo.username}</span>
           <div className='explore-item-tool'></div>
           <div className='explore-item-tool'></div>
         </div>
-      </div>
+      </figure>
     );
   }
 }

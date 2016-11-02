@@ -6,20 +6,19 @@ export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 
-
 export const requestPhotos = tags => ({
   type: REQUEST_PHOTOS,
   tags
 });
 
-export const receivePhotos = photos => ({
-  type: RECEIVE_PHOTOS,
-  photos
-});
-
 export const receivePhoto = photo => ({
   type: RECEIVE_PHOTO,
   photo
+});
+
+export const receivePhotos = photos => ({
+  type: RECEIVE_PHOTOS,
+  photos
 });
 
 export const createPhoto = photo => ({

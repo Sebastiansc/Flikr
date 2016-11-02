@@ -18,7 +18,8 @@ export default class ExploreGallery extends React.Component{
 
   render(){
     return(
-      <Masonry option={masonryOptions}>
+      <div>
+      <Masonry options={masonryOptions}>
         {this.props.photos.map( photo => {
           return (
             <ExploreGalleryItem
@@ -26,6 +27,7 @@ export default class ExploreGallery extends React.Component{
           );
         })}
       </Masonry>
+    </div>
     );
   }
 }

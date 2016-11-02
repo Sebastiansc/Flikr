@@ -10,12 +10,14 @@ export default class NavBar extends React.Component {
 
   render(){
     return(
-      <nav className='nav-bar'>
-        <div className='nav-container'>
-          <ul>
-            <li><Link to='home'>Flikr</Link></li>
-            <li><Link to='home/explore'>Explore</Link></li>
-            <li>You</li>
+      <div className="nav-bar-contrast-holder">
+        <div className='nav-bar-contrast'></div>
+        <nav className='nav-bar'>
+          <div className='nav-container'>
+            <ul>
+              <li><Link to='home'>Flikr</Link></li>
+              <li><Link to='home/explore'>Explore</Link></li>
+              <li>You</li>
           </ul>
           <div className='nav-right'>
             <SearchBox />
@@ -23,6 +25,7 @@ export default class NavBar extends React.Component {
           </div>
         </div>
       </nav>
+    </div>
     );
   }
 }

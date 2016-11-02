@@ -1,14 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
-export default class ExploreGalleryItem extends React.Component{
+class ExploreGalleryItem extends React.Component{
   constructor(props){
     super(props);
   }
 
+  goToPhotoDetail(id){
+    this.props.router.push(`home/photos/${id}`);
+  }
+
   render(){
     return(
-      <figure className='explore-thumb'>
+      <figure onClick={() => this.goToPhotoDetail(this.props.photo.id)}
+              className='explore-thumb'>
         <img src={this.props.photo.img_url}></img>
 
         <div className='explore-item-bottom'>
@@ -28,3 +33,5 @@ export default class ExploreGalleryItem extends React.Component{
     );
   }
 }
+
+export default withRouter(ExploreGalleryItem);

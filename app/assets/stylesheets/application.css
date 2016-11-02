@@ -20,3 +20,10 @@ body {
   box-sizing: border-box;
   position: relative;
 }
+
+
+.cf:after {
+  content: '';
+  display: block;
+  clear: both;
+}

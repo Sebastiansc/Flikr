@@ -14,7 +14,7 @@ const Images = props => {
             requestPhotos={props.requestPhotos}/>;
     gallery = <h1>Explore</h1>;
   }
-
+  
   return (
     <div className='container'>
       {gallery}

@@ -7,7 +7,7 @@ import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
 import PhotoContainer from './photos/photo_container';
 import ProfileContainer from './profile/profile_container';
-import LightBoxContainer from './photos/lightbox_container';
+import LightBoxContainer from './photos/lightbox/lightbox_container';
 
 
 const Root = ({ store }) => {
@@ -33,6 +33,7 @@ const Root = ({ store }) => {
           <Route path='main' component={ImageContainer}/>
           <Route path='explore' component={ImageContainer}/>
           <Route path='profile' component={ProfileContainer}/>
+          <Route path='profile/userId' component={ProfileContainer}/>
           <Route path='photos/:photoId' component={PhotoContainer}/>
         </Route>
         <Route path='/lightbox/:photoId' component={LightBoxContainer}/>

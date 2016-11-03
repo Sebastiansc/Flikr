@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageStream from './image_stream';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 class MainImage extends React.Component{
   constructor(props){
@@ -11,13 +11,17 @@ class MainImage extends React.Component{
     this.router.push(`home/photos/${id}`);
   }
 
+  componentWillMount(){
+    if(this.props.photos.length === 0) this.props.requestPhotos();
+  }
+
   fullSize(){
     this.props.router.push(`lightbox/${this.props.photo.id}`);
   }
   render(){
     return (
       <div className='main-image-container'>
-        <a>Back to Explore</a>
+        <Link to='home/explore'>Back to Explore</Link>
         <span onClick={() => this.fullSize()}>Expand</span>
         <div className='main-image'>
           <img key={this.props.photo.id}

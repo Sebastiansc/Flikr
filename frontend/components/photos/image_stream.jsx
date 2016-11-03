@@ -7,8 +7,11 @@ class ImageStream extends React.Component {
     this.state= {start:0, end: 7, photos: props.photos.slice(0,7)};
   }
 
+  componentWillReceiveProps(newProps){
+    this.setState({start:0, end: 7, photos: newProps.photos.slice(0,7)});
+  }
+
   slide(offset){
-    // debugger;
     if (this.state.end === this.props.photos.length -1){
       this.setState({
         start: 0,
@@ -35,7 +38,7 @@ class ImageStream extends React.Component {
   render(){
     return (
       <div className='image-stream'>
-        <span onClick={() => this.slide(-7)} className='nav-arrow'
+        <span onClick={() => this.slide(-7)} className='nav-arrow-left'
               id={this.state.start ? '' : 'disabled'}>
           Prev
         </span>
@@ -43,7 +46,7 @@ class ImageStream extends React.Component {
           <StreamItem key={photo.id} photo={photo}
               current={this.props.current}/>)
         )}
-        <span onClick={() => this.slide(7)} className='nav-arrow'>
+        <span onClick={() => this.slide(7)} className='nav-arrow-right'>
           Next
         </span>
       </div>

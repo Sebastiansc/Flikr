@@ -10,6 +10,20 @@
   display: flex;
 }
 
+.lightbox-container span {
+  position: absolute;
+}
+
+.lightbox-r-arrow {
+  right: 10px;
+  margin: auto 0;
+}
+
+.lightbox-l-arrow {
+  left: 10px;
+  margin: auto;
+}
+
 .lightbox-image{
   margin: auto;
   max-width: 90%;
@@ -18,4 +32,37 @@
 .lightbox-image img {
   height: 100vh;
   max-width: 100%;
+}
+
+.lightbox-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 103;
+  padding-left: 20px;
+  opacity: 0;
+  transition: opacity .75s ease;
+  width: 100%;
+  background: linear-gradient(0deg,transparent,rgba(0,0,0,.45));
+  color: #fff;
+}
+
+.lightbox-header:hover {
+  opacity: 1;
+}
+
+@media(max-width: 1200px){
+  .lightbox-image {
+    margin: auto;
+    width: 100%
+  }
+
+  .lightbox-container {
+    padding: 0;
+  }
+
+  .lightbox-image img {
+    width: 100%;
+    height: auto;
+  }
 }

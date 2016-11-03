@@ -11,10 +11,6 @@ class MainImage extends React.Component{
     this.router.push(`home/photos/${id}`);
   }
 
-  // componentWillMount(){
-  //   if(this.props.photos.length === 0) this.props.requestPhotos();
-  // }
-
   fullSize(){
     this.props.router.push(`lightbox/${this.props.photo.id}`);
   }

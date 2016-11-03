@@ -38,12 +38,27 @@
   transition: opacity 500ms, bottom 500ms;
 }
 
-.nav-arrow-left {
-
+.photo-nav-r-big {
+  right: 0;
+  padding-right: 22px;
+  justify-content: flex-end;
 }
 
-.nav-arrow-left {
+.photo-nav-l-big, .photo-nav-r-big {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  align-items: center;
+  display: flex;
+  font-size: 36px;
+  color: white;
+}
 
+.photo-nav-l-big {
+  justify-content: flex-start;
+  left: 0;
+  padding-left: 22px;
 }
 
 .image-stream:hover {
@@ -90,6 +105,7 @@
 
 .main-image-container > span {
   position: absolute;
+  cursor: pointer;
   right: 5px;
   top: 5px;
 }

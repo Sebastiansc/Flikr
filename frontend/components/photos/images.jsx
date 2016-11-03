@@ -1,6 +1,6 @@
 import React from 'react';
 import ExploreGallery from './explore';
-import MainGallery from './main';
+import MainGallery from './main_image';
 
 const Images = props => {
   let child, gallery;
@@ -14,7 +14,7 @@ const Images = props => {
             requestPhotos={props.requestPhotos}/>;
     gallery = <h1>Explore</h1>;
   }
-  
+
   return (
     <div className='container'>
       {gallery}

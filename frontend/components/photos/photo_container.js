@@ -9,14 +9,10 @@ const _nullPhoto = {
   author: {}
 };
 
-const mapStateToProps = ({photos}, {params}) => {
-  return(
-    {
-      photo: photos[Number(params.photoId)] || _nullPhoto,
-      photos: photosArray(photos)
-    }
-  );
-};
+const mapStateToProps = ({photos}, {params}) => ({
+  photo: photos[Number(params.photoId)] || _nullPhoto,
+  photos: photosArray(photos)
+});
 
 const mapDispatchToProps = dispatch => ({
   requestPhotos: () => dispatch(requestPhotos())

@@ -6,7 +6,7 @@ const mapStateToProps = ({photos}, {params}) => {
   return(
     {
       photo: photos[Number(params.photoId)],
-      photos: photos
+      photos: photosArray(photos)
     }
   );
 };

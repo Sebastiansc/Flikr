@@ -17,7 +17,7 @@ export default class NavBar extends React.Component {
             <ul>
               <li><Link to='home'>Flikr</Link></li>
               <li><Link to='home/explore'>Explore</Link></li>
-              <li>You</li>
+              <li><Link to='home/profile'>You</Link></li>
           </ul>
           <div className='nav-right'>
             <SearchBox />

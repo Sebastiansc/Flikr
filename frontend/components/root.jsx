@@ -6,6 +6,8 @@ import { fetchPhotos } from '../actions/photo_actions';
 import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
 import PhotoContainer from './photos/photo_container';
+import ProfileContainer from './profile/profile_container';
+
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -29,6 +31,7 @@ const Root = ({ store }) => {
         <Route path='/home' component={App}>
           <Route path='main' component={ImageContainer}/>
           <Route path='explore' component={ImageContainer}/>
+          <Route path='profile' component={ProfileContainer}/>
           <Route path='photos/:photoId' component={PhotoContainer}/>
         </Route>
       </Router>

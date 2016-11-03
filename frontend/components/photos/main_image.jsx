@@ -11,11 +11,14 @@ class MainImage extends React.Component{
     this.router.push(`home/photos/${id}`);
   }
 
+  fullSize(){
+    this.props.router.push(`lightbox/${this.props.photo.id}`);
+  }
   render(){
     return (
       <div className='main-image-container'>
-        <a className="main-image-floater">Back to Explore</a>
-        <span className="main-image-floater">Expand</span>
+        <a>Back to Explore</a>
+        <span onClick={() => this.fullSize()}>Expand</span>
         <div className='main-image'>
           <img key={this.props.photo.id}
                src={this.props.photo.img_url}>

@@ -16,15 +16,11 @@
   }
 }
 
-.my-gallery-class {
-  margin: 0 auto;
-}
-
 .explore-item-bottom {
   position: absolute;
-  bottom: 8px;
-  width: 99%;
-  left: 4px;
+  bottom: 5px;
+  width: 98%;
+  left: 3px;
   font-size: 14px;
   color: white;
   height: 60px;

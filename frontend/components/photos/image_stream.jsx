@@ -8,14 +8,21 @@ class ImageStream extends React.Component {
   }
 
   slide(offset){
+    // debugger;
+    if (this.state.end === this.props.photos.length -1){
+      this.setState({
+        start: 0,
+        end: 7,
+        photos: this.props.photos.slice(0, 7)
+      });
+      return;
+    }
+
     let start = this.state.start + offset;
     let end = this.state.end + offset;
-    if (end === this.props.photos.length -1){
-      start = 0;
-      end = 7;
-    } else if (end >= this.props.photos.length){
+    if (end >= this.props.photos.length){
+      start = end - this.props.photos.length;
       end = this.props.photos.length - 1;
-      start = this.state.start;
     }
 
     this.setState({
@@ -28,7 +35,8 @@ class ImageStream extends React.Component {
   render(){
     return (
       <div className='image-stream'>
-        <span onClick={() => this.slide(-7)} className='nav-arrow'>
+        <span onClick={() => this.slide(-7)} className='nav-arrow'
+              id={this.state.start ? '' : 'disabled'}>
           Prev
         </span>
         {this.state.photos.map(photo => (

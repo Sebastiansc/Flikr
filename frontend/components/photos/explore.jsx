@@ -17,7 +17,7 @@ export default class ExploreGallery extends React.Component{
   }
 
   render(){
-    return(
+     return(
       <div>
       <Masonry options={masonryOptions}>
         {this.props.photos.map( photo => {

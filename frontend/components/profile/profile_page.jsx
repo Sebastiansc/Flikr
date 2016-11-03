@@ -8,7 +8,7 @@ export default class PhotoCreate extends React.Component{
 
   formatUrl(url){
     const rootUrl = url.slice(0,46);
-    const tailUrl = url.slice(47);
+    const tailUrl = url.slice(46);
     return `${rootUrl}c_scale,h_145/${tailUrl}`;
   }
 

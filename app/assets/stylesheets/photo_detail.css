@@ -30,7 +30,7 @@
   height: 40px;
   margin: 0 auto;
   opacity: 0.5;
-  transition: opacity 500s, bottom 500s;
+  transition: opacity 500ms, bottom 500ms;
 }
 
 .image-stream:hover {

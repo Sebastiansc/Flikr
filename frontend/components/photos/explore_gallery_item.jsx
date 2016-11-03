@@ -14,7 +14,7 @@ class ExploreGalleryItem extends React.Component{
     return(
       <figure onClick={() => this.goToPhotoDetail(this.props.photo.id)}
               className='explore-thumb'>
-        <img src={this.props.photo.img_url}></img>
+        <img src={this.props.photo.feed_url}></img>
 
         <div className='explore-item-bottom'>
           <div className="explore-item-text">

@@ -2,10 +2,9 @@ import React from 'react';
 import LightBoxHeader from './lightbox_header';
 
 const LightBox = ({photo}) => {
-  debugger;
   return(
     <div className='lightbox-container'>
-      <LightBoxHeader author={photo.author} />
+      <LightBoxHeader author={photo.author} id={photo.id}/>
       <div className='lightbox-image'>
         <img src={photo.img_url}></img>
       </div>

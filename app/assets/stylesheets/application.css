@@ -19,6 +19,8 @@ body {
   padding: 50px 0 150px 0;
   box-sizing: border-box;
   position: relative;
+  color: #212124;
+  background: #f3f5f6;
   font-family: 'Ubuntu', sans-serif;
 }
 

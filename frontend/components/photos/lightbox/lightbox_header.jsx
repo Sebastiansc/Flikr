@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-const LightBoxHeader = ({user}) => {
-  debugger;
+const LightBoxHeader = ({author, id}) => {
   return(
     <div className='lightbox-header'>
-      <div className='avatar'>
-        <img src={`${user.image_url}`}></img>
-        <Link to={`home/profile/${user.id}`}>{user.username}</Link>
-      </div>
+      <Link to={`home/profile/${author.id}`}>
+        <div className='avatar'>
+          <img src={`${author.image_url}`}></img>
+        </div>
+      </Link>
+        <Link to={`home/profile/${author.id}`}>{author.username}</Link>
+        <Link className='minimize' to={`home/photos/${id}`}>Resize</Link>
     </div>
   );
 };

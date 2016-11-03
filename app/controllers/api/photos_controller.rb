@@ -35,7 +35,8 @@ class Api::PhotosController < ApplicationController
   end
 
   private
+
   def photo_params
-    params.require(:photo).permit(:img_url, :description, :title, :thumb_url)
+    params.require(:photo).permit(:img_url, :description, :title, :thumb_url, :show_url, :feed_url)
   end
 end

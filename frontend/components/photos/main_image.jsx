@@ -11,9 +11,9 @@ class MainImage extends React.Component{
     this.router.push(`home/photos/${id}`);
   }
 
-  componentWillMount(){
-    if(this.props.photos.length === 0) this.props.requestPhotos();
-  }
+  // componentWillMount(){
+  //   if(this.props.photos.length === 0) this.props.requestPhotos();
+  // }
 
   fullSize(){
     this.props.router.push(`lightbox/${this.props.photo.id}`);
@@ -25,7 +25,7 @@ class MainImage extends React.Component{
         <span onClick={() => this.fullSize()}>Expand</span>
         <div className='main-image'>
           <img key={this.props.photo.id}
-               src={this.props.photo.img_url}>
+               src={this.props.photo.show_url}>
           </img>
         </div>
         <ImageStream photos={this.props.photos} current={this.props.photo.id}/>

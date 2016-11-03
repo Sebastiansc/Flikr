@@ -6,6 +6,7 @@ import {requestPhotos} from '../../actions/photo_actions';
 const _nullPhoto = {
   img_url: undefined,
   id: undefined,
+  author: {}
 };
 
 const mapStateToProps = ({photos}, {params}) => {

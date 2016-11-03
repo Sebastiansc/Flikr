@@ -6,10 +6,10 @@ export default class PhotoCreate extends React.Component{
     this.state = {title: '', description: '', error: ''};
   }
 
-  formatUrl(url){
+  formatUrl(url, size){
     const rootUrl = url.slice(0,46);
     const tailUrl = url.slice(46);
-    return `${rootUrl}c_scale,h_145/${tailUrl}`;
+    return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
   }
 
   openWidget(){
@@ -22,12 +22,16 @@ export default class PhotoCreate extends React.Component{
     cloudinary.openUploadWidget(cloudinaryOptions,
        (errors, photos) => {
          photos.forEach(photo => {
-           const thumbUrl = that.formatUrl(photo.secure_url);
+           const thumb_url = that.formatUrl(photo.secure_url, 145);
+           const show_url = that.formatUrl(photo.secure_url, 1200);
+           const feed_url = that.formatUrl(photo.secure_url, 700);
            that.props.createPhoto({
              img_url: photo.secure_url,
              title: this.state.title,
-             description: this.state.body,
-             thumb_url: thumbUrl
+             description: this.state.description,
+             thumb_url,
+             show_url,
+             feed_url
            });
         });
       }

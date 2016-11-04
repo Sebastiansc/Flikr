@@ -12,7 +12,7 @@ class ImageStream extends React.Component {
   }
 
   slide(offset){
-    if (this.state.end === this.props.photos.length -1){
+    if (this.state.end === this.props.photos.length){
       this.setState({
         start: 0,
         end: 7,
@@ -24,8 +24,7 @@ class ImageStream extends React.Component {
     let start = this.state.start + offset;
     let end = this.state.end + offset;
     if (end >= this.props.photos.length){
-      start = end - this.props.photos.length;
-      end = this.props.photos.length - 1;
+      end = this.props.photos.length;
     }
 
     this.setState({

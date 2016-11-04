@@ -21,3 +21,35 @@ const ExploreGallery = ({photos, klass}) =>(
 );
 
 export default ExploreGallery;
+
+
+// export default class ExploreGallery extends React.Component{
+//   constructor(props){
+//     super(props);
+//   }
+//
+//   handleImagesLoaded(imagesLoadedInstance) {
+//     debugger;
+//      this.toRender = this.items();
+//   }
+//
+//   items(){
+//     return this.props.photos.map( photo => {
+//       return (
+//         <ExploreGalleryItem
+//           key={photo.id} photo={photo}/>
+//       );
+//     });
+//   }
+//
+//   render(){
+//   return(
+//     <div>
+//       <Masonry className={this.props.klass} options={masonryOptions}
+//         onImagesLoaded={this.handleImagesLoaded.bind(this)}>
+//         {this.toRender}
+//       </Masonry>
+//     </div>
+//   );
+//   }
+// }

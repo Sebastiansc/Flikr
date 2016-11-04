@@ -1,7 +1,8 @@
 import React from 'react';
 
-const CameraRoll = props => (
-  <div></div>
-);
+export default class CameraRoll extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-export default CameraRoll;
+}

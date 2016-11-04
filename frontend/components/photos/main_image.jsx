@@ -9,7 +9,6 @@ class MainImage extends React.Component{
     this.image_queue = 1;
   }
 
-
   changePhoto(id){
     this.router.push(`home/photos/${id}`);
   }

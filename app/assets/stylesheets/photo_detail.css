@@ -28,10 +28,11 @@
 
 .image-stream {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   position: absolute;
   bottom: 0;
-  left: 39%;
+  left: 37%;
+  width: 400px;
   height: 40px;
   margin: 0 auto;
   opacity: 0.5;

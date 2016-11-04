@@ -29,7 +29,6 @@ const Root = ({ store }) => {
   };
 
   const savePrev = nextState => {
-    debugger;
     path_history.pop();
     path_history.push(nextState.location.pathname);
   };

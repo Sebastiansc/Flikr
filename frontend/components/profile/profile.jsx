@@ -8,10 +8,6 @@ export default class Profile extends React.Component{
     super(props);
   }
 
-  // componentWillMount(){
-  //   this.props.getUser(this.props.userId);
-  // }
-
   render(){
     return(
       <div>

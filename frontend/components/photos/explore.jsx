@@ -12,9 +12,9 @@ export default class ExploreGallery extends React.Component{
     super(props);
   }
 
-  componentWillMount(){
-    this.props.requestPhotos();
-  }
+  // componentWillMount(){
+  //   this.props.requestPhotos();
+  // }
 
   render(){
      return(

@@ -7,27 +7,17 @@ const masonryOptions = {
   transitionDuration: 0
 };
 
-export default class ExploreGallery extends React.Component{
-  constructor(props){
-    super(props);
-  }
+const ExploreGallery = ({photos}) =>(
+  <div>
+    <Masonry options={masonryOptions}>
+      {photos.map( photo => {
+        return (
+          <ExploreGalleryItem
+            key={photo.id} photo={photo}/>
+        );
+      })}
+    </Masonry>
+  </div>
+);
 
-  // componentWillMount(){
-  //   this.props.requestPhotos();
-  // }
-
-  render(){
-     return(
-      <div>
-      <Masonry options={masonryOptions}>
-        {this.props.photos.map( photo => {
-          return (
-            <ExploreGalleryItem
-              key={photo.id} photo={photo}/>
-          );
-        })}
-      </Masonry>
-    </div>
-    );
-  }
-}
+export default ExploreGallery;

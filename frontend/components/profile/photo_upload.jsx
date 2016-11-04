@@ -1,34 +1,20 @@
 import React from 'react';
 
-export default class PhotoCreate extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {title: '', description: '', error: ''};
-  }
-
-  formatUrl(url, size){
+const PhotoUpload = ({createPhoto}) => {
+  const formatUrl = (url, size) => {
     const rootUrl = url.slice(0,46);
     const tailUrl = url.slice(46);
     return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
-  }
+  };
 
-  openWidget(){
-    if(!this.state.title){
-      this.setState({error: 'Image must have a title'});
-      return;
-    }
-
-    const that = this;
-    cloudinary.openUploadWidget(cloudinaryOptions,
+  const openWidget = cloudinary.openUploadWidget(cloudinaryOptions,
        (errors, photos) => {
          photos.forEach(photo => {
-           const thumb_url = that.formatUrl(photo.secure_url, 145);
-           const show_url = that.formatUrl(photo.secure_url, 1200);
-           const feed_url = that.formatUrl(photo.secure_url, 700);
-           that.props.createPhoto({
+           const thumb_url = formatUrl(photo.secure_url, 145);
+           const show_url = formatUrl(photo.secure_url, 1200);
+           const feed_url = formatUrl(photo.secure_url, 700);
+           createPhoto({
              img_url: photo.secure_url,
-             title: this.state.title,
-             description: this.state.description,
              thumb_url,
              show_url,
              feed_url
@@ -36,32 +22,10 @@ export default class PhotoCreate extends React.Component{
         });
       }
     );
-  }
 
-  update(property, e){
-    this.setState({[property]: e.target.value});
-  }
+  return(
+    <li className='photo-upload' onClick={() => openWidget()}>Upload</li>
+  );
+};
 
-  renderErrors(){
-    const error = this.state.error;
-    if(error){
-      this.state.error = '';
-      return <span>error</span>;
-    }
-  }
-
-  render(){
-    return(
-      <div>
-        <form>
-          {this.renderErrors()}
-          <input type='text' onChange={e => this.update('title', e)}
-                 placeholder='Title'>
-          </input>
-          <textarea onChange={e => this.update('description', e)}></textarea>
-          <a onClick={() => this.openWidget()}>Select a picture</a>
-        </form>
-      </div>
-    );
-  }
-}
+export default PhotoUpload;

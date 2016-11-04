@@ -3,12 +3,13 @@ import ProfileHeader from './profile_header';
 import ProfileNav from './profile_nav';
 import PhotoStream from './photo_stream';
 
-const Profile = (props) => {
+const Profile = ({person, photos, createPhoto, requestPhoto, children}) => {
+  debugger;
   return(
     <div>
-      <ProfileHeader person={props.person}/>
-      <ProfileNav id={props.person.id}/>
-      {props.children}
+      <ProfileHeader person={person}/>
+      <ProfileNav id={person.id} photos={photos} createPhoto={createPhoto}/>
+      {children}
     </div>
   );
 };

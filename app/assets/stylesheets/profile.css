@@ -84,3 +84,8 @@
   align-self: flex-end;
   margin-left: auto;
 }
+
+.photo-upload {
+  background: #0091dc;
+  border-radius: 5px;
+}

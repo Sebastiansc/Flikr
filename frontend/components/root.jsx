@@ -7,7 +7,7 @@ import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
 import PhotoContainer from './photos/photo_container';
 import ProfileContainer from './profile/profile_container';
-import PhotoStream from './profile/photo_stream';
+import PhotoStreamContainer from './profile/photo_stream_container';
 import CameraRoll from './profile/camera_roll';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
 import {getUser} from '../actions/person_actions';
@@ -42,7 +42,7 @@ const Root = ({ store }) => {
           <Route path='explore' component={ImageContainer}/>
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
-            <IndexRoute component={PhotoStream}/>
+            <IndexRoute component={PhotoStreamContainer}/>
             <Route path={'cameraRoll'} component={CameraRoll}/>
           </Route>
 

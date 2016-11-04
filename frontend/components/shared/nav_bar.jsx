@@ -17,7 +17,9 @@ export default class NavBar extends React.Component {
             <ul>
               <li><Link to='home'>Flikr</Link></li>
               <li><Link to='home/explore'>Explore</Link></li>
-              <li><Link to='home/profile'>You</Link></li>
+              <li><Link to={`home/profile/${this.props.currentUser.id}`}>
+                You
+              </Link></li>
           </ul>
           <div className='nav-right'>
             <SearchBox />

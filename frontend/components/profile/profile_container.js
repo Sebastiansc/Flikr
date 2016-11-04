@@ -1,13 +1,15 @@
 import {connect} from 'react-redux';
-import ProfilePage from './profile_page';
+import Profile from './profile';
 import {createPhoto} from '../../actions/photo_actions';
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => {
+  return{
+    person: state.person
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   createPhoto: photo => dispatch(createPhoto(photo))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

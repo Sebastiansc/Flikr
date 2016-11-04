@@ -4,7 +4,7 @@ import { RECEIVE_CURRENT_USER,
 import merge from 'lodash/merge';
 
 const _nullUser = {
-  currentUser: null,
+  currentUser: {},
   errors: []
 };
 

@@ -97,14 +97,15 @@
   display: none;
 }
 
-.main-image-container > a {
+.back-link {
   position: absolute;
   left: 5px;
   top: 5px;
 }
 
-.main-image-container > span {
+.expand {
   position: absolute;
+  z-index: 500;
   cursor: pointer;
   right: 5px;
   top: 5px;

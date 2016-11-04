@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         id: window.currentUser.id
       },
       errors: [],
-      photos: {}
+      photos: {},
+      person: {}
     }});
   } else {
     store = configureStore();

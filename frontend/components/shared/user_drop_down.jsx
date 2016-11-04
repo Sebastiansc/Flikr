@@ -7,14 +7,14 @@ class UserDropDown extends React.Component {
   }
 
   componentDidUpdate(){
-    if(!this.props.user) this.props.router.push('/');
+    if(!this.props.user.id) this.props.router.push('/');
   }
 
   render(){
     return(
       <div className='user-drop-down'>
         <span>Image</span>
-        
+
         <span onClick={() => this.props.logout()}>Logout</span>
       </div>
     );

@@ -7,9 +7,9 @@ const masonryOptions = {
   transitionDuration: 0
 };
 
-const ExploreGallery = ({photos}) =>(
+const ExploreGallery = ({photos, klass}) =>(
   <div>
-    <Masonry options={masonryOptions}>
+    <Masonry className={klass} options={masonryOptions}>
       {photos.map( photo => {
         return (
           <ExploreGalleryItem

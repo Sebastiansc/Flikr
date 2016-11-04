@@ -7,12 +7,6 @@ const PhotoArrowNav = ({klass,arrow,router,code,root,photos,index,offset}) => {
     return <span className="photo-nav-disable"></span>;
   }
 
-  // $('body').one('keydown', e => {
-  //   debugger;
-  //   if(e.keyCode === code) {
-  //     router.push(`${root}/${photos[nextIndex].id}`);
-  //   } else { return; }
-  // });
   const handleKey = e => {
     if(e.keyCode === code) {
      router.push(`${root}/${photos[nextIndex].id}`);

@@ -99,6 +99,7 @@
 
 .back-link {
   position: absolute;
+  z-index: 500;
   left: 5px;
   top: 5px;
 }

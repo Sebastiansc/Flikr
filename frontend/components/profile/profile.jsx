@@ -3,15 +3,23 @@ import ProfileHeader from './profile_header';
 import ProfileNav from './profile_nav';
 import PhotoStream from './photo_stream';
 
-const Profile = ({person, photos, createPhoto, requestPhoto, children}) => {
-  debugger;
-  return(
-    <div>
-      <ProfileHeader person={person}/>
-      <ProfileNav id={person.id} photos={photos} createPhoto={createPhoto}/>
-      {children}
-    </div>
-  );
-};
+export default class Profile extends React.Component{
+  constructor(props){
+    super(props);
+  }
 
-export default Profile;
+  // componentWillMount(){
+  //   this.props.getUser(this.props.userId);
+  // }
+
+  render(){
+    return(
+      <div>
+        <ProfileHeader person={this.props.person}/>
+        <ProfileNav id={this.props.person.id}
+          photos={this.props.photos} createPhoto={this.props.createPhoto}/>
+        {this.props.children}
+      </div>
+    );
+  }
+}

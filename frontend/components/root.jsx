@@ -23,8 +23,15 @@ const Root = ({ store }) => {
     if(!state.session.currentUser.id) replace('/');
   };
 
-  const fetchUser = (nextState) => {
+  const fetchUser = nextState => {
     store.dispatch(getUser(nextState.params.userId));
+    savePrev(nextState);
+  };
+
+  const savePrev = nextState => {
+    debugger;
+    path_history.pop();
+    path_history.push(nextState.location.pathname);
   };
 
   return(
@@ -39,7 +46,8 @@ const Root = ({ store }) => {
         <Route path='/home' component={App}
                onEnter={(n, r) => _ensureLogin(n ,r)}>
           <Route path='main' component={ImageContainer}/>
-          <Route path='explore' component={ImageContainer}/>
+          <Route path='explore' component={ImageContainer}
+                 onEnter={n => savePrev(n)}/>
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
             <IndexRoute component={PhotoStreamContainer}/>

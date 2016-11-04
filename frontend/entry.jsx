@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
+  
+  window.path_history = [];
   window.requestPhotos = requestPhotos;
   window.createPhoto = createPhoto;
   window.store = store;

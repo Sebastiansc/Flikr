@@ -88,4 +88,19 @@
 .photo-upload {
   background: #0091dc;
   border-radius: 5px;
+  padding: 8px 18px;
+  color: white;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/*-----------------PHOTOSTREAM----------------------*/
+
+.profile-gallery {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.photo-stream-tools {
+  height: 50px;
 }

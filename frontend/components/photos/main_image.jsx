@@ -33,8 +33,8 @@ class MainImage extends React.Component{
   render(){
     return (
       <div className='main-image-container'>
-        <Link className='back-link' to='home/explore'>
-          Back to Explore
+        <Link className='back-link' to={path_history[0]}>
+          Go back
         </Link>
         <span className='expand'
               onClick={() => this.fullSize()}>Expand</span>

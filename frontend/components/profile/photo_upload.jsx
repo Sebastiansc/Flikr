@@ -7,7 +7,7 @@ const PhotoUpload = ({createPhoto}) => {
     return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
   };
 
-  const openWidget = cloudinary.openUploadWidget(cloudinaryOptions,
+  const openWidget = () => cloudinary.openUploadWidget(cloudinaryOptions,
        (errors, photos) => {
          photos.forEach(photo => {
            const thumb_url = formatUrl(photo.secure_url, 145);
@@ -15,6 +15,7 @@ const PhotoUpload = ({createPhoto}) => {
            const feed_url = formatUrl(photo.secure_url, 700);
            createPhoto({
              img_url: photo.secure_url,
+             title: photo.original_filename,
              thumb_url,
              show_url,
              feed_url

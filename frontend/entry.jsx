@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
-import { login, logout, signup } from './actions/session_actions';
 import Root from './components/root.jsx';
-import { createPhoto, requestPhotos } from './actions/photo_actions';
+import Modal from 'react-modal';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -21,10 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  
+
+  Modal.setAppElement(document.body);
   window.path_history = [];
-  window.requestPhotos = requestPhotos;
-  window.createPhoto = createPhoto;
   window.store = store;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);

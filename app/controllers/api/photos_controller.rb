@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all.includes(:author, :comments)
+    @photos = Photo.where(public: true).includes(:author, :comments)
   end
 
   def show

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104160327) do
+ActiveRecord::Schema.define(version: 20161104211626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,16 +26,17 @@ ActiveRecord::Schema.define(version: 20161104160327) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string   "img_url",                  null: false
-    t.string   "title",                    null: false
+    t.string   "img_url",                    null: false
+    t.string   "title",                      null: false
     t.text     "description", default: ""
-    t.integer  "author_id",                null: false
+    t.integer  "author_id",                  null: false
     t.integer  "album_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "thumb_url",                null: false
-    t.string   "feed_url",                 null: false
-    t.string   "show_url",                 null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "thumb_url",                  null: false
+    t.string   "feed_url",                   null: false
+    t.string   "show_url",                   null: false
+    t.boolean  "public",      default: true
     t.index ["album_id"], name: "index_photos_on_album_id", using: :btree
     t.index ["author_id"], name: "index_photos_on_author_id", using: :btree
   end

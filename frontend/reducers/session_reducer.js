@@ -18,7 +18,7 @@ const SessionReducer = (state = _nullUser, action) => {
       };
     case RECEIVE_ERRORS:
       return {
-        currentUser: null,
+        currentUser: {},
         errors: action.errors
       };
     case LOGOUT:

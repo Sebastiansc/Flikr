@@ -3,18 +3,6 @@ import ProfileHeader from './profile_header';
 import ProfileNav from './profile_nav';
 import PhotoStream from './photo_stream';
 
-// export default class Profile extends React.Component{
-//   constructor(props){
-//     super(props);
-//   }
-//
-//   render(){
-//     return(
-//
-//     );
-//   }
-// }
-
 const Profile = (props) => {
   return(
     <div>

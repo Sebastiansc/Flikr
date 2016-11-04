@@ -47,11 +47,13 @@ class SessionForm extends React.Component {
   }
 
   displayErrors(){
-    return (
-      <ul className='signin-errors'>
-        {this.props.errors.map((error,i) => <li key={i}>{error}</li>)}
-      </ul>
-    );
+    if(this.props.errors.length > 0){
+      return (
+        <ul className='signin-errors'>
+          {this.props.errors.map((error,i) => <li key={i}>{error}</li>)}
+        </ul>
+      );
+    }
   }
 
 

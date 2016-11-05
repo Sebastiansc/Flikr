@@ -1,36 +1,63 @@
 import React from 'react';
 
-const EditTray = ({toggleModal, photo, deletePhoto}) => {
-  let klass;
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
-      // you're at the bottom of the page
-    klass = 'at-bottom-edit';
+class EditTray extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = ({bottom: 101});
   }
 
-  if(photo.id) {
-    return(
-      <div className={`edit-tray ${klass}`}>
-        <div className='clear-select'>
-          Clear selection
-        </div>
-        <div className='tray-image-container'>
-          <figure>
-            <img src={`${photo.thumb_url}`}></img>
-          </figure>
-        </div>
-        <ul>
-          <li>Privacy</li>
-          <li onClick={() => toggleModal()}>Edit</li>
-          <li>Add to Album</li>
-          <li className='delete' onClick={() => deletePhoto(photo.id)}>
-            Delete
-          </li>
-        </ul>
-      </div>
-    );
-  } else {
-    return <div></div>;
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll.bind(this));
   }
-};
+
+  componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  handleScroll(event) {
+    let bottom;
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 80){
+      // you're at the bottom of the page
+      bottom = 101;
+    } else {
+      bottom = 0;
+    }
+
+
+    this.setState({
+      bottom: bottom
+    });
+  }
+
+  render(){
+    if(this.props.photo.id) {
+      return(
+        <div className={`edit-tray`} style={{bottom: this.state.bottom}}>
+          <div className='clear-select'>
+            <span>Selected</span>
+            <span>Clear selection</span>
+          </div>
+          <div className='tray-image-container'>
+            <figure
+              style={{backgroundImage: `url('${this.props.photo.feed_url}')`}}>
+
+            </figure>
+          </div>
+          <ul>
+            <li>Privacy</li>
+            <li onClick={() => this.props.toggleModal()}>Edit</li>
+            <li>Add to Album</li>
+            <li className='delete'
+              onClick={() => this.props.deletePhoto(this.props.photo.id)}>
+              Delete
+            </li>
+          </ul>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  }
+}
 
 export default EditTray;

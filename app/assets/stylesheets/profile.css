@@ -151,39 +151,43 @@
   border-radius: 3px 3px 0 0;
   overflow: hidden;
   height: 120px;
-  box-sizing: border-box;
   color: #737b80;
   font-size: 14px;
-  font-weight: 300;
-  padding: 10px;
-}
-
-.at-bottom-edit {
-  bottom: 110px;
+  font-weight: 400;
+  padding: 20px;
 }
 
 .clear-select{
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tray-image-container {
+  display: inline-block;
+  margin-bottom: 10px
 }
 
 .tray-image-container figure {
-  width: 100px;
-  height: 100px;
-}
-
-.tray-image-container img {
-  max-width: 100%;
-  height: auto
+  width: 60px;
+  margin: 0;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
 }
 
 .delete {
   margin-left: auto;
+  color: #e02c33;
 }
 
 .edit-tray ul {
   display: flex;
   width: 100%;
-  justify-content: flex-start;
+}
+
+.edit-tray li {
+  padding-right: 20px;
 }
 
 /*-----------------EDIT MODAL----------------------*/

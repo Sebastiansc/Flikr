@@ -10,13 +10,14 @@ export default class UserDescription extends React.Component{
     return(
       <section className='user-section'>
         <div className='main-info-container'>
-          <Link to={`home/profile/${this.props.author.id}`}>
+          <span>{this.props.photo.description}</span>
+          <Link to={`home/profile/${this.props.photo.author_id}`}>
             <div className='u-section-avatar'>
               <img src={`${this.props.author.image_url}`}></img>
             </div>
           </Link>
           <div className='info'>
-            <Link to={`home/profile/${this.props.author.id}`}>
+            <Link to={`home/profile/${this.props.photo.author_id}`}>
               {this.props.author.username}
             </Link>
             <h1>{this.props.photo.title}</h1>

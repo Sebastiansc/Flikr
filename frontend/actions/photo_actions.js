@@ -5,6 +5,7 @@ export const CREATE_PHOTO = 'CREATE_PHOTO';
 export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
+export const RENEW_PHOTO = 'RENEW_PHOTO';
 
 export const requestPhotos = tags => ({
   type: REQUEST_PHOTOS,
@@ -31,12 +32,17 @@ export const deletePhoto = id => ({
   id
 });
 
+export const removePhoto = id => ({
+  type: REMOVE_PHOTO,
+  id
+});
+
 export const updatePhoto = photo => ({
   type: UPDATE_PHOTO,
   photo
 });
 
-export const removePhoto = id => ({
-  type: REMOVE_PHOTO,
-  id
+export const renewPhoto = photo => ({
+  type: RENEW_PHOTO,
+  photo
 });

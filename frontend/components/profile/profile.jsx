@@ -8,6 +8,23 @@ export default class Profile extends React.Component{
     super(props);
   }
 
+  underline(){
+    if (window.location.hash.includes('cameraRoll')){
+      $('.profile-nav li:nth-child(2)').removeAttr('id');
+      $('.profile-nav li:first-child').attr('id', 'nav-selected');
+    } else {
+      $('.profile-nav li:first-child').removeAttr('id');
+      $('.profile-nav li:nth-child(2)').attr('id','nav-selected');
+    }
+  }
+  componentDidMount(){
+    this.underline();
+  }
+
+  componentDidUpdate(){
+    this.underline();
+  }
+
   render(){
     return(
       <div>

@@ -6,7 +6,9 @@ const ProfileNav = ({id, photo, createPhoto}) => {
   return(
     <div className='profile-nav sub-nav'>
       <ul>
-        <li><Link to={`home/profile/${id}/cameraRoll`}>CameraRoll</Link></li>
+        <li>
+          <Link to={`home/profile/${id}/cameraRoll`}>CameraRoll</Link>
+          </li>
         <li><Link to={`home/profile/${id}`}>Photostream</Link></li>
         <PhotoUpload photos={photo} createPhoto={createPhoto}/>
       </ul>

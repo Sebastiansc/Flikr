@@ -128,6 +128,10 @@
   position: relative;
 }
 
+.roll-thumb:hover {
+  /*border: 1px solid #3fb3ff;*/
+}
+
 .roll-header{
   height: 50px;
   box-sizing: border-box;
@@ -140,27 +144,36 @@
   padding: 10px;
 }
 
+/*-----------------EDIT TRAY----------------------*/
+
 .edit-tray{
   position: fixed;
   z-index: 100;
   min-width: 720px;
+  width: inherit;
   bottom: 0;
   background-color: hsla(0,0%,100%,.95);
   border: 1px solid #fff;
   box-shadow: 0 1px 4px rgba(0,0,0,.2);
   border-radius: 3px 3px 0 0;
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   color: #737b80;
   font-size: 14px;
   font-weight: 400;
-  padding: 20px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  width: 80%;
 }
 
 .clear-select{
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.clear-select span:last-child {
+  cursor: pointer;
 }
 
 .tray-image-container {
@@ -176,18 +189,135 @@
   background-position: center;
 }
 
-.delete {
-  margin-left: auto;
-  color: #e02c33;
-}
-
 .edit-tray ul {
   display: flex;
   width: 100%;
+  line-height: 196%;
 }
 
 .edit-tray li {
-  padding-right: 20px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.edit-tray li:hover {
+  opacity: .7;
+}
+
+.delete {
+  margin-left: auto;
+  color: #e02c33;
+  padding-right: 0 !important;
 }
 
 /*-----------------EDIT MODAL----------------------*/
+
+/*for body, disable scroll*/
+.ReactModal__Body--open {
+  height: 100%;
+  overflow: hidden;
+}
+
+.edit-field {
+  height: 100%;
+}
+
+.edit-form{
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+.edit-text > * {
+  display: block;
+  width: 95%;
+  border: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+  outline: none;
+}
+
+.edit-text {
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #9ea4a7;
+}
+
+.edit-text:focus {
+  border-color: #128fdc;
+}
+
+.edit-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.edit-header span:last-child {
+  color: #f2624f;
+  cursor: pointer;
+}
+
+.edit-text input[type='text'] {
+  padding: 10px 10px;
+  border-bottom: 1px solid #9ea4a7
+}
+
+.edit-text textarea {
+  padding: 15px 10px;
+  resize: none;
+  height: 48px;
+}
+
+.privacy-options {
+  margin-top: 40px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.privacy-options span {
+  color: #898989;
+}
+
+.privacy-options select {
+  color: #006dac;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.privacy-options select:focus {
+  outline: none;
+  border: none;
+}
+
+.submit {
+  display: flex;
+  width: 37%;
+  margin-top: auto;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+
+.submit > * {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+}
+
+.submit > *:focus{
+  border: none;
+  outline: none;
+}
+
+.save {
+  background: #1c9be9;
+}
+
+.cancel {
+  background: #f2624f;
+}

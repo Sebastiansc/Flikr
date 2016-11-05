@@ -18,7 +18,8 @@ export const postPhoto = (photo, success) => {
 export const patchPhoto = (photo, success) => {
   $.ajax({
     type: "patch",
-    url: `/api/photo/${photo.id}`,
+    url: `/api/photos/${photo.id}`,
+    data: {photo},
     success
   });
 };

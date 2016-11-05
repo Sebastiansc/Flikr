@@ -19,6 +19,7 @@ export default class CameraRoll extends React.Component {
           setEditId={this.props.setEditId}/>
         <EditForm open={this.props.open} photo={this.props.photo}
           toggleModal={this.props.toggleModal}
+          setEditId={this.props.setEditId}
           updatePhoto={this.props.updatePhoto}/>
         <EditTray photo={this.props.photo}
            toggleModal={this.props.toggleModal}/>

@@ -1,6 +1,7 @@
 import { receivePhotos,
          removePhoto,
          receivePhoto,
+         renewPhoto,
          REQUEST_PHOTOS,
          CREATE_PHOTO,
          DELETE_PHOTO,
@@ -28,6 +29,7 @@ export default ({ getState, dispatch }) => next => action => {
       deletePhoto(action.id, success);
       return next(action);
     case UPDATE_PHOTO:
+      success = photo => dispatch(renewPhoto(photo));
       patchPhoto(action.photo, success);
       return next(action);
     default:

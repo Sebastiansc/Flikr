@@ -28,9 +28,13 @@ export default class EditForm extends React.Component{
     this.state={title: '', public: true, description: ''};
   }
 
+  componentWillUnmount(){
+    this.props.setEditId(undefined);
+  }
+
   update(property, e){
-    if(property === 'privacy'){
-      this.setState({privacy: !this.state.privacy});
+    if(property === 'public'){
+      this.setState({public: !this.state.public});
     } else {
       this.setState({[property]: e.target.value});
     }
@@ -41,10 +45,11 @@ export default class EditForm extends React.Component{
     const attributes = {
       title: this.state.title,
       description: this.state.description,
-      privacy: this.state.privacy,
+      public: this.state.public,
       id: this.props.photo.id
     };
     this.props.updatePhoto(attributes);
+    this.props.toggleModal();
   }
 
   render(){
@@ -60,9 +65,9 @@ export default class EditForm extends React.Component{
           <form className='edit-form' onSubmit={e => this.handleSubmit(e)}>
             <div className='edit-text'>
               <input type='text' placeholder='Change Title'
-                value={this.state.title}
+                defaultValue={this.props.photo.title}
                 onChange={e => this.update('title', e)}/>
-              <textarea value={this.state.description}
+              <textarea defaultValue={this.props.photo.description}
                 onChange={e => this.update('description', e)}
                 placeholder='Change description'>
               </textarea>
@@ -70,7 +75,7 @@ export default class EditForm extends React.Component{
 
             <div className='privacy-options'>
               <span>Who can see this photo?</span>
-              <select onChange={e => this.update('privacy', e)}>
+              <select onChange={e => this.update('public', e)}>
                 <option>Public</option>
                 <option>Private</option>
               </select>

@@ -4,14 +4,15 @@ class EditTray extends React.Component{
   constructor(props){
     super(props);
     this.state = ({bottom: 101});
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll.bind(this));
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll.bind(this));
+      window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll(event) {

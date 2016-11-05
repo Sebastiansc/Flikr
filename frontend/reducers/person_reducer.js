@@ -1,5 +1,6 @@
 import {RECEIVE_USER} from '../actions/person_actions';
 import {RECEIVE_PHOTO} from '../actions/photo_actions';
+import {LOGOUT} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const _nullPerson = {
@@ -15,6 +16,8 @@ const PersonReducer = (state = _nullPerson, action) => {
       const newState = merge({}, state);
       newState.photos.push(action.photo);
       return newState;
+    case LOGOUT:
+      return _nullPerson;
     default:
       return state;
   }

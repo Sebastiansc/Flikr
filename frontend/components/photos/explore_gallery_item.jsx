@@ -10,6 +10,11 @@ class ExploreGalleryItem extends React.Component{
     this.props.router.push(`home/photos/${id}`);
   }
 
+  username(){
+    const author = this.props.photo.author;
+    return author ? author.username : 'You!';
+  }
+
   render(){
     return(
       <figure onClick={() => this.goToPhotoDetail(this.props.photo.id)}
@@ -22,7 +27,7 @@ class ExploreGalleryItem extends React.Component{
               {this.props.photo.title}
             </Link>
             <Link to='' className='explore-item-owner'>
-              by {this.props.photo.username}
+              by {this.username()}
             </Link>
           </div>
 

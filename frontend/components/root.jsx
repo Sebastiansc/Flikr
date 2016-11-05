@@ -24,7 +24,16 @@ const Root = ({ store }) => {
   };
 
   const fetchUser = nextState => {
-    if(store.getState().person.id) return;
+    // debugger;
+    const state = store.getState();
+
+    // const ownProfile =
+    // window.location.hash.slice(15) == state.session.currentUser.id;
+    //
+    // let id =  ownProfile ? state.session.currentUser.id : state.person.id
+
+    if(state.person.id) return;
+
     store.dispatch(getUser(nextState.params.userId));
     savePrev(nextState);
   };

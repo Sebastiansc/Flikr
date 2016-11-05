@@ -9,3 +9,7 @@ export const selectPhoto = (photos, id) => {
     photo.id === id
   ))[0] || {} ;
 };
+
+export const publicPhotos = photos => (
+  photos.filter(photo => photo.public)
+);

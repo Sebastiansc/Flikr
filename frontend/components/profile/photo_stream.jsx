@@ -2,7 +2,6 @@ import React from 'react';
 import ExploreGallery from '../photos/explore';
 
 const PhotoStream = ({photos, requestPhotos}) => {
-  // debugger;
   const location = window.location.hash.slice(2);
   return(
     <main>

@@ -25,7 +25,7 @@ const customStyle = {
 export default class EditForm extends React.Component{
   constructor(props){
     super(props);
-    this.state={title: '', public: true, description: ''};
+
   }
 
   componentWillUnmount(){
@@ -43,8 +43,8 @@ export default class EditForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     const attributes = {
-      title: this.state.title,
-      description: this.state.description,
+      title: this.state.title || this.props.photo.title,
+      description: this.state.description || this.props.photo.description,
       public: this.state.public,
       id: this.props.photo.id
     };

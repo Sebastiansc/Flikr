@@ -24,6 +24,7 @@ const Root = ({ store }) => {
   };
 
   const fetchUser = nextState => {
+    if(store.getState().person.id) return;
     store.dispatch(getUser(nextState.params.userId));
     savePrev(nextState);
   };
@@ -50,7 +51,8 @@ const Root = ({ store }) => {
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
             <IndexRoute component={PhotoStreamContainer}/>
-            <Route path={'cameraRoll'} component={CameraRollContainer}/>
+            <Route path={'cameraRoll'} component={CameraRollContainer}
+              onEnter={n => fetchUser(n)}/>
           </Route>
 
           <Route path='photos/:photoId' component={PhotoContainer}/>

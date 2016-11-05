@@ -1,6 +1,5 @@
 import React from 'react';
 import ExploreGalleryItem from './explore_gallery_item';
-import JustifiedLayout from 'react-justified-layout';
 import Masonry from 'react-masonry-component';
 
 const masonryOptions = {

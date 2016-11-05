@@ -9,9 +9,9 @@ export default class CameraRollGalleryItem extends React.Component{
 
   render(){
     return(
-      <figure onClick={() => this.props.setEditId()}
-              className='roll-thumb'>
-        <img src={this.props.photo.feed_url}></img>
+      <figure onClick={() => this.props.setEditId(this.props.photo.id)}
+              className='roll-thumb'
+              style={{backgroundImage: `url('${this.props.photo.feed_url}')`}}>
       </figure>
     );
   }

@@ -1,12 +1,12 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
+import CameraRollGalleryItem from './camera_roll_gallery_item';
 
 const masonryOptions = {
   transitionDuration: 0
 };
 
 const CameraRollGallery = ({photos, setEditId}) => {
-  debugger;
   return(
     <Masonry className='camera-roll-gallery' options={masonryOptions}>
       {photos.map( photo => {

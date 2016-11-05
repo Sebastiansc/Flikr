@@ -10,13 +10,17 @@ export default class CameraRoll extends React.Component {
   }
 
   render(){
-    debugger;
     return(
       <div className='centered-camera-roll'>
+        <div className='roll-header'>
+          <span>Select a photo for options</span>
+        </div>
         <CameraRollGallery photos={this.props.photos}
           setEditId={this.props.setEditId}/>
-        <EditForm photo={this.props.photo} />
-        <EditTray photo={this.props.photo} openModal={this.props.openModal}/>
+        <EditForm open={this.props.open} photo={this.props.photo}
+          toggleModal={this.props.toggleModal} />
+        <EditTray photo={this.props.photo}
+           toggleModal={this.props.toggleModal}/>
       </div>
     );
   }

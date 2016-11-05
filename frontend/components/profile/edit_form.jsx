@@ -12,8 +12,9 @@ const customStyle = {
     zIndex: 2000
   },
   content: {
-    width: '25vh',
-    height: '30vh',
+    width: '390px',
+    height: '420px',
+    margin: '160px auto',
     position: 'absolute',
     zIndex: 2001
   }
@@ -46,15 +47,16 @@ export default class EditForm extends React.Component{
     return (
       <Modal isOpen={this.props.open} style={customStyle}>
         <main>
-          <div className='edit-header'>Edit Photo</div>
+          <div className='edit-header'>
+            <span>Edit Photo</span>
+            <span onClick={() => this.props.toggleModal()}>X</span>
+          </div>
           <form onSubmit={e => this.handleSubmit(e)}>
             <div className='edit-text'>
               <input type='text' placeholder='Change Title'
-                defaultValue={this.props.photo.title}
                 value={this.state.title}
                 onChange={e => this.update('title', e)}/>
               <textarea value={this.state.description}
-                defaultValue={this.props.photo.description}
                 onChange={e => this.update('body', e)}>
               </textarea>
             </div>

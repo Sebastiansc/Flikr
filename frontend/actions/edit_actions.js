@@ -1,7 +1,7 @@
 export const TOGGLE_MODAL = 'OPEN_MODAL';
 export const SET_EDIT_ID = 'SET_EDIT_ID';
 
-export const toggleModl = () => ({
+export const toggleModal = () => ({
   type: TOGGLE_MODAL
 });
 

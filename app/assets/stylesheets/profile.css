@@ -210,6 +210,14 @@
   padding-right: 0 !important;
 }
 
+.delete i {
+  font-size: 25px;
+}
+
+.edit-options i {
+  padding-right: 5px;
+}
+
 /*-----------------EDIT MODAL----------------------*/
 
 /*for body, disable scroll*/

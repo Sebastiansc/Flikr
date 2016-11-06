@@ -44,12 +44,19 @@ class EditTray extends React.Component{
 
             </figure>
           </div>
-          <ul>
-            <li>Privacy</li>
-            <li onClick={() => this.props.toggleModal()}>Edit</li>
-            <li>Add to Album</li>
-            <li className='delete'
-              onClick={() => this.props.deletePhoto(this.props.photo.id)}>
+          <ul className='edit-options'>
+            <li><i className="fa fa-lock" aria-hidden="true"></i> Privacy</li>
+            <li onClick={() => this.props.toggleModal()}>
+                <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+                 Edit
+            </li>
+            <li><i className="fa fa-plus-square" aria-hidden="true"></i>
+             Add to Album
+           </li>
+           <li className='delete'>
+              <i className="fa fa-trash-o" aria-hidden="true"
+                onClick={() => this.props.deletePhoto(this.props.photo.id)}>
+              </i>
               Delete
             </li>
           </ul>

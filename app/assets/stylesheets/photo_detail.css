@@ -399,3 +399,8 @@
 .tags-view {
   padding: 20px 0;
 }
+
+.tags-form {
+  margin-bottom: 15px;
+  margin-top: -10px;
+}

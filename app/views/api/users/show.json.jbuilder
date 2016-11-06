@@ -9,5 +9,6 @@ end
     json.set! :author do
       json.extract! @user, :username, :id, :cover_photo, :image_url
     end
+    json.tags photo.tags, :name, :id
   end
 end

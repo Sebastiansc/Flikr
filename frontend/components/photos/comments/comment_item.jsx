@@ -24,9 +24,14 @@ export default class CommentItem extends React.Component{
   }
 
   render(){
+    const disabled = this.notOwner() ? 'comment-disable-tools' : '';
     return (
-      <li>
+      <li className='comment'>
         <div className='comment-info'>
+          <Link className='author-pic'
+              to={`home/profile/${this.props.comment.author.id}`}>
+            <img src={this.props.comment.author.image_url}></img>
+          </Link>
           <p className='comment-author'>
             <Link to={`home/profile/${this.props.comment.author.id}`}>
               {this.props.comment.author.username}
@@ -34,12 +39,16 @@ export default class CommentItem extends React.Component{
             <span>{this.props.comment.posted}</span>
           </p>
           <div className='comment-tools'>
-            <span onClick={() => this.toggleEditMode()}>Edit</span>
-            <span
+            <i className={`fa fa-pencil-square-o ${disabled}`}
+               aria-hidden="true"
+               onClick={() => this.toggleEditMode()}>
+            </i>
+            <i aria-hidden="true"
+               className={`fa fa-trash-o ${disabled}`}
                onClick={() => this.delete()}>
-               Delete
-            </span>
+            </i>
           </div>
+
         </div>
         <CommentBodyField editing={this.state.editing}
            comment={this.props.comment}

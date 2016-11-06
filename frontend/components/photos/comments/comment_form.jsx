@@ -25,19 +25,24 @@ class CommentForm extends React.Component{
       'submit-comment' :
       'submit-comment disable-comments';
     return(
-      <div className='comment-form'>
-        {this.props.comments.map(comment => (
-          <CommentItem key={comment.id}
-            comment={comment}
-            updateComment={this.props.updateComment}
-            deleteComment={this.props.deleteComment}/>)
-        )}
-        <textarea onChange={e => this.update(e)}
-           value={this.state.body}></textarea>
-        <button className={klass}
-          onClick={() => this.sendComment()}>
-          Comment
-        </button>
+      <div className='comments'>
+        <ul className='comments-stream'>
+          {this.props.comments.map(comment => (
+            <CommentItem key={comment.id}
+              comment={comment}
+              updateComment={this.props.updateComment}
+              deleteComment={this.props.deleteComment}/>)
+          )}
+        </ul>
+
+        <div className='comment-form'>
+          <textarea onChange={e => this.update(e)}
+             value={this.state.body}></textarea>
+          <button className={klass}
+            onClick={() => this.sendComment()}>
+            Comment
+          </button>
+        </div>
       </div>
     );
   }

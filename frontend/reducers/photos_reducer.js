@@ -1,7 +1,10 @@
 import {RECEIVE_PHOTOS,
         RECEIVE_PHOTO,
-        REMOVE_PHOTO} from '../actions/photo_actions';
+        REMOVE_PHOTO,
+        RENEW_PHOTO} from '../actions/photo_actions';
+import {RECEIVE_USER_INFO} from '../actions/person_actions';
 import merge from 'lodash/merge';
+import {findPhoto} from './selectors';
 
 const _defaultState = {
 };
@@ -18,6 +21,12 @@ const PhotosReducer = (state = _defaultState, action) => {
       return newState;
     case REMOVE_PHOTO:
       newState[action.id] = null;
+      return newState;
+    case RECEIVE_USER_INFO:
+      return action.user.photos;
+    case RENEW_PHOTO:
+      newState[action.photo.id] = null;
+      newState[action.photo.id] = action.photo;
       return newState;
     default:
       return state;

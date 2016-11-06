@@ -1,4 +1,4 @@
-export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_USER_INFO = 'RECEIVE_USER_INFO';
 export const GET_USER = 'GET_USER';
 
 export const getUser = id => ({
@@ -6,7 +6,7 @@ export const getUser = id => ({
   id
 });
 
-export const receiveUser = user => ({
-  type: RECEIVE_USER,
+export const receiveUserInfo = user => ({
+  type: RECEIVE_USER_INFO,
   user
 });

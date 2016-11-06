@@ -13,3 +13,10 @@ export const selectPhoto = (photos, id) => {
 export const publicPhotos = photos => (
   photos.filter(photo => photo.public)
 );
+
+
+export const findPhoto = (photos, id) => {
+  for (let i = 0; i < photos.length; i++) {
+    if(photos[i].id === id) return i;
+  }
+};

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   get 'api/photos/tag/:tag_id', :to => 'api/photos#by_tag'
+  delete 'api/photos/:photo_id/tags/:tag_id', :to => 'api/tags#untag'
 end

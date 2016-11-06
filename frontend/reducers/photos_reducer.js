@@ -36,8 +36,8 @@ const PhotosReducer = (state = _defaultState, action) => {
       newState[action.photoId].tags.push(action.tag);
       return newState;
     case REMOVE_TAG:
-      const index = findTag(newState[action.photoId], action.tag);
-      newState[action.photoId].splice(index, 1);
+      const index = findTag(newState[action.photoId].tags, action.tag);
+      newState[action.photoId].tags.splice(index, 1);
       return newState;
     default:
       return state;

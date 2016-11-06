@@ -43,7 +43,10 @@ export default class Tags extends React.Component{
         </div>
         {this.addForm()}
         <ul className='tags'>
-          {this.props.tags.map(tag => <TagItem key={tag.id} tag={tag}/>)}
+          {this.props.tags.map(tag => (
+            <TagItem key={tag.id} tag={tag}
+               destroyTag={this.props.destroyTag}/>)
+          )}
         </ul>
       </div>
     );

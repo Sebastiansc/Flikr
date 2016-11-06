@@ -18,8 +18,8 @@ const TagsMiddleware = ({dispatch}) => next => action => {
       postTag(action.photoId, action.tag, success);
       return next(action);
     case DESTROY_TAG:
-      success = tag => dispatch(removeTag(tag));
-      deleteTag(action.id, success);
+      success = tag => dispatch(removeTag(action.photoId, tag));
+      deleteTag(action.photoId, action.tagId, success);
       return next(action);
     default:
       return next(action);

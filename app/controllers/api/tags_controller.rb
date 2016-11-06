@@ -20,6 +20,13 @@ class Api::TagsController < ApplicationController
     render :show
   end
 
+  def untag
+    Tagging.where(tag_id: params[:tag_id], photo_id: params[:photo_id])
+    .destroy_all
+    @tag = Tag.find(params[:tag_id])
+    render :show
+  end
+
   private
   def tag_params
     params.require(:tag).permit(:name)

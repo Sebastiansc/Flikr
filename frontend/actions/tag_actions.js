@@ -26,12 +26,14 @@ export const receiveTag = (photoId, tag) => ({
   tag
 });
 
-export const destroyTag = id => ({
+export const destroyTag = (photoId, tagId) => ({
   type: DESTROY_TAG,
-  id
+  photoId,
+  tagId
 });
 
-export const removeTag = tag => ({
+export const removeTag = (photoId, tag) => ({
   type: REMOVE_TAG,
+  photoId,
   tag
 });

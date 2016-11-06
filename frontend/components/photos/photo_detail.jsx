@@ -21,7 +21,8 @@ export default class PhotoDetail extends React.Component{
           <UserDescription author={this.props.photo.author}
             photo={this.props.photo}/>
           <ExtraPhotoDetails photo={this.props.photo}
-            createTag={this.props.createTag}/>
+            createTag={this.props.createTag}
+            destroyTag={this.props.destroyTag}/>
         </main>
       </div>
     );

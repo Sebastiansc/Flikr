@@ -369,7 +369,7 @@
 /*----------------------------TAGS--------------------------*/
 
 .tags {
-  width: 50%;
+  width: 55%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -381,12 +381,13 @@
   border-radius: 5px;
   background-color: #cfd6d9;
   transition: padding-right .25s ease;
+  position: relative;
 }
 
 .tags li:hover {
   color: white;
   background-color: #868d91;
-  padding-right: 30px;
+  padding-right: 20px;
 }
 
 .tag-header {
@@ -403,4 +404,9 @@
 .tags-form {
   margin-bottom: 15px;
   margin-top: -10px;
+}
+
+.fa-times {
+  position: absolute;
+  right: 2px;
 }

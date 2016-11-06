@@ -1,15 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-// const TagItem = ({tag}) => (
-//   <li className='tag-item'>
-//     <Link to=''>{tag.name}</Link>
-//   </li>
-// );
-//
-// export default TagItem;
-
-
 export default class TagItem extends React.Component{
   constructor(props){
     super(props);
@@ -20,10 +11,17 @@ export default class TagItem extends React.Component{
     this.setState({hovering: !this.state.hovering});
   }
 
+  remove(){
+    const photoId = window.location.hash.slice(14);
+    this.props.destroyTag(photoId, this.props.tag.id);
+  }
+
   showClose(){
     if(this.state.hovering){
       return(
-        <i className="fa fa-times" aria-hidden="true"></i>
+        <i className="fa fa-times" aria-hidden="true"
+           onClick={() => this.remove()}>
+        </i>
       );
     }
   }

@@ -7,9 +7,9 @@ export const postTag = (photoId, tag, success) => {
   });
 };
 
-export const deleteTag = (id, success) => {
+export const deleteTag = (photoId, tagId, success) => {
   $.ajax({
-    url: `api/tags/${id}`,
+    url: `api/photos/${photoId}/tags/${tagId}`,
     type: 'delete',
     success
   });

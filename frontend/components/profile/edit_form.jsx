@@ -25,7 +25,7 @@ const customStyle = {
 export default class EditForm extends React.Component{
   constructor(props){
     super(props);
-
+    this.state = {title: '', public: true, description: ''};
   }
 
   componentWillUnmount(){

@@ -23,7 +23,6 @@ const PhotosReducer = (state = _defaultState, action) => {
       newState[action.id] = null;
       return newState;
     case RECEIVE_USER_INFO:
-      debugger;
       return action.userPhotos;
     case RENEW_PHOTO:
       newState[action.photo.id] = null;

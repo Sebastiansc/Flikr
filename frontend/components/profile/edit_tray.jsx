@@ -36,7 +36,9 @@ class EditTray extends React.Component{
         <div className={`edit-tray`} style={{bottom: this.state.bottom}}>
           <div className='clear-select'>
             <span>Selected</span>
-            <span>Clear selection</span>
+            <span onClick={() => this.props.setEditId(undefined)}>
+              Clear selection
+            </span>
           </div>
           <div className='tray-image-container'>
             <figure

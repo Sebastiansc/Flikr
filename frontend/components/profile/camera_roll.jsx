@@ -23,7 +23,8 @@ export default class CameraRoll extends React.Component {
           updatePhoto={this.props.updatePhoto}/>
         <EditTray photo={this.props.photo}
            toggleModal={this.props.toggleModal}
-           deletePhoto={this.props.deletePhoto}/>
+           deletePhoto={this.props.deletePhoto}
+           setEditId={this.props.setEditId}/>
       </div>
     );
   }

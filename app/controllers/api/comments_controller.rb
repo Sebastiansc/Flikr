@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new
+    @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
     if @comment.valid?
       @comment.save!
@@ -15,7 +15,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(paramd[:id])
+    @comment = Comment.find(params[:id])
     @comment.update_attributes(comment_params)
     render :show
   end

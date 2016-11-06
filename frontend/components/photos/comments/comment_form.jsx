@@ -17,6 +17,7 @@ class CommentForm extends React.Component{
       photo_id: Number(window.location.hash.slice(14))
     };
     this.props.createComment(comment);
+    this.setState({body: ''});
   }
 
   render(){
@@ -31,7 +32,8 @@ class CommentForm extends React.Component{
             updateComment={this.props.updateComment}
             deleteComment={this.props.deleteComment}/>)
         )}
-        <textarea onChange={e => this.update(e)}></textarea>
+        <textarea onChange={e => this.update(e)}
+           value={this.state.body}></textarea>
         <button className={klass}
           onClick={() => this.sendComment()}>
           Comment

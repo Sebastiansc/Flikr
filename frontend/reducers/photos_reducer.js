@@ -4,7 +4,6 @@ import {RECEIVE_PHOTOS,
         RENEW_PHOTO} from '../actions/photo_actions';
 import {RECEIVE_USER_INFO} from '../actions/person_actions';
 import merge from 'lodash/merge';
-import {findPhoto} from './selectors';
 
 const _defaultState = {
 };

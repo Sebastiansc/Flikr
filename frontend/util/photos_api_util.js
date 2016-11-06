@@ -26,8 +26,8 @@ export const patchPhoto = (photo, success) => {
 
 export const deletePhoto = (id, success) => {
   $.ajax({
-    type: "patch",
-    url: `/api/photo/${id}`,
+    type: "delete",
+    url: `/api/photos/${id}`,
     success
   });
 };

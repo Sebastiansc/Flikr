@@ -32,9 +32,9 @@ export const deletePhoto = id => ({
   id
 });
 
-export const removePhoto = id => ({
+export const removePhoto = photo => ({
   type: REMOVE_PHOTO,
-  id
+  photo
 });
 
 export const updatePhoto = photo => ({

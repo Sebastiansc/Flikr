@@ -25,7 +25,7 @@ export default ({ getState, dispatch }) => next => action => {
       postPhoto(action.photo, success);
       return next(action);
     case DELETE_PHOTO:
-      success = id => dispatch(removePhoto(id));
+      success = photo => dispatch(removePhoto(photo));
       deletePhoto(action.id, success);
       return next(action);
     case UPDATE_PHOTO:

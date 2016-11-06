@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :photos, only: [:index, :show, :create, :destroy, :update] do
       resources :comments, only: [:index]
+      resources :tags, only: [:create]
     end
     resources :comments, only: [:create, :destroy, :update]
+    resources :tags, only: [:destroy, :index]
   end
 
+  get 'api/photos/tag/:tag_id', :to => 'api/photos#by_tag'
 end

@@ -18,4 +18,8 @@ class Photo < ApplicationRecord
       limit(limit).
       offset(offset)
   end
+
+  def self.by_tag(tag_id)
+    Photo.joins(:taggings).where(:tag_id == tag_id)
+  end
 end

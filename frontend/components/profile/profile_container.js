@@ -2,9 +2,10 @@ import {connect} from 'react-redux';
 import Profile from './profile';
 import {createPhoto, requestPhoto} from '../../actions/photo_actions';
 import {getUser} from '../../actions/person_actions';
+import {photosArray} from '../../reducers/selectors';
 
-const mapStateToProps = ({person, userId}) => ({
-    photos: person.photos,
+const mapStateToProps = ({person, photos, userId}) => ({
+    photos: photosArray(photos),
     person
 });
 

@@ -3,9 +3,9 @@ import PhotoStream from './photo_stream';
 import {getUser} from '../../actions/person_actions';
 import {publicPhotos} from '../../reducers/selectors';
 
-const mapStateToProps = ({person}) => ({
-    photos: publicPhotos(person.photos),
-    person
+const mapStateToProps = ({person, photos}) => ({
+  photos: publicPhotos(photos),
+  person
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -28,7 +28,7 @@ export default class Profile extends React.Component{
   render(){
     return(
       <div>
-        <ProfileHeader person={this.props.person}/>
+        <ProfileHeader photos={this.props.photos} person={this.props.person}/>
         <ProfileNav id={this.props.person.id}
           photos={this.props.photos} createPhoto={this.props.createPhoto}/>
         {this.props.children}

@@ -6,7 +6,7 @@ export const getUser = id => ({
   id
 });
 
-export const receiveUserInfo = user => ({
+export const receiveUserInfo = userPhotos => ({
   type: RECEIVE_USER_INFO,
-  user
+  userPhotos
 });

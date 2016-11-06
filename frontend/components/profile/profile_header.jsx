@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileHeader = ({person}) => {
+const ProfileHeader = ({person, photos}) => {
   return(
     <section>
       <div className='cover-photo'
@@ -15,7 +15,7 @@ const ProfileHeader = ({person}) => {
             <h1 className='title'>{person.username}</h1>
           </div>
           <ul>
-            <li>{person.photos.length} photos</li>
+            <li>{photos.length} photos</li>
             <li>Joined {person.join_year}</li>
           </ul>
         </div>

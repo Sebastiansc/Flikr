@@ -11,7 +11,7 @@ export const selectPhoto = (photos, id) => {
 };
 
 export const publicPhotos = photos => (
-  photos.filter(photo => photo.public)
+  values(photos).filter(photo => photo.public)
 );
 
 

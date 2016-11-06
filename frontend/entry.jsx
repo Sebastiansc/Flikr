@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       errors: [],
       photos: {},
-      person: {}
+      person: {},
+      comments: {}
     }});
   } else {
     store = configureStore();

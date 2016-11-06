@@ -9,11 +9,16 @@ export default class CommentItem extends React.Component{
   }
 
   toggleEditMode(){
-    if(current_user.id !== this.props.comment.author.id) return;
+    if(!this.owner()) return;
     this.setState({editing: !this.state.editing});
   }
 
+  owner(){
+    currentUser.id !== this.props.comment.author.id
+  }
+
   delete(){
+    if(!this.owner()) return;
     this.props.deleteComment(this.props.comment.id);
     this.toggleEditMode();
   }

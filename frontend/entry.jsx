@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
 import Modal from 'react-modal';
-import {fetchPhotoComments, createComment, deleteComment, updateComment} from './actions/comment_actions';
+import {fetchTags, createTag, destroyTag} from './actions/tag_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -19,19 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       photos: {},
       person: {},
-      comments: {}
+      comments: {},
+      tags: {}
     });
   } else {
     store = configureStore();
   }
 
   Modal.setAppElement(document.body);
-  window.fetchPhotoComments = fetchPhotoComments;
-  window.createComment = createComment;
-  window.updateComment = updateComment;
-  window.deleteComment = deleteComment;
   window.path_history = [];
   window.store = store;
+  window.fetchTags = fetchTags;
+  window.createTag = createTag;
+  window.destroyTag = destroyTag;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
 });

@@ -6,6 +6,7 @@ export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const RENEW_PHOTO = 'RENEW_PHOTO';
+export const FETCH_BY_TAG = 'FETCH_BY_TAG';
 
 export const requestPhotos = tags => ({
   type: REQUEST_PHOTOS,
@@ -45,4 +46,9 @@ export const updatePhoto = photo => ({
 export const renewPhoto = photo => ({
   type: RENEW_PHOTO,
   photo
+});
+
+export const fetchByTag = tag => ({
+  type: FETCH_BY_TAG,
+  tag
 });

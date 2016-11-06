@@ -1,4 +1,4 @@
-export const fetchPhotos = (tags, success) => {
+export const fetchPhotos = (success) => {
   $.ajax({
     url: '/api/photos',
     success
@@ -28,6 +28,13 @@ export const deletePhoto = (id, success) => {
   $.ajax({
     type: "delete",
     url: `/api/photos/${id}`,
+    success
+  });
+};
+
+export const fetchByTag = (id, success) => {
+  $.ajax({
+    url: `/api/photos/tag/${id}`,
     success
   });
 };

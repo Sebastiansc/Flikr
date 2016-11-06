@@ -128,10 +128,19 @@
 .info {
   display: flex;
   flex-direction: column;
+  height: 80px;
+  padding-bottom: 20px;
   justify-content: space-around;
 }
 
-
+.favorites {
+  padding: 15px 0;
+  margin-left: 80px;
+  color: #006dac;
+  font-weigh: 600;
+  font-size: 14px;
+  border-bottom: 1px solid #cfd6d9;
+}
 .p-detail-main > * {
   width: 45%;
 }
@@ -155,17 +164,19 @@
 .main-info-container {
   display: flex;
   justify-content: flex-start;
+  border-bottom: 1px solid #cfd6d9;
 }
 
 .extra-top-row{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .taken-info {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 50px;
 }
 
 .copyright:after {

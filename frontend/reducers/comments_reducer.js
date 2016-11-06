@@ -12,7 +12,7 @@ const CommentsReducer = (state = {}, action) => {
     case RECEIVE_PHOTO_COMMENTS:
       return action.comments;
     case REMOVE_COMMENT:
-      delete newState[action.id];
+      delete newState[action.comment.id];
       return newState;
     case RENEW_COMMENT:
       newState[action.comment.id] = action.comment;

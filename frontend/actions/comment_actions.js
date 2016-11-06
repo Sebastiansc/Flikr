@@ -44,6 +44,6 @@ export const fetchPhotoComments = photoId => ({
 });
 
 export const receivePhotoComments = comments => ({
-  type: FETCH_PHOTO_COMMENTS,
+  type: RECEIVE_PHOTO_COMMENTS,
   comments
 });

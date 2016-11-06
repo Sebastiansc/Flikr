@@ -4,6 +4,7 @@ import configureStore from './store/store.js';
 import Root from './components/root.jsx';
 import Modal from 'react-modal';
 import {fetchTags, createTag, destroyTag} from './actions/tag_actions';
+import {fetchByTag} from './actions/photo_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchTags = fetchTags;
   window.createTag = createTag;
   window.destroyTag = destroyTag;
+  window.fetchByTag = fetchByTag;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
 });

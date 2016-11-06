@@ -91,6 +91,7 @@
   width: 25px;
   height: 25px;
   margin: 0 3px;
+  cursor: pointer;
   position: relative;
   transition: width 500ms, height 500ms;
   background-position: center;
@@ -241,6 +242,7 @@
   display: block;
   margin-left: auto;
   border: none;
+  margin-top: 20px;
 }
 
 .disable-comments {

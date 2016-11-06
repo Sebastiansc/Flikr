@@ -41,11 +41,11 @@ class CommentForm extends React.Component{
             </Link>
             <textarea onChange={e => this.update(e)}
               value={this.state.body}></textarea>
-            <button className={klass}
-              onClick={() => this.sendComment()}>
-              Comment
-            </button>
           </div>
+          <button className={klass}
+            onClick={() => this.sendComment()}>
+            Comment
+          </button>
         </ul>
 
       </div>

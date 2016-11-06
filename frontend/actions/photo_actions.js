@@ -48,7 +48,7 @@ export const renewPhoto = photo => ({
   photo
 });
 
-export const fetchByTag = tag => ({
+export const fetchByTag = id => ({
   type: FETCH_BY_TAG,
-  tag
+  id
 });

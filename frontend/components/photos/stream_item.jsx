@@ -1,12 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {withRouter} from 'react-router';
 
-const StreamItem = ({photo, current}) => (
-  <div key={photo.id} className='slider-item'
-    style={{backgroundImage: `url('${photo.thumb_url}')`}}>
-    <Link to={`home/photos/${photo.id}`}>
-    </Link>
-  </div>
-);
+const StreamItem = ({photo, current, router}) => {
+  const next = () => router.push(`home/photos/${photo.id}`);
+  return(
+    <div onClick={() => next()} key={photo.id} className='slider-item'
+      style={{backgroundImage: `url('${photo.thumb_url}')`}}>
+    </div>
+  );
+};
 
-export default StreamItem;
+export default withRouter(StreamItem);

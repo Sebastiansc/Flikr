@@ -5,12 +5,14 @@ import { receivePhotos,
          REQUEST_PHOTOS,
          CREATE_PHOTO,
          DELETE_PHOTO,
-         UPDATE_PHOTO} from '../actions/photo_actions';
+         UPDATE_PHOTO,
+         FETCH_BY_TAG} from '../actions/photo_actions';
 
 import { fetchPhotos,
          postPhoto,
          patchPhoto,
-         deletePhoto } from '../util/photos_api_util';
+         deletePhoto,
+         fetchByTag} from '../util/photos_api_util';
 
 export default ({ getState, dispatch }) => next => action => {
   // const error = error => dispatch(receiveErrors(error.responseJSON));
@@ -20,6 +22,10 @@ export default ({ getState, dispatch }) => next => action => {
     case REQUEST_PHOTOS:
       success = photos => dispatch(receivePhotos(photos));
       fetchPhotos(success);
+      return next(action);
+    case FETCH_BY_TAG:
+      success = photos => dispatch(receivePhotos(photos));
+      fetchByTag(action.id, success);
       return next(action);
     case CREATE_PHOTO:
       postPhoto(action.photo, success);

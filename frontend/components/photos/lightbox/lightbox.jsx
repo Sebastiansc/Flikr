@@ -37,13 +37,13 @@ export default class LightBox extends React.Component{
           index={this.image_queue}
           photos={this.props.photos}
           offset={1}
-          arrow='>'/>
+          arrow='fa fa-angle-right'/>
         <PhotoArrowNav klass='photo-nav-l-big'
           root='lightbox'
           index={this.image_queue}
           photos={this.props.photos}
           offset={-1}
-          arrow='<'/>
+          arrow='fa fa-angle-right fa-rotate-180'/>
       </div>
     );
   }

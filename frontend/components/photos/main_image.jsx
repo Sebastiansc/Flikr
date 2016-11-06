@@ -33,10 +33,10 @@ class MainImage extends React.Component{
     return (
       <div className='main-image-container'>
         <Link className='back-link' to={path_history[0]}>
-          Go back
+          <i className="fa fa-long-arrow-left" aria-hidden="true"></i> Go back
         </Link>
-        <span className='expand'
-              onClick={() => this.fullSize()}>Expand</span>
+        <i onClick={() => this.fullSize()}
+          className="expand fa fa-expand" aria-hidden="true"></i>
         <div className='main-image'>
           <img key={this.props.photo.id}
                src={this.props.photo.show_url}>
@@ -48,14 +48,14 @@ class MainImage extends React.Component{
           index={this.image_queue}
           photos={this.props.photos}
           offset={1}
-          arrow='>'
+          arrow='fa fa-angle-right fa-2x'
           code={39}/>
         <PhotoArrowNav klass='photo-nav-l-big'
           root='home/photos'
           index={this.image_queue}
           photos={this.props.photos}
           offset={-1}
-          arrow='<'
+          arrow='fa fa-angle-right fa-rotate-180 fa-2x'
           code={37}/>
 
         <ImageStream photos={this.props.photos} current={this.props.photo.id}/>

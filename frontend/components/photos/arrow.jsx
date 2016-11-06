@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-const PhotoArrowNav = ({klass,arrow,router,code,root,photos,index,offset}) => {
+const PhotoArrowNav = ({klass,arrow,root,photos,index,offset}) => {
   const nextIndex = index + offset;
   if (nextIndex > (photos.length - 1) || nextIndex < 0){
     return <span className="photo-nav-disable"></span>;
@@ -10,7 +10,7 @@ const PhotoArrowNav = ({klass,arrow,router,code,root,photos,index,offset}) => {
   return(
     <Link className={klass}
       to={`${root}/${nextPhoto.id}`}>
-      <span>{arrow}</span>
+      <i className={arrow} aria-hidden="true"></i>
     </Link>
   );
 };

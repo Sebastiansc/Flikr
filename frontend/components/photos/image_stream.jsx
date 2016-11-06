@@ -37,17 +37,20 @@ class ImageStream extends React.Component {
   render(){
     return (
       <div className='image-stream'>
-        <span onClick={() => this.slide(-7)} className='nav-arrow-left'
-              id={this.state.start ? '' : 'disabled'}>
-          Prev
-        </span>
+        <i onClick={() => this.slide(-7)}
+           className="fa fa-chevron-right fa-rotate-180 nav-arrow-left"
+           aria-hidden="true"
+          >
+        </i>
         {this.state.photos.map(photo => (
           <StreamItem key={photo.id} photo={photo}
               current={this.props.current}/>)
         )}
-        <span onClick={() => this.slide(7)} className='nav-arrow-right'>
-          Next
-        </span>
+        <i onClick={() => this.slide(7)}
+           className="fa fa-chevron-right nav-arrow-right"
+           aria-hidden="true"
+          >
+        </i>
       </div>
     );
   }

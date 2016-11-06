@@ -10,7 +10,10 @@ const LightBoxHeader = ({author, id}) => {
         </div>
       </Link>
         <Link to={`home/profile/${author.id}`}>{author.username}</Link>
-        <Link className='minimize' to={`home/photos/${id}`}>Resize</Link>
+        <Link className='minimize' to={`home/photos/${id}`}>
+          <i className="minimize fa fa-expand" aria-hidden="true"></i>
+
+        </Link>
     </div>
   );
 };

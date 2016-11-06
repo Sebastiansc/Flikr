@@ -15,7 +15,6 @@ import { fetchPhotos,
          fetchByTag} from '../util/photos_api_util';
 
 export default ({ getState, dispatch }) => next => action => {
-  // const error = error => dispatch(receiveErrors(error.responseJSON));
   let success = photo => dispatch(receivePhoto(photo));
 
   switch(action.type) {

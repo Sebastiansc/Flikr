@@ -2,11 +2,13 @@ import {connect} from 'react-redux';
 import PhotoDetail from './photo_detail';
 import {photosArray} from '../../reducers/selectors';
 import {requestPhotos} from '../../actions/photo_actions';
+import {createTag} from '../../actions/tag_actions';
 
 const _nullPhoto = {
   img_url: undefined,
   id: undefined,
-  author: {}
+  author: {},
+  tags: []
 };
 
 const mapStateToProps = ({photos}, {params}) => ({
@@ -15,7 +17,8 @@ const mapStateToProps = ({photos}, {params}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPhotos: () => dispatch(requestPhotos())
+  requestPhotos: () => dispatch(requestPhotos()),
+  createTag: (photoId, tag) => dispatch(createTag(photoId, tag))
 });
 
 export default connect(

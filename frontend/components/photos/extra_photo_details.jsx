@@ -1,6 +1,7 @@
 import React from 'react';
+import Tags from './tags';
 
-const ExtraPhotoDetail = ({photo}) => (
+const ExtraPhotoDetail = ({photo, createTag}) => (
   <section className='extras-section'>
     <div className='extra-top-row'>
       <div className='taken-info'>
@@ -8,6 +9,7 @@ const ExtraPhotoDetail = ({photo}) => (
         <span className='copyright'>&copy;</span>
       </div>
     </div>
+    <Tags tags={photo.tags} createTag={createTag}/>
   </section >
 );
 

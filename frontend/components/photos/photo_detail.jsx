@@ -20,7 +20,8 @@ export default class PhotoDetail extends React.Component{
         <main className='p-detail-main cf'>
           <UserDescription author={this.props.photo.author}
             photo={this.props.photo}/>
-          <ExtraPhotoDetails photo={this.props.photo}/>
+          <ExtraPhotoDetails photo={this.props.photo}
+            createTag={this.props.createTag}/>
         </main>
       </div>
     );

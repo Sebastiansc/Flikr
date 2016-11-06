@@ -183,6 +183,8 @@
 .extra-top-row{
   display: flex;
   justify-content: flex-end;
+  border-bottom: 1px solid #cfd6d9;
+  padding-bottom: 15px;
 }
 
 .taken-info {
@@ -362,4 +364,38 @@
 
 .comment {
   border-radius: 5px;
+}
+
+/*----------------------------TAGS--------------------------*/
+
+.tags {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.tags li {
+  padding: 5px 10px;
+  margin: 0 2px 11px;
+  border-radius: 5px;
+  background-color: #cfd6d9;
+  transition: padding-right .25s ease;
+}
+
+.tags li:hover {
+  color: white;
+  background-color: #868d91;
+  padding-right: 30px;
+}
+
+.tag-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: #006dac;
+}
+
+.tags-view {
+  padding: 20px 0;
 }

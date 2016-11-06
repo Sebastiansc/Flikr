@@ -14,7 +14,7 @@ const TagsMiddleware = ({dispatch}) => next => action => {
       fetchTags(success);
       return next(action);
     case CREATE_TAG:
-      success = tag => dispatch(receiveTag(tag));
+      success = tag => dispatch(receiveTag(action.photoId, tag));
       postTag(action.photoId, action.tag, success);
       return next(action);
     case DESTROY_TAG:

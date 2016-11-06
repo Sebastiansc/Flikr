@@ -17,3 +17,10 @@ export const selectPhoto = (photos, id) => {
 export const publicPhotos = photos => (
   values(photos).filter(photo => photo.public)
 );
+
+
+export const findTag = (tags, tag) => {
+  for (let i = 0; i < tags.length; i++) {
+    if(tags[i].id === tag.id) return i;
+  }
+};

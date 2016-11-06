@@ -9,7 +9,7 @@ export const fetchTags = () => ({
   type: FETCH_TAGS
 });
 
-export const receiveTags = tags => ({
+export const receiveTags = (tags) => ({
   type: RECEIVE_TAGS,
   tags
 });
@@ -20,8 +20,9 @@ export const createTag = (photoId, tag) => ({
   tag
 });
 
-export const receiveTag = tag => ({
+export const receiveTag = (photoId, tag) => ({
   type: RECEIVE_TAG,
+  photoId,
   tag
 });
 

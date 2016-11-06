@@ -5,8 +5,9 @@ import {createComment,
         deleteComment} from '../../../actions/comment_actions';
 import {commentsArray} from '../../../reducers/selectors';
 
-const mapStateToProps = ({comments}) => ({
-  comments: commentsArray(comments)
+const mapStateToProps = ({comments, session}) => ({
+  comments: commentsArray(comments),
+  user: session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

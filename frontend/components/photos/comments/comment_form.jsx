@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentItem from './comment_item';
+import {Link} from 'react-router';
 
 class CommentForm extends React.Component{
   constructor(props){
@@ -33,16 +34,20 @@ class CommentForm extends React.Component{
               updateComment={this.props.updateComment}
               deleteComment={this.props.deleteComment}/>)
           )}
+          <div className='comment-form'>
+            <Link className='author-pic'
+                to={`home/profile/${this.props.user.id}`}>
+              <img src={this.props.user.image_url}></img>
+            </Link>
+            <textarea onChange={e => this.update(e)}
+              value={this.state.body}></textarea>
+            <button className={klass}
+              onClick={() => this.sendComment()}>
+              Comment
+            </button>
+          </div>
         </ul>
 
-        <div className='comment-form'>
-          <textarea onChange={e => this.update(e)}
-             value={this.state.body}></textarea>
-          <button className={klass}
-            onClick={() => this.sendComment()}>
-            Comment
-          </button>
-        </div>
       </div>
     );
   }

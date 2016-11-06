@@ -23,6 +23,12 @@ export default class CommentItem extends React.Component{
     this.toggleEditMode();
   }
 
+  componentWillReceiveProps(newProps){
+    if(this.props.comment.body !== newProps.comment.body) {
+      this.setState({editing: false});
+    }
+  }
+
   render(){
     const disabled = this.notOwner() ? 'comment-disable-tools' : '';
     return (

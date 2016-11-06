@@ -10,15 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser ) {
     store = configureStore({session : {
-      currentUser: {
-        username: window.currentUser.username,
-        id: window.currentUser.id
+        currentUser: {
+          username: window.currentUser.username,
+          id: window.currentUser.id,
+          image_url: window.currentUser.image_url
+        },
+        errors: []
       },
-      errors: [],
       photos: {},
       person: {},
       comments: {}
-    }});
+    });
   } else {
     store = configureStore();
   }

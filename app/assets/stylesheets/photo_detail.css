@@ -135,7 +135,6 @@
 
 .favorites {
   padding: 15px 0;
-  margin-left: 80px;
   color: #006dac;
   font-weigh: 600;
   font-size: 14px;
@@ -275,7 +274,7 @@
 .comment-author span {
   height: 18px;
   color: #898989;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
 }
 

@@ -36,21 +36,23 @@ class ImageStream extends React.Component {
 
   render(){
     return (
-      <div className='image-stream'>
-        <i onClick={() => this.slide(-7)}
-           className="fa fa-chevron-right fa-rotate-180 nav-arrow-left"
-           aria-hidden="true"
-          >
-        </i>
-        {this.state.photos.map(photo => (
-          <StreamItem key={photo.id} photo={photo}
-              current={this.props.current}/>)
-        )}
-        <i onClick={() => this.slide(7)}
-           className="fa fa-chevron-right nav-arrow-right"
-           aria-hidden="true"
-          >
-        </i>
+      <div className="centered-image-stream">
+        <div className='image-stream'>
+          <i onClick={() => this.slide(-7)}
+             className="fa fa-chevron-right fa-rotate-180 nav-arrow-left"
+             aria-hidden="true"
+            >
+          </i>
+          {this.state.photos.map(photo => (
+            <StreamItem key={photo.id} photo={photo}
+                current={this.props.current}/>)
+          )}
+          <i onClick={() => this.slide(7)}
+             className="fa fa-chevron-right nav-arrow-right"
+             aria-hidden="true"
+            >
+          </i>
+        </div>
       </div>
     );
   }

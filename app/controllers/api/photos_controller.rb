@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.where(public: true).includes(:author, :comments)
+    @photos = Photo.feed_stream
   end
 
   def show

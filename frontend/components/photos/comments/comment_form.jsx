@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentItem from './comment_item';
 
 class CommentForm extends React.Component{
   constructor(props){
@@ -22,9 +23,14 @@ class CommentForm extends React.Component{
     const klass = this.state.body ?
       'submit-comment' :
       'submit-comment disable-comments';
-
     return(
       <div className='comment-form'>
+        {this.props.comments.map(comment => (
+          <CommentItem key={comment.id}
+            comment={comment}
+            updateComment={this.props.updateComment}
+            deleteComment={this.props.deleteComment}/>)
+        )}
         <textarea onChange={e => this.update(e)}></textarea>
         <button className={klass}
           onClick={() => this.sendComment()}>

@@ -7,7 +7,7 @@ import merge from 'lodash/merge';
 const CommentsReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = merge({}, state);
-
+  
   switch (action.type) {
     case RECEIVE_PHOTO_COMMENTS:
       return action.comments;

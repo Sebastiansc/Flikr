@@ -11,6 +11,7 @@ import PhotoStreamContainer from './profile/photo_stream_container';
 import CameraRollContainer from './profile/camera_roll_container';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
 import {getUser} from '../actions/person_actions';
+import {fetchPhotoComments} from '../actions/comment_actions';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -25,9 +26,13 @@ const Root = ({ store }) => {
 
   const fetchUser = nextState => {
     const state = store.getState();
-    
+
     store.dispatch(getUser(nextState.params.userId));
     savePrev(nextState);
+  };
+
+  const fetchComments = nextState => {
+    store.dispatch(fetchPhotoComments(nextState.params.photoId));
   };
 
   const savePrev = nextState => {
@@ -56,7 +61,8 @@ const Root = ({ store }) => {
               onEnter={n => fetchUser(n)}/>
           </Route>
 
-          <Route path='photos/:photoId' component={PhotoContainer}/>
+          <Route path='photos/:photoId' component={PhotoContainer}
+            onEnter={(n) => fetchComments(n)}/>
         </Route>
 
         <Route path='/lightbox/:photoId' component={LightBoxContainer}/>

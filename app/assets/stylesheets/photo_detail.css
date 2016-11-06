@@ -184,3 +184,48 @@
   color: #006dac;
   font-size: 14px;
 }
+
+/*-------------------------COMMENTS----------------------------*/
+
+.comment-form {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.comment-form textarea {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  background: #fff;
+  color: #212124;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: inset 0 0 0 1px #9ea4a7;
+  resize: none;
+  width: 100%;
+  height: 100px;
+  line-height: 18px;
+}
+
+.comment-form textarea:focus {
+  box-shadow: inset 0 0 0 1px #008ddf
+}
+
+.submit-comment {
+  background: #0091dc;
+  border-radius: 5px;
+  padding: 8px 18px;
+  color: white;
+  display: block;
+  margin-left: auto;
+  border: none;
+}
+
+.disable-comments {
+  display: none;
+}

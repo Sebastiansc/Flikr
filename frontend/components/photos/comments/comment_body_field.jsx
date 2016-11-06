@@ -3,20 +3,48 @@ import React from 'react';
 export default class CommentBodyField extends React.Component{
   constructor(props){
     super(props);
-    this.state = {body: ''};
+    this.updated = false;
+    this.state = {body: '', editing: false};
   }
 
   update(e){
     this.setState({body: e.target.value});
   }
 
+  componentWillReceiveProps(newProps){
+    let editing;
+    if(this.updated) {
+      editing = false;
+      this.updated = false;
+    } else { editing = newProps.editing; }
+    this.setState({editing});
+  }
+
+  updateComment(){
+    const newAttr = {
+      body: this.state.body,
+      id: this.props.comment.id
+    };
+    this.updated = true;
+    this.props.updateComment(newAttr);
+  }
+
   render(){
-    if(this.props.editing){
+    const klass = this.state.body ?
+      'submit-comment' :
+      'submit-comment disable-comments';
+
+    if(this.state.editing){
       return(
-        <textarea className='comment-edit'
-          defaultValue={this.props.comment.body}
-          onChange={e => this.update(e)}>
-        </textarea>
+        <div className='comment-edit'>
+          <textarea defaultValue={this.props.comment.body}
+            onChange={e => this.update(e)}>
+          </textarea>
+          <button className={klass}
+            onClick={() => this.updateComment()}>
+            Done
+          </button>
+        </div>
       );
     } else {
       return (

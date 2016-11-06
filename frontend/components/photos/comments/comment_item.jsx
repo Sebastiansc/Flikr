@@ -9,16 +9,16 @@ export default class CommentItem extends React.Component{
   }
 
   toggleEditMode(){
-    if(!this.owner()) return;
+    if(this.notOwner()) return;
     this.setState({editing: !this.state.editing});
   }
 
-  owner(){
-    currentUser.id !== this.props.comment.author.id
+  notOwner(){
+    return currentUser.id !== this.props.comment.author.id;
   }
 
   delete(){
-    if(!this.owner()) return;
+    if(this.notOwner()) return;
     this.props.deleteComment(this.props.comment.id);
     this.toggleEditMode();
   }
@@ -42,7 +42,8 @@ export default class CommentItem extends React.Component{
           </div>
         </div>
         <CommentBodyField editing={this.state.editing}
-           comment={this.props.comment}/>
+           comment={this.props.comment}
+           updateComment={this.props.updateComment}/>
       </li>
     );
   }

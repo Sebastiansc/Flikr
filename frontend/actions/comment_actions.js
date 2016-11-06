@@ -38,8 +38,9 @@ export const renewComment = comment => ({
 });
 
 
-export const fetchPhotoComments = () => ({
-  type: FETCH_PHOTO_COMMENTS
+export const fetchPhotoComments = photoId => ({
+  type: FETCH_PHOTO_COMMENTS,
+  photoId
 });
 
 export const receivePhotoComments = comments => ({

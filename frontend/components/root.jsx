@@ -15,6 +15,7 @@ import CameraRollContainer from './profile/camera_roll_container';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
 import ByTagContainer from './trending/by_tag_container';
 import TrendingContainer from '../components/trending/trending_container';
+import Splash from '../components/splash/splash';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -57,9 +58,9 @@ const Root = ({ store }) => {
 
       <Router history={hashHistory}>
 
-        <Route path='/' component={SessionFormContainer}>
-          <Route path='signup' component={SessionFormContainer}/>
-        </Route>
+        <Route path='/' component={Splash}/>
+        <Route path='signup' component={SessionFormContainer}/>
+        <Route path='signin' component={SessionFormContainer}/>
 
         <Route path='/home' component={App}
                onEnter={(n, r) => _ensureLogin(n ,r)}>

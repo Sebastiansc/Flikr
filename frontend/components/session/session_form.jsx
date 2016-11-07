@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
   }
 
   changeFormLink(){
-    if(window.location.hash === '#/') {
+    if(window.location.hash === '#/signin') {
       return (
         <div className="signin-bottom-row">
           <span>Dont have an account?</span>
@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
         <div className="signin-bottom-row">
           <span>Alredy have an account?</span>
           <span className='entry-form-change-link' >
-            <Link to='/'>Sign in</Link>
+            <Link to='/signin'>Sign in</Link>
           </span>
         </div>
       );
@@ -60,8 +60,10 @@ class SessionForm extends React.Component {
     return (
       <div>
         <div className='sign-in-images'>
-          <img src='https://res.cloudinary.com/flikr/image/upload/v1478498324/logo3_vehkaq.svg'></img>
-          <img src='https://res.cloudinary.com/flikr/image/upload/v1478498332/camara-lens-1_y8v7pb.svg'></img>
+          <Link to='/'>
+            <img src='https://res.cloudinary.com/flikr/image/upload/v1478498324/logo3_vehkaq.svg'></img>
+            <img src='https://res.cloudinary.com/flikr/image/upload/v1478498332/camara-lens-1_y8v7pb.svg'></img>
+          </Link>
         </div>
         <div className='signin-main'>
           <div className='signin-gradient'></div>
@@ -92,9 +94,9 @@ class SessionForm extends React.Component {
               <a
                 className='entry-form-change-link'
                 onClick={ () => this.props.login(
-                  {username: "guest",
-                    password: "password"})}>
-                    Guest Sign in
+                {username: "guest",
+                password: "password"})}>
+                Guest Sign in
               </a>
             </div>
 

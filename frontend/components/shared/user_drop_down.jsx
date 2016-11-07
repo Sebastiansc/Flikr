@@ -13,9 +13,10 @@ class UserDropDown extends React.Component {
   render(){
     return(
       <div className='user-drop-down'>
-        <span>Image</span>
-
-        <span onClick={() => this.props.logout()}>Logout</span>
+        <img src='/assets/camara-lens-1.svg'
+          className='logout'
+          onClick={() => this.props.logout()}>
+        </img>
       </div>
     );
   }

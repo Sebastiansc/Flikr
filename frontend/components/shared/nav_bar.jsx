@@ -15,7 +15,9 @@ export default class NavBar extends React.Component {
         <nav className='nav-bar'>
           <div className='nav-container'>
             <ul>
-              <li><Link to='home'>Flikr</Link></li>
+              <li><Link to='home'>
+                <img className='logo' src='/assets/logo3.svg'></img>
+              </Link></li>
               <li><Link to='home/explore'>Explore</Link></li>
               <li><Link to={`home/profile/${this.props.currentUser.id}`}>
                 You
@@ -23,7 +25,8 @@ export default class NavBar extends React.Component {
           </ul>
           <div className='nav-right'>
             <SearchBox />
-            <UserDropDown logout={this.props.logout} user={this.props.currentUser}/>
+            <UserDropDown logout={this.props.logout}
+               user={this.props.currentUser}/>
           </div>
         </div>
       </nav>

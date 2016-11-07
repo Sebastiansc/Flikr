@@ -58,42 +58,48 @@ class SessionForm extends React.Component {
 
   render(){
     return (
-      <div className='signin-main'>
-        <div className='signin-gradient'></div>
-        <div className='signin'>
-          <h1>{this.props.formType}</h1>
-          {this.displayErrors()}
+      <div>
+        <div className='sign-in-images'>
+          <img src='/assets/logo3.svg'></img>
+          <img src='/assets/camara-lens-1.svg'></img>
+        </div>
+        <div className='signin-main'>
+          <div className='signin-gradient'></div>
+          <div className='signin'>
+            <h1>{this.props.formType}</h1>
+            {this.displayErrors()}
 
-          <form onSubmit={ e => this.handleSubmit(e)}>
-            <input
-              type='text'
-              value={this.state.username}
-              id='username'
-              placeholder='Enter your username'
-              onChange={e => this.update(e, 'username')}>
-            </input>
+            <form onSubmit={ e => this.handleSubmit(e)}>
+              <input
+                type='text'
+                value={this.state.username}
+                id='username'
+                placeholder='Enter your username'
+                onChange={e => this.update(e, 'username')}>
+              </input>
 
-            <input
-              type='password'
-              id='password'
-              placeholder='Enter your password'
-              onChange={ e => this.update(e, 'password') }>
-            </input>
+              <input
+                type='password'
+                id='password'
+                placeholder='Enter your password'
+                onChange={ e => this.update(e, 'password') }>
+              </input>
 
-            <button>Submit</button>
-          </form>
-          <div className="signin-bottom-row">
-            <span>Feeling Lazy?</span>
-            <a
-              className='entry-form-change-link'
-              onClick={ () => this.props.login(
-                {username: "guest",
-                  password: "password"})}>
-                  Guest Sign in
-            </a>
+              <button>Submit</button>
+            </form>
+            <div className="signin-bottom-row">
+              <span>Feeling Lazy?</span>
+              <a
+                className='entry-form-change-link'
+                onClick={ () => this.props.login(
+                  {username: "guest",
+                    password: "password"})}>
+                    Guest Sign in
+              </a>
+            </div>
+
+            {this.changeFormLink()}
           </div>
-
-          {this.changeFormLink()}
         </div>
       </div>
     );

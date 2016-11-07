@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
       @user.save!
       @photos = @user.photos
       login(@user)
-      render :show
+      render 'api/sessions/show'
     else
       render json: @user.errors.full_messages, status: 422
     end

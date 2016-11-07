@@ -12,6 +12,7 @@ import CameraRollContainer from './profile/camera_roll_container';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
 import {getUser} from '../actions/person_actions';
 import {fetchPhotoComments} from '../actions/comment_actions';
+import TrendingContainer from '../components/trending/trending_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -54,6 +55,8 @@ const Root = ({ store }) => {
           <Route path='main' component={ImageContainer}/>
           <Route path='explore' component={ImageContainer}
                  onEnter={n => savePrev(n)}/>
+          <Route path='trending' component={TrendingContainer}/>
+
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
             <IndexRoute component={PhotoStreamContainer}/>

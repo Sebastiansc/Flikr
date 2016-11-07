@@ -7,6 +7,7 @@ const SubNav = () => (
       <ul>
         <li><Link to='home'>All Activity</Link></li>
         <li><Link to='home/explore'>Explore</Link></li>
+        <li><Link to='home/trending'>Trending</Link></li>
       </ul>
     </div>
   </nav>

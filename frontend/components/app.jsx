@@ -8,7 +8,8 @@ import SubNav from './shared/sub_nav';
 const App = ({ children }) => {
   let subNav;
   let location = window.location.hash;
-  if (location === '#/home/explore' || location === '#home/main' ) {
+  if (location === '#/home/explore' || location === '#home/main'
+      || location === '#/home/trending') {
     subNav = <SubNav/>;
   }
   return (

@@ -15,6 +15,7 @@ class Photo < ApplicationRecord
   def self.feed_stream(limit = 50, offset = 0)
     Photo.where(public: true).
       includes(:author, :tags).
+      order('photos.created_at DESC').
       limit(limit).
       offset(offset)
   end

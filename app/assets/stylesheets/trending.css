@@ -19,7 +19,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to bottom, rgba(150,150,150,0.5) 1%,rgba(150,150,150,0.59) 32%,rgba(140,140,140,0.65) 50%,rgba(112,112,112,0.65) 99%);
+  background: linear-gradient(to bottom, rgba(79,79,79,0.4) 4%,rgba(79,79,79,0.4) 6%,rgba(73,73,73,0.4) 96%,rgba(73,73,73,0.4) 99%);
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.trending-item:hover .tag-gallery-item-overlay {
+  opacity: .6;
 }
 
 .trending-link {
@@ -35,7 +41,7 @@
 .trending-item span{
   color: white;
   font-size: 24px;
-  text-shadow: 0 0 3px rtext-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
   font-weight: 600;
   letter-spacing: 0.2em;
   z-index: 500;

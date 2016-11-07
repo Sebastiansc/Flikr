@@ -11,7 +11,7 @@ const TrendingGallery = ({tags}) => {
     <main className='trending-gallery'>
       <h1>Trending</h1>
       <Masonry>
-        {tags.map(tag => <TagGalleryItem key={tag.id} tag={tag}/>)}
+        {tags.map(tag => <TrendingGalleryItem key={tag.id} tag={tag}/>)}
       </Masonry>
     </main>
   );

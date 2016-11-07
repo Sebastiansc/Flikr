@@ -15,12 +15,12 @@ export const fetchUserAlbums = userId => ({
 });
 
 export const fetchPhotoAlbums = photoId => ({
-  type: FETCH_USER_ALBUMS,
+  type: FETCH_PHOTO_ALBUMS,
   photoId
 });
 
 export const receiveAlbums = albums => ({
-  type: FETCH_USER_ALBUMS,
+  type: RECEIVE_ALBUMS,
   albums
 });
 
@@ -45,7 +45,7 @@ export const deleteAlbum = albumId => ({
 });
 
 export const removeAlbum = album => ({
-  type: DELETE_ALBUM,
+  type: REMOVE_ALBUM,
   album
 });
 
@@ -56,7 +56,7 @@ export const addPhoto = (albumId, photoId) => ({
 });
 
 export const createAndAddPhoto = (albumId, photo) => ({
-  type: ADD_PHOTO,
+  type: CREATE_AND_ADD_PHOTO,
   albumId,
   photo
 });

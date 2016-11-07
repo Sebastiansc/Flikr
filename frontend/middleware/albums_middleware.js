@@ -39,7 +39,7 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
       return next(action);
     case DELETE_ALBUM:
       success = album => dispatch(removeAlbum(album));
-      patchAlbum(action.album, success);
+      deleteAlbum(action.albumId, success);
       return next(action);
     case ADD_PHOTO:
       success = photo => dispatch(receivePhoto(photo));
@@ -47,7 +47,7 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
       return next(action);
     case CREATE_AND_ADD_PHOTO:
       success = photo => dispatch(receivePhoto(photo));
-      addPhoto(action.albumId, action.photo, success);
+      createAndAddPhoto(action.albumId, action.photo, success);
       return next(action);
     default:
       return next(action);

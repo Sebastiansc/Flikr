@@ -1,5 +1,4 @@
 import React from 'react';
-import GreetingContainer from './greeting/greeting_container';
 import NavBarContainer from './shared/nav_bar_container';
 import Footer from './shared/footer';
 import { Link } from 'react-router';

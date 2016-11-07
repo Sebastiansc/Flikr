@@ -42,12 +42,15 @@ class Api::AlbumsController < ApplicationController
   end
 
   def add_photo
-    Album.find(params[:album_id]).photos << Photo.find(params[:photo_id])
+    @photo = Photo.find(params[:photo_id])
+    Album.find(params[:album_id]).photos << @photo
+    render 'api/photos/show'
   end
 
   def remove_photo
     @album = Album.find(params[:album_id])
     @album.album_photos.find_by(photo_id: params[:photo_id]).destroy
+    render 'api/photos/show'
   end
 
   private

@@ -7,7 +7,7 @@ export const fetchUserAlbums = (userId, success) => {
 
 export const fetchPhotoAlbums = (photoId, success) => {
   $.ajax({
-    url: `api/users/${photoId}/albums`,
+    url: `api/photos/${photoId}/albums`,
     success
   });
 };
@@ -23,7 +23,7 @@ export const postAlbum = (album, success) => {
 
 export const patchAlbum = (album, success) => {
   $.ajax({
-    url: `api/albums`,
+    url: `api/albums/${album.id}`,
     type: 'patch',
     data: {album},
     success

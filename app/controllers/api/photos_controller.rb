@@ -47,7 +47,7 @@ class Api::PhotosController < ApplicationController
       @photo.save!
       @album.background_url = @photo.show_url unless @album.background_url
       @album.photos << @photo
-      render 'api/albums/show'
+      render :show
     else
       render json: ['Invalid parameters'], status: 422
     end

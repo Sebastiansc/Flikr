@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
       photos: {},
       person: {},
       comments: {},
-      tags: {}
+      tags: {},
+      albums: {}
     });
   } else {
     store = configureStore();

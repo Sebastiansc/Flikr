@@ -15,7 +15,6 @@ import {FETCH_USER_ALBUMS,
         CREATE_AND_ADD_PHOTO,
         receiveAlbums,
         receiveAlbum,
-        renewAlbum,
         removeAlbum} from '../actions/album_actions';
 import { receivePhoto } from '../actions/photo_actions';
 
@@ -35,7 +34,7 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
       postAlbum(action.album, success);
       return next(action);
     case UPDATE_ALBUM:
-      success = album => dispatch(renewAlbum(album));
+      success = album => dispatch(receiveAlbum(album));
       patchAlbum(action.album, success);
       return next(action);
     case DELETE_ALBUM:

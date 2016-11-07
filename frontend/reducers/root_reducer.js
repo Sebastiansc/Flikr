@@ -5,6 +5,7 @@ import PersonReducer from './person_reducer';
 import EditReducer from './edit_reducer';
 import CommentsReducer from './comments_reducer';
 import TagsReducer from './tags_reducer';
+import AlbumsReducer from './albums_reducer';
 
 export default combineReducers({
   session: SessionReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   person: PersonReducer,
   editing: EditReducer,
   tags: TagsReducer,
+  albums: AlbumsReducer,
   comments: CommentsReducer
 });

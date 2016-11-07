@@ -6,7 +6,6 @@ export const CREATE_AND_ADD_PHOTO = 'CREATE_AND_ADD_PHOTO';
 export const CREATE_ALBUM = 'CREATE_ALBUM';
 export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
 export const UPDATE_ALBUM = 'UPDATE_ALBUM';
-export const RENEW_ALBUM = 'RENEW_ALBUM';
 export const DELETE_ALBUM = 'DELETE_ALBUM';
 export const REMOVE_ALBUM = 'REMOVE_ALBUM';
 
@@ -37,11 +36,6 @@ export const receiveAlbum = album => ({
 
 export const updateAlbum = album => ({
   type: UPDATE_ALBUM,
-  album
-});
-
-export const renewAlbum = album => ({
-  type: RENEW_ALBUM,
   album
 });
 

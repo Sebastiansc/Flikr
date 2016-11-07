@@ -15,6 +15,7 @@ import CameraRollContainer from './profile/camera_roll_container';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
 import ByTagContainer from './trending/by_tag_container';
 import TrendingContainer from '../components/trending/trending_container';
+import AlbumContainer from '../components/profile/album/album_container';
 import Splash from '../components/splash/splash';
 
 const Root = ({ store }) => {
@@ -77,6 +78,7 @@ const Root = ({ store }) => {
             <IndexRoute component={PhotoStreamContainer}/>
             <Route path={'cameraRoll'} component={CameraRollContainer}
               onEnter={n => fetchUser(n)}/>
+            <Route path={'albums'} component={AlbumContainer}/>
           </Route>
 
           <Route path='photos/:photoId' component={PhotoContainer}

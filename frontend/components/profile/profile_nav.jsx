@@ -10,6 +10,7 @@ const ProfileNav = ({id, photo, createPhoto}) => {
           <Link to={`home/profile/${id}/cameraRoll`}>CameraRoll</Link>
           </li>
         <li><Link to={`home/profile/${id}`}>Photostream</Link></li>
+        <li><Link to={`home/profile/${id}/albums`}>Albums</Link></li>
         <PhotoUpload photos={photo} createPhoto={createPhoto}/>
       </ul>
     </div>

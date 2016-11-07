@@ -16,7 +16,8 @@ export default class NavBar extends React.Component {
           <div className='nav-container'>
             <ul>
               <li><Link to='home'>
-                <img className='logo' src='/assets/logo3.svg'></img>
+                <img className='logo'
+                   src='https://res.cloudinary.com/flikr/image/upload/v1478498324/logo3_vehkaq.svg'></img>
               </Link></li>
               <li><Link to='home/explore'>Explore</Link></li>
               <li><Link to={`home/profile/${this.props.currentUser.id}`}>

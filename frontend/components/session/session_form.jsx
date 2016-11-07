@@ -60,8 +60,8 @@ class SessionForm extends React.Component {
     return (
       <div>
         <div className='sign-in-images'>
-          <img src='/assets/logo3.svg'></img>
-          <img src='/assets/camara-lens-1.svg'></img>
+          <img src='https://res.cloudinary.com/flikr/image/upload/v1478498324/logo3_vehkaq.svg'></img>
+          <img src='https://res.cloudinary.com/flikr/image/upload/v1478498332/camara-lens-1_y8v7pb.svg'></img>
         </div>
         <div className='signin-main'>
           <div className='signin-gradient'></div>

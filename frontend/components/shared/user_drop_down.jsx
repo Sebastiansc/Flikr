@@ -13,7 +13,7 @@ class UserDropDown extends React.Component {
   render(){
     return(
       <div className='user-drop-down'>
-        <img src='/assets/camara-lens-1.svg'
+        <img src='https://res.cloudinary.com/flikr/image/upload/v1478498332/camara-lens-1_y8v7pb.svg'
           className='logout'
           onClick={() => this.props.logout()}>
         </img>

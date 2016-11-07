@@ -12,7 +12,7 @@ class Images extends React.Component{
       this.child = <MainGallery
               photos={this.props.photos}
               requestPhotos={this.props.requestPhotos}/>;
-    } else {
+    } else{
       this.child = <ExploreGallery
               photos={this.props.photos}
               requestPhotos={this.props.requestPhotos}/>;

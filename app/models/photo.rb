@@ -21,6 +21,6 @@ class Photo < ApplicationRecord
   end
 
   def self.by_tag(tag_id)
-    Photo.joins(:taggings).where(:tag_id == tag_id)
+    Photo.joins(:taggings).where('taggings.tag_id = ?', tag_id).includes(:tags, :author)
   end
 end

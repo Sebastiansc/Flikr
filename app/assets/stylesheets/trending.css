@@ -25,7 +25,7 @@
 }
 
 .trending-item:hover .tag-gallery-item-overlay {
-  opacity: .6;
+  opacity: .3;
 }
 
 .trending-link {
@@ -48,4 +48,17 @@
   position: absolute;
   width: 100%;
   text-align: center
+}
+
+/*---------------------------BY TAG------------------------------*/
+
+.centered-by-tag {
+  width: 80%;
+  margin: 24px auto;
+}
+
+.centered-by-tag h1 {
+  font-weight: 300;
+  font-size: 24px;
+  margin: 5px 0;
 }

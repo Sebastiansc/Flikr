@@ -1,9 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { fetchPhotos } from '../actions/photo_actions';
-import {getUser} from '../actions/person_actions';
-import {fetchTags} from '../actions/tag_actions';
+import { fetchPhotos, fetchByTag } from '../actions/photo_actions';
+import { getUser } from '../actions/person_actions';
+import { fetchTags } from '../actions/tag_actions';
+import { fetchPhotoComments } from '../actions/comment_actions';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
@@ -12,7 +13,7 @@ import ProfileContainer from './profile/profile_container';
 import PhotoStreamContainer from './profile/photo_stream_container';
 import CameraRollContainer from './profile/camera_roll_container';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
-import {fetchPhotoComments} from '../actions/comment_actions';
+import ByTagContainer from './trending/by_tag_container';
 import TrendingContainer from '../components/trending/trending_container';
 
 const Root = ({ store }) => {
@@ -42,8 +43,13 @@ const Root = ({ store }) => {
     path_history.push(nextState.location.pathname);
   };
 
-  const getTags = () => {
+  const getTags = (nextState) => {
     store.dispatch(fetchTags());
+    savePrev(nextState);
+  };
+
+  const getByTag = nextState => {
+    store.dispatch(fetchByTag(nextState.params.tagId));
   };
 
   return(
@@ -61,7 +67,9 @@ const Root = ({ store }) => {
           <Route path='explore' component={ImageContainer}
                  onEnter={n => savePrev(n)}/>
           <Route path='trending' component={TrendingContainer}
-            onEnter={() => getTags()}/>
+            onEnter={n => getTags(n)}/>
+          <Route path='trending/:tagId' component={ByTagContainer}
+            onEnter={n => getByTag(n)}/>
 
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>

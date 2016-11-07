@@ -39,6 +39,20 @@ class Api::PhotosController < ApplicationController
     end
   end
 
+  def create_and_add_to_album
+    @album = Album.find(params[:album_id])
+    @photo = Photo.new(photo_params)
+    @photo.author_id = current_user.id
+    if @photo.valid?
+      @photo.save!
+      @album.background_url = @photo.show_url unless @album.background_url
+      @album.photos << @photo
+      render 'api/albums/show'
+    else
+      render json: ['Invalid parameters'], status: 422
+    end
+  end
+
   private
 
   def photo_params

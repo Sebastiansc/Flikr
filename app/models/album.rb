@@ -1,7 +1,7 @@
 class Album < ApplicationRecord
   validates :title, presence: true
 
-  has_many :album_photos
+  has_many :album_photos, dependent: :destroy
 
 
   belongs_to :owner, class_name: :User

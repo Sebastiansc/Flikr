@@ -8,7 +8,7 @@ class Photo < ApplicationRecord
 
   has_many :albums,
   through: :album_photos,
-  source: :album_photos
+  source: :album
 
   has_many :comments, dependent: :destroy
 

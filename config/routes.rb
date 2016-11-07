@@ -2,16 +2,27 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: { formats: :json } do
-    resources :users, only: [:create, :index, :show]
+    resources :users, only: [:create, :index, :show] do
+      resources :albums, only: [:index]
+    end
+
     resource :session, only: [:create, :destroy]
+
     resources :photos, only: [:index, :show, :create, :destroy, :update] do
       resources :comments, only: [:index]
       resources :tags, only: [:create]
+      resources :albums, only: [:index]
     end
+
     resources :comments, only: [:create, :destroy, :update]
     resources :tags, only: [:destroy, :index]
+    resources :albums, only: [:show, :create, :destroy, :update]
   end
 
   get 'api/photos/tag/:tag_id', :to => 'api/photos#by_tag'
+  post 'api/albums/:album_id/photos',
+    :to => 'api/photos#create_and_add_to_album'
+  post 'api/albums/:album_id/:photo_id', :to => 'api/albums#add_photo'
+  delete 'api/albums/:album_id/:photo_id', :to => 'api/albums#remove_photo'
   delete 'api/photos/:photo_id/tags/:tag_id', :to => 'api/tags#untag'
 end

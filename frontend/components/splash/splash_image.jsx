@@ -9,13 +9,18 @@ export default class SplashImage extends React.Component{
       'https://res.cloudinary.com/flikr/image/upload/v1478504274/i5zceqigrcldqgktf6wj_g5asvq.jpg',
       'https://res.cloudinary.com/flikr/image/upload/v1478504263/78722_1600x1200-wallpaper-cb1398895960_yvyebw.jpg'
     ];
-    this.state = {url: this.images[0], current: 0};
+    const randIndex = Math.floor(Math.random() * 3);
+    this.state = {url: this.images[randIndex], current: randIndex};
     this.autoplay = window.setInterval(() => this.next(), 4000);
   }
 
   next(){
     const nextIndex = this.state.current === 2 ? 0 : this.state.current + 1;
     this.setState({url: this.images[nextIndex], current: nextIndex});
+  }
+
+  componentWillUnmount(){
+    window.clearInterval(this.autoplay);
   }
 
   render(){

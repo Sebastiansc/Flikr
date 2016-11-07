@@ -20,3 +20,10 @@ const ExploreGallery = ({photos, klass}) =>(
 );
 
 export default ExploreGallery;
+
+// export default class ExploreGalley extends React.Component{
+//   constructor(){
+//     super();
+//     this.state = ({loaded: })
+//   }
+// }

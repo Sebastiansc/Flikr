@@ -24,3 +24,7 @@ export const findTag = (tags, tag) => {
     if(tags[i].id === tag.id) return i;
   }
 };
+
+export const tagsArray = tags => (
+  values(tags) || []
+);

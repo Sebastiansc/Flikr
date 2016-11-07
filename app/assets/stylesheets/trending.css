@@ -1,0 +1,45 @@
+/*TRENDING GALLERY*/
+
+.trending-gallery {
+  width: 80%;
+  margin: 30px auto;
+}
+
+.trending-item {
+  width: 23.7%;
+  height: 219px;
+  background-size: cover;
+  background-position: center;
+  margin: 15px 15px 15px 0;
+}
+
+.tag-gallery-item-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(150,150,150,0.5) 1%,rgba(150,150,150,0.59) 32%,rgba(140,140,140,0.65) 50%,rgba(112,112,112,0.65) 99%);
+}
+
+.trending-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.trending-item span{
+  color: white;
+  font-size: 24px;
+  text-shadow: 0 0 3px rtext-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  z-index: 500;
+  position: absolute;
+  width: 100%;
+  text-align: center
+}

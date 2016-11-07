@@ -1,8 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import App from './app';
 import { fetchPhotos } from '../actions/photo_actions';
+import {getUser} from '../actions/person_actions';
+import {fetchTags} from '../actions/tag_actions';
+import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
 import PhotoContainer from './photos/photo_container';
@@ -10,7 +12,6 @@ import ProfileContainer from './profile/profile_container';
 import PhotoStreamContainer from './profile/photo_stream_container';
 import CameraRollContainer from './profile/camera_roll_container';
 import LightBoxContainer from './photos/lightbox/lightbox_container';
-import {getUser} from '../actions/person_actions';
 import {fetchPhotoComments} from '../actions/comment_actions';
 import TrendingContainer from '../components/trending/trending_container';
 
@@ -41,6 +42,10 @@ const Root = ({ store }) => {
     path_history.push(nextState.location.pathname);
   };
 
+  const getTags = () => {
+    store.dispatch(fetchTags());
+  };
+
   return(
     <Provider store={store}>
 
@@ -55,7 +60,8 @@ const Root = ({ store }) => {
           <Route path='main' component={ImageContainer}/>
           <Route path='explore' component={ImageContainer}
                  onEnter={n => savePrev(n)}/>
-          <Route path='trending' component={TrendingContainer}/>
+          <Route path='trending' component={TrendingContainer}
+            onEnter={() => getTags()}/>
 
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>

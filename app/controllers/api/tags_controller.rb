@@ -9,6 +9,8 @@ class Api::TagsController < ApplicationController
       @tag = Tag.new(tag_params)
       @tag.save!
     end
+    @feed_url = Photo.find(params[:photo_id]).feed_url
+    @tag.update_attribute(:background_url, @feed_url)
     Tagging.create!({photo_id: params[:photo_id], tag_id: @tag.id})
     render :show
   end

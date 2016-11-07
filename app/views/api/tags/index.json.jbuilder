@@ -1,6 +1,5 @@
 @tags.each do |tag|
   json.set! tag.id do
-    json.extract! tag, :id, :name
-    json.background tag.photos.first
+    json.extract! tag, :id, :name, :background_url
   end
 end

@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   belongs_to :author,
   class_name: :User
 
-  has_many :album_photos
+  has_many :album_photos, dependent: :destroy
 
   has_many :albums,
   through: :album_photos,

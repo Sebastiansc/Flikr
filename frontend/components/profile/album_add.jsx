@@ -73,7 +73,9 @@ export default class AlbumAdd extends React.Component{
               className={`album-list-item ${this.setClass(album.id)}`}
               onClick={() => this.toggleInclusion(album.id)}>
               <li key={album.id}
-                  style={{backgroundImage: `url('${album.background_url}')`}}>
+                style={{backgroundImage:
+                       `url('${album.cover_photo.feed_url}')`
+                      }}>
               </li>
               <div className='album-list-details'>
                 <span>{album.title}</span>

@@ -1,11 +1,12 @@
 class Api::AlbumsController < ApplicationController
   def index
     if params[:user_id]
-      @albums = Album.where(owner_id: params[:user_id]).includes(photos: [:author, :tags])
+      @albums = Album.where(owner_id: params[:user_id]).
+        includes(:cover_photo, photos: [:author, :tags])
     else
       @albums = Album.joins(:album_photos).
                 where('album_photos.photo_id = ?', params[:photo_id]).
-                includes(photos: [:author, :tags])
+                includes(:cover_photo, photos: [:author, :tags])
     end
   end
 
@@ -44,9 +45,10 @@ class Api::AlbumsController < ApplicationController
   def add_photo
     @photo = Photo.find(params[:photo_id])
     @album = Album.find(params[:album_id])
-    @album.photos << @photo
-    unless @album.background_url
-      @album.update_attribute(:background_url, @photo.show_url)
+    unless @album.cover_photo_id
+      @album.update_attribute(:cover_photo_id, @photo.id)
+    else
+      @album.photos << @photo
     end
     render 'api/photos/show'
   end
@@ -55,6 +57,13 @@ class Api::AlbumsController < ApplicationController
     @album = Album.find(params[:album_id])
     @album.album_photos.find_by(photo_id: params[:photo_id]).destroy
     render 'api/photos/show'
+  end
+
+  def change_cover_photo
+    @album = Album.find(params[:album_id])
+    @photo = Photo.find(params[:photo_id])
+    @album.album_photos.find_by(photo_id: @photo.id).destroy!
+    @album.update_attribute(:cover_photo, @photo)
   end
 
   private

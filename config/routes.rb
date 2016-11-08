@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     :to => 'api/photos#create_and_add_to_album'
   post 'api/albums/:album_id/:photo_id', :to => 'api/albums#add_photo'
   delete 'api/albums/:album_id/:photo_id', :to => 'api/albums#remove_photo'
+  post 'api/albums/:album_id/cover/:photo_id', :to => 'api/albums#change_cover_photo'
   delete 'api/photos/:photo_id/tags/:tag_id', :to => 'api/tags#untag'
 end

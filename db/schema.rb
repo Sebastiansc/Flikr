@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107231932) do
+ActiveRecord::Schema.define(version: 20161108062658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20161107231932) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "owner_id",       null: false
-    t.string   "background_url"
+    t.integer  "cover_photo_id"
     t.index ["owner_id"], name: "index_albums_on_owner_id", using: :btree
   end
 

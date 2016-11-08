@@ -3,7 +3,12 @@ import {RECEIVE_ALBUMS,
         REMOVE_ALBUM} from '../actions/album_actions';
 import merge from 'lodash/merge';
 
-const AlbumReducer = (state = {}, action) => {
+const _nullAlbum = {
+  owner: {},
+  cover_photo: {}
+};
+
+const AlbumReducer = (state = _nullAlbum, action) => {
   Object.freeze(state);
   const newState = merge({}, state);
 

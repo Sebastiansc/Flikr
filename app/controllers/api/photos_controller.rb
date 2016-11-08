@@ -45,10 +45,11 @@ class Api::PhotosController < ApplicationController
     @photo.author_id = current_user.id
     if @photo.valid?
       @photo.save!
-      unless @album.background_url
-        @album.update_attribute(:background_url, @photo.show_url)
+      unless @album.cover_photo_id
+        @album.update_attribute(:cover_photo_id, @photo.id)
+      else
+        @album.photos << @photo
       end
-      @album.photos << @photo
       render :show
     else
       render json: ['Invalid parameters'], status: 422

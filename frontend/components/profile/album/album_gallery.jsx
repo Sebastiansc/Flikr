@@ -7,7 +7,7 @@ const AlbumGallery = ({albums}) => {
   return(
     <main className='albums-gallery'>
       {albums.map(album => (
-        <AlbumGalleryItem album={album}/>
+        <AlbumGalleryItem key={album.id} album={album}/>
       ))}
     </main>
   );

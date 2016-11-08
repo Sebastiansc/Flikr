@@ -9,7 +9,8 @@ export default class Profile extends React.Component{
   }
 
   underline(){
-    if (window.location.hash.includes('cameraRoll')){
+    const location = window.location.hash;
+    if (location.includes('cameraRoll')){
       $('.profile-nav li:nth-child(2)').removeAttr('id');
       $('.profile-nav li:first-child').attr('id', 'nav-selected');
     } else {

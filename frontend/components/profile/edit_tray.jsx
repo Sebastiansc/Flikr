@@ -31,7 +31,7 @@ class EditTray extends React.Component{
   }
 
   render(){
-    if(this.props.photo.id) {
+    if(this.props.photo.id && !this.props.adding) {
       return(
         <div className={`edit-tray`} style={{bottom: this.state.bottom}}>
           <div className='clear-select'>
@@ -52,7 +52,8 @@ class EditTray extends React.Component{
                 <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
                  Edit
             </li>
-            <li><i className="fa fa-plus-square" aria-hidden="true"></i>
+            <li onClick={() => this.props.togglePhotoAdd()}>
+              <i className="fa fa-plus-square" aria-hidden="true"></i>
              Add to Album
            </li>
            <li className='delete'>

@@ -5,6 +5,7 @@ import { fetchPhotos, fetchByTag } from '../actions/photo_actions';
 import { getUser } from '../actions/person_actions';
 import { fetchTags } from '../actions/tag_actions';
 import { fetchPhotoComments } from '../actions/comment_actions';
+import { fetchUserAlbums } from '../actions/album_actions';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
@@ -41,8 +42,8 @@ const Root = ({ store }) => {
   };
 
   const savePrev = nextState => {
-    path_history.pop();
-    path_history.push(nextState.location.pathname);
+    window.path_history.pop();
+    window.path_history.push(nextState.location.pathname);
   };
 
   const getTags = (nextState) => {
@@ -52,6 +53,10 @@ const Root = ({ store }) => {
 
   const getByTag = nextState => {
     store.dispatch(fetchByTag(nextState.params.tagId));
+  };
+
+  const fetchAlbums = nextState => {
+    store.dispatch(fetchUserAlbums(nextState.params.userId));
   };
 
   return(
@@ -78,7 +83,8 @@ const Root = ({ store }) => {
             <IndexRoute component={PhotoStreamContainer}/>
             <Route path={'cameraRoll'} component={CameraRollContainer}
               onEnter={n => fetchUser(n)}/>
-            <Route path={'albums'} component={AlbumContainer}/>
+            <Route path={'albums'} component={AlbumContainer}
+                onEnter={n => fetchAlbums(n)}/>
           </Route>
 
           <Route path='photos/:photoId' component={PhotoContainer}

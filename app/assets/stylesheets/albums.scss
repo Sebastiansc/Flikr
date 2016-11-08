@@ -1,3 +1,56 @@
 // Place all the styles related to the Albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.albums-gallery {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  margin: 50px auto;
+}
+
+.album-gallery-item {
+  width: 264px;
+  height: 264px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  box-shadow: inset 0 0 35px rgba(0,0,0,.6);
+}
+
+.album-link-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(0deg,rgba(0,0,0,.9) 0,transparent 50%,transparent);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.901961) 0px, transparent 50%, transparent);
+}
+
+.album-tools {
+  // z-index: 200;
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  padding: 0 20px;
+  left: 0;
+  right: 0;
+  text-shadow: 0 1px 1px #000;
+  transition: bottom .15s ease-out;
+}
+
+.album-link-overlay:hover .album-tools {
+  bottom: 50px;
+  border: 1px solid red;
+}
+
+.album-tools h4 {
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 300;
+  margin: 0;
+}
+
+.album-tools span {
+  font-size: 14px;
+}

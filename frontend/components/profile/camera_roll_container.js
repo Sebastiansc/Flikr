@@ -1,13 +1,14 @@
 import {connect} from 'react-redux';
 import CameraRoll from './camera_roll';
 import {updatePhoto, deletePhoto} from '../../actions/photo_actions';
-import {selectPhoto, photosArray} from '../../reducers/selectors';
+import {selectPhoto, toArray} from '../../reducers/selectors';
 import {toggleModal, setEditId} from '../../actions/edit_actions';
 
-const mapStateToProps = ({photos, editing}) => ({
+const mapStateToProps = ({photos, editing}, {params}) => ({
   photo: selectPhoto(photos, editing.id),
-  photos: photosArray(photos),
-  open: editing.modalOpen
+  photos: toArray(photos),
+  open: editing.modalOpen,
+  userId: params.userId
 });
 
 const mapDispatchToProps = dispatch => ({

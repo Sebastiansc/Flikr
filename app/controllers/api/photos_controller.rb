@@ -45,7 +45,9 @@ class Api::PhotosController < ApplicationController
     @photo.author_id = current_user.id
     if @photo.valid?
       @photo.save!
-      @album.background_url = @photo.show_url unless @album.background_url
+      unless @album.background_url
+        @album.update_attribute(:background_url, @photo.show_url)
+      end
       @album.photos << @photo
       render :show
     else

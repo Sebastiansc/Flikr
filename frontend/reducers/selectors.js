@@ -1,7 +1,7 @@
 import {values} from 'lodash';
 
-export const photosArray = photos => {
-  return values(photos) || [];
+export const toArray = object => {
+  return values(object) || [];
 };
 
 export const commentsArray = comments => {
@@ -9,7 +9,7 @@ export const commentsArray = comments => {
 };
 
 export const selectPhoto = (photos, id) => {
-  return photosArray(photos).filter( photo => (
+  return toArray(photos).filter( photo => (
     photo.id === id
   ))[0] || {} ;
 };
@@ -24,7 +24,3 @@ export const findTag = (tags, tag) => {
     if(tags[i].id === tag.id) return i;
   }
 };
-
-export const tagsArray = tags => (
-  values(tags) || []
-);

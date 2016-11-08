@@ -43,7 +43,11 @@ class Api::AlbumsController < ApplicationController
 
   def add_photo
     @photo = Photo.find(params[:photo_id])
-    Album.find(params[:album_id]).photos << @photo
+    @album = Album.find(params[:album_id])
+    @album.photos << @photo
+    unless @album.background_url
+      @album.update_attribute(:background_url, @photo.show_url)
+    end
     render 'api/photos/show'
   end
 

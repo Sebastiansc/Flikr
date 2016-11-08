@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import TrendingGallery from './trending_gallery';
-import {tagsArray} from '../../reducers/selectors';
+import {toArray} from '../../reducers/selectors';
 
 const mapStateToProps = ({tags}) => ({
-  tags: tagsArray(tags)
+  tags: toArray(tags)
 });
 
 export default connect(mapStateToProps)(TrendingGallery);

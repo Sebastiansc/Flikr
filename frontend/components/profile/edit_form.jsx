@@ -8,9 +8,7 @@ const customStyle = {
     bottom: 0,
     left: 0,
     right: 0,
-    opacity: .9,
-    background: '#f3f5f6',
-    zIndex: 2000
+    background: 'rgba(238,238,238, .6)',
   },
   content: {
     width: '500px',
@@ -18,6 +16,8 @@ const customStyle = {
     margin: 'auto',
     position: 'absolute',
     opacity: 1,
+    boxShadow: '0 0 0 1px rgba(0,0,0,.3),0 1px 4px rgba(0,0,0,.2)',
+    backgroundColor: 'white',
     zIndex: 2001
   }
 };

@@ -1,5 +1,5 @@
-import {FAVORITE, UNFAVORITE} from '../actions/favorite_actions';
 import {favorite, unfavorite} from '../util/favorites_api_util';
+import {FAVORITE, UNFAVORITE} from '../actions/favorite_actions';
 
 const FavoritesMiddleware = ({dispatch}) => next => action => {
   let success;

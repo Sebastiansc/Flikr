@@ -40,7 +40,8 @@ class CommentForm extends React.Component{
               <img src={this.props.user.image_url}></img>
             </Link>
             <textarea onChange={e => this.update(e)}
-              value={this.state.body}></textarea>
+              value={this.state.body}
+              placeholder='Comment...'></textarea>
           </div>
           <button className={klass}
             onClick={() => this.sendComment()}>

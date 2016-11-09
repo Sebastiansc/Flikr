@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router';
 class ExploreGalleryItem extends React.Component{
   constructor(props){
     super(props);
+    this.state = {loaded: false};
   }
 
   goToPhotoDetail(id){
@@ -15,11 +16,20 @@ class ExploreGalleryItem extends React.Component{
     return author ? author.username : 'You!';
   }
 
+  loadDone(){
+    this.setState({loaded: true});
+  }
+
+  visibility(){
+    return this.state.loaded ? 'visible' : 'invisible';
+  }
+
+
   render(){
     return(
       <figure onClick={() => this.goToPhotoDetail(this.props.photo.id)}
-              className='explore-thumb'>
-        <img onLoad={() => console.log("loaded")}
+              className={`explore-thumb ${this.visibility()}`}>
+        <img onLoad={() => this.loadDone()}
              src={this.props.photo.feed_url}></img>
 
         <div className='explore-item-bottom'>

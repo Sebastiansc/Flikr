@@ -68,13 +68,13 @@ export default class AlbumUpdateArea extends React.Component{
           <input type='text' className='album-editable-title'
             value={this.state.title}
             onChange={e => this.update('title', e)}
-            onClick={() => this.edit(true)}
+            onClick={() => setTimeOut(() => this.edit(true), 750)}
             onBlur={() => this.edit(false)}>
           </input>
           <input type='text' className='album-editable-desc'
             onClick={() => this.clearDefaultDesc()}
             onFocus={() => this.clearDefaultDesc()}
-            onBlur={() => this.restoreDefault()}
+            onBlur={() => setTimeOut(() => this.restoreDefault(), 750)}
             onChange={e => this.update('description', e)}
             value={this.state.description}>
           </input>

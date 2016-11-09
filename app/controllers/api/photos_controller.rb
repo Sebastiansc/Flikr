@@ -17,6 +17,9 @@ class Api::PhotosController < ApplicationController
     @photo.author_id = current_user.id
     if @photo.valid?
       @photo.save!
+      if (params[:album_id])
+        Album.find(params[:album_id]).photos << @photo
+      end
       render :show
     else
       render json: ['Invalid parameters'], status: 422

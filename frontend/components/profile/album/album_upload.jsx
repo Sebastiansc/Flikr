@@ -78,7 +78,7 @@ export default class AlbumUpload extends React.Component{
 
   close(){
     this.setState({photos: [], title: '', description: ''});
-    this.props.toggleCreate();
+    this.props.toggleOpen();
   }
 
   render(){
@@ -118,17 +118,3 @@ export default class AlbumUpload extends React.Component{
     );
   }
 }
-
-//
-// <div className='album-upload-stream'>
-//   {this.props.photos.map(photo => (
-//     <div key={photo.id}
-//         className={`album-upload-item ${this.setItemClass(photo.id)}`}
-//         style={{backgroundImage: `url('${photo.feed_url}')`}}
-//         onClick={() => this.toggleInclusion(photo.id)}>
-//     <i className={`fa fa-check ${this.setCheckClass(photo.id)}`}
-//        aria-hidden="true">
-//     </i>
-//     </div>
-//   ))}
-// </div>

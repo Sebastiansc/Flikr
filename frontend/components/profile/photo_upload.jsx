@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PhotoUpload = ({createPhoto}) => {
+const PhotoUpload = ({createPhoto, setId, albumId}) => {
   const formatUrl = (url, size) => {
     const rootUrl = url.slice(0,46);
     const tailUrl = url.slice(46);
@@ -14,18 +14,25 @@ const PhotoUpload = ({createPhoto}) => {
            const show_url = formatUrl(photo.secure_url, 1200);
            const feed_url = formatUrl(photo.secure_url, 700);
            createPhoto({
-             img_url: photo.secure_url,
-             title: photo.original_filename,
-             thumb_url,
-             show_url,
-             feed_url
+             photo: {
+               img_url: photo.secure_url,
+               title: photo.original_filename,
+               thumb_url,
+               show_url,
+               feed_url
+             },
+            album_id: albumId,
            });
         });
       }
     );
 
   return(
-    <li className='photo-upload' onClick={() => openWidget()}>Upload</li>
+    <li id={setId}
+      className='photo-upload'
+      onClick={() => openWidget()}>
+      <i className="fa fa-upload in-cover-photo" aria-hidden="true"></i>
+    </li>
   );
 };
 

@@ -5,7 +5,8 @@ import merge from 'lodash/merge';
 
 const _nullAlbum = {
   owner: {},
-  cover_photo: {}
+  cover_photo: {},
+  photos: []
 };
 
 const AlbumReducer = (state = _nullAlbum, action) => {

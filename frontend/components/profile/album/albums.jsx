@@ -8,7 +8,7 @@ export default class Albums extends React.Component{
     this.state = {creating: false};
   }
 
-  toggleCreate(){
+  toggleOpen(){
     this.setState({creating: !this.state.creating});
   }
 
@@ -16,7 +16,7 @@ export default class Albums extends React.Component{
     return(
       <div className='albums-main-page'>
         <div className='album-upload-toggler'
-            onClick={() => this.toggleCreate()}>
+            onClick={() => this.toggleOpen()}>
           <i className="fa fa-plus-square-o" aria-hidden="true"></i>
           <span className='create-album'>
             Create Album
@@ -25,7 +25,7 @@ export default class Albums extends React.Component{
         <AlbumUpload addPhoto={this.props.addPhoto}
            createAlbum={this.props.createAlbum}
            open={this.state.creating}
-           toggleCreate={() => this.toggleCreate()}
+           toggleOpen={() => this.toggleOpen()}
            photos={this.props.photos}/>
         <AlbumGallery albums={this.props.albums}
            deleteAlbum={this.props.deleteAlbum}/>

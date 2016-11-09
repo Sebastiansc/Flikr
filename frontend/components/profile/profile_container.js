@@ -4,8 +4,9 @@ import {createPhoto, requestPhoto} from '../../actions/photo_actions';
 import {getUser} from '../../actions/person_actions';
 import {toArray} from '../../reducers/selectors';
 
-const mapStateToProps = ({person, photos, userId}) => ({
+const mapStateToProps = ({person, photos, session}) => ({
     photos: toArray(photos),
+    currentUser: session.currentUser,
     person
 });
 

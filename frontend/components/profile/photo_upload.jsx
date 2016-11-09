@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PhotoUpload = ({createPhoto, setId, albumId}) => {
+const PhotoUpload = ({createPhoto, setId, albumId, show}) => {
   const formatUrl = (url, size) => {
     const rootUrl = url.slice(0,46);
     const tailUrl = url.slice(46);
@@ -28,7 +28,7 @@ const PhotoUpload = ({createPhoto, setId, albumId}) => {
     );
 
   return(
-    <li id={setId}
+    <li id={setId} style={{display: `${show}`}}
       className='photo-upload'
       onClick={() => openWidget()}>
       <i className="fa fa-upload in-cover-photo" aria-hidden="true"></i>

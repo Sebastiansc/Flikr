@@ -12,10 +12,15 @@ export default class Albums extends React.Component{
     this.setState({creating: !this.state.creating});
   }
 
+  showIfOwner(){
+    return this.props.currentUser.id === this.props.person.id ? '' : 'none';
+  }
+
   render(){
     return(
       <div className='albums-main-page'>
         <div className='album-upload-toggler'
+            style={{display: `${this.showIfOwner()}`}}
             onClick={() => this.toggleOpen()}>
           <i className="fa fa-plus-square-o" aria-hidden="true"></i>
           <span className='create-album'>
@@ -26,7 +31,8 @@ export default class Albums extends React.Component{
            createAlbum={this.props.createAlbum}
            open={this.state.creating}
            toggleOpen={() => this.toggleOpen()}
-           photos={this.props.photos}/>
+           photos={this.props.photos}
+           show={this.showIfOwner()}/>
         <AlbumGallery albums={this.props.albums}
            deleteAlbum={this.props.deleteAlbum}/>
       </div>

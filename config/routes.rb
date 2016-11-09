@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
       resources :tags, only: [:create]
       resources :albums, only: [:index]
+      resources :favorites, only: [:create, :destroy]
     end
 
     resources :comments, only: [:create, :destroy, :update]

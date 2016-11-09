@@ -5,18 +5,18 @@ class Photo < ApplicationRecord
   class_name: :User
 
   has_many :album_photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :taggings, dependent: :destroy
+  has_many :favorites
+
+  has_many :tags,
+  through: :taggings,
+  source: :tag
 
   has_many :albums,
   through: :album_photos,
   source: :album
 
-  has_many :comments, dependent: :destroy
-
-  has_many :taggings, dependent: :destroy
-
-  has_many :tags,
-  through: :taggings,
-  source: :tag
 
   def self.feed_stream(limit = 50, offset = 0)
     Photo.where(public: true).

@@ -4,16 +4,15 @@ import {Link} from 'react-router';
 export default class JustifiedGallery extends React.Component{
   constructor(props){
     super(props);
+    this.componentDidMount = this.justify;
+    this.componentDidUpdate = this.justify;
   }
 
-  componentDidMount(){
-    $('#gallery').hide();
-    setTimeout(() =>{
-       $("#gallery").justifiedGallery({
-         rowHeight: this.props.rowHeight,
-         margins: 5
-       }).on('jg.complete', () => $('#gallery').show());
-     }, 100);
+  justify(){
+    $("#gallery").justifiedGallery({
+      rowHeight: this.props.rowHeight,
+      margins: 5
+    });
   }
 
   render(){

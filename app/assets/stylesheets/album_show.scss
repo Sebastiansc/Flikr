@@ -1,0 +1,118 @@
+.album-show {
+  width: 80%;
+  margin: 80px auto;
+}
+
+.album-show-cover {
+  height: 300px;
+  background-size: cover;
+  margin-bottom: 7px;
+  background-position: center;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 25px
+}
+
+.dimining {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.6);
+}
+
+.album-editable-block {
+  position: relative;
+  z-index: 500;
+  margin: 40px auto 30px auto;
+  color: white;
+  width: 50%;
+  transition: background-color .2s,padding .5s ease-out;
+}
+
+.album-editable-block:hover {
+  background: rgba(0,0,0,.4);
+  border-radius: 2px;
+}
+
+.album-editable-title {
+  height: 70px;
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.album-editable-block > input {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.album-editable-desc {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  font-style: italic
+}
+
+.album-editable-desc:focus {
+  outline: none;
+}
+
+.album-editable-title:focus {
+  outline: none;
+}
+
+.autorship {
+  width: 50%;
+  text-align: center;
+  position: relative;
+  margin: 50px auto 20px auto;
+  display: block;
+  color: white;
+  font-size: 14px;
+}
+
+.album-update {
+  display: none;
+  box-shadow: inset 0 0 0 1px #fff;
+  background-color: transparent;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  position: relative;
+  z-index: 10000;
+  margin: 0 auto;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-bottom: 79px;
+}
+
+.album-editing {
+  display: block;
+}
+
+.photo-length {
+  margin: 0 auto 50px auto;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  position: relative;
+  z-index: 10000;
+}
+
+.content-editable-on {
+  margin-top: -1px;
+  margin-bottom: 30px;
+}
+
+.hide-length {
+  display: none;
+}

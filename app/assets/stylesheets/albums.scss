@@ -5,7 +5,7 @@
   display: flex;
   width: 80%;
   flex-wrap: wrap;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 .album-gallery-item {
@@ -28,7 +28,6 @@
 }
 
 .album-tools {
-  // z-index: 200;
   position: absolute;
   bottom: 20px;
   color: white;
@@ -39,9 +38,12 @@
   transition: bottom .15s ease-out;
 }
 
-.album-link-overlay:hover .album-tools {
+.album-gallery-item:hover .album-tools {
   bottom: 50px;
-  border: 1px solid red;
+}
+
+.album-gallery-item:hover #album-delete {
+  display: inline-block;
 }
 
 .album-tools h4 {
@@ -53,4 +55,124 @@
 
 .album-tools span {
   font-size: 14px;
+}
+
+#album-delete {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+}
+
+// /------------------------------ALBUM UPLOAD----------------------------/
+
+.album-upload-modal {
+  padding: 40px;
+}
+
+.album-upload-toggler {
+  margin: 0 auto;
+  padding: 10px 0;
+  color: #737b80;
+  cursor: pointer;
+  width: 80%;
+  text-align: right
+}
+
+.create-album {
+  margin-left: 5px;
+}
+
+.album-upload-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.fa-times {
+  color: #f2624f;
+  margin-right: 25px;
+  font-size: 20px;
+  cursor: pointer
+}
+
+.album-upload-stream {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.album-upload-stream div {
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  margin: 0 5px 5px 0;
+  height: 100px;
+  position: relative
+}
+
+.album-select {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid #9ea4a7;
+}
+
+.album-info input {
+  border: none;
+}
+
+.album-info input:focus {
+  outline: none
+}
+
+#album-upload-form {
+  height: auto;
+  margin-bottom: 15px;
+}
+
+
+#album-upload-button {
+  margin-right: 35px;
+}
+
+.album-upload-item {
+  cursor: pointer;
+}
+
+.included {
+  box-shadow: inset 0 0 0 3px #128fdc;
+  border-radius: 3px;
+}
+
+.no-check {
+  display: none;
+}
+
+.check {
+  display: inline-block;
+  color: white;
+  vertical-align: middle;
+  line-height: 22px;
+  border-radius: 3px;
+  height: 20px;
+  width: 20px;
+  right: 0;
+  top: 0;
+  position: absolute;
+  margin-right: 0;
+  box-shadow: inset 0 0 0 10px #128fdc;
+}
+
+.invalid-upload {
+  opacity: 0.6;
 }

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { fetchPhotos, fetchByTag } from '../actions/photo_actions';
+import { fetchPhotos,
+         fetchByTag,
+         requestPhotos } from '../actions/photo_actions';
 import { getUser } from '../actions/person_actions';
 import { fetchTags } from '../actions/tag_actions';
 import { fetchPhotoComments } from '../actions/comment_actions';
-import { fetchUserAlbums } from '../actions/album_actions';
+import { fetchUserAlbums, fetchAlbum } from '../actions/album_actions';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import ImageContainer from './photos/images_container';
@@ -17,6 +19,8 @@ import LightBoxContainer from './photos/lightbox/lightbox_container';
 import ByTagContainer from './trending/by_tag_container';
 import TrendingContainer from '../components/trending/trending_container';
 import AlbumContainer from '../components/profile/album/album_container';
+import AlbumShowContainer from
+       '../components/profile/album/album_show_container';
 import Splash from '../components/splash/splash';
 
 const Root = ({ store }) => {
@@ -57,6 +61,11 @@ const Root = ({ store }) => {
 
   const fetchAlbums = nextState => {
     store.dispatch(fetchUserAlbums(nextState.params.userId));
+    store.dispatch(requestPhotos());
+  };
+
+  const getAlbum = nextState => {
+    store.dispatch(fetchAlbum(nextState.params.albumId));
   };
 
   return(
@@ -87,6 +96,8 @@ const Root = ({ store }) => {
                 onEnter={n => fetchAlbums(n)}/>
           </Route>
 
+          <Route path='album/:albumId' component={AlbumShowContainer}
+              onEnter={n => getAlbum(n)}/>
           <Route path='photos/:photoId' component={PhotoContainer}
             onEnter={(n) => fetchComments(n)}/>
         </Route>

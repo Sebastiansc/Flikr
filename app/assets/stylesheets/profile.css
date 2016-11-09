@@ -91,6 +91,7 @@
   padding: 8px 18px;
   color: white;
   margin-left: auto;
+  cursor: pointer;
   border: none;
   margin-right: 20px;
 }

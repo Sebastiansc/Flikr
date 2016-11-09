@@ -1,5 +1,6 @@
 export const FETCH_USER_ALBUMS = 'FETCH_USER_ALBUMS';
 export const FETCH_PHOTO_ALBUMS = 'FETCH_PHOTO_ALBUMS';
+export const FETCH_ALBUM = 'FETCH_ALBUM';
 export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
 export const ADD_PHOTO = 'ADD_PHOTO';
 export const CREATE_AND_ADD_PHOTO = 'CREATE_AND_ADD_PHOTO';
@@ -24,9 +25,15 @@ export const receiveAlbums = albums => ({
   albums
 });
 
-export const createAlbum = album => ({
+export const fetchAlbum = albumId => ({
+  type: FETCH_ALBUM,
+  albumId
+});
+
+export const createAlbum = (album, photoIds) => ({
   type: CREATE_ALBUM,
-  album
+  album,
+  photoIds
 });
 
 export const receiveAlbum = album => ({

@@ -8,6 +8,7 @@ import {fetchUserAlbums,
         createAndAddPhoto} from '../util/albums_api_util';
 import {FETCH_USER_ALBUMS,
         FETCH_PHOTO_ALBUMS,
+        FETCH_ALBUM,
         CREATE_ALBUM,
         DELETE_ALBUM,
         UPDATE_ALBUM,
@@ -29,9 +30,13 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
       success = albums => dispatch(receiveAlbums(albums));
       fetchPhotoAlbums(action.photoId, success);
       return next(action);
+    case FETCH_ALBUM:
+      success = album => dispatch(receiveAlbum(album));
+      fetchAlbum(action.albumId, success);
+      return next(action);
     case CREATE_ALBUM:
       success = album => dispatch(receiveAlbum(album));
-      postAlbum(action.album, success);
+      postAlbum({album: action.album, photos: action.photoIds}, success);
       return next(action);
     case UPDATE_ALBUM:
       success = album => dispatch(receiveAlbum(album));

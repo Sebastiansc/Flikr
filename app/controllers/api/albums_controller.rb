@@ -11,10 +11,13 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
+    debugger;
     @album = Album.new(album_params)
     @album.owner_id = current_user.id
+    @album.cover_photo_id =  params[:photos][0]
     if @album.valid?
       @album.save!
+      params[:photos][1..-1].each{|id| @album.photos << Photo.find(id)}
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -39,7 +42,7 @@ class Api::AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @photos = @album.photos
+    @photos = @album.photos.includes(:author, :tags)
   end
 
   def add_photo
@@ -67,6 +70,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   private
+
   def album_params
     params.require(:album).permit(:title, :description)
   end

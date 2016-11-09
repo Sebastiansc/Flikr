@@ -1,23 +1,24 @@
 import {connect} from 'react-redux';
-import AlbumGallery from './album_gallery';
+import Albums from './albums';
 import { toArray } from '../../../reducers/selectors';
 import {createAlbum,
         createAndAddPhoto,
         deleteAlbum,
         updateAlbum } from '../../../actions/album_actions';
 
-const mapStateToProps = ({albums, session, person}) => ({
+const mapStateToProps = ({albums, photos, session, person}) => ({
   albums: toArray(albums),
   currentUser: session.currentUser,
+  photos: toArray(photos),
   person
 });
 
 const mapDispatchToProps = dispatch => ({
-  createAlbum: album => dispatch(createAlbum(album)),
+  createAlbum: (album, photos) => dispatch(createAlbum(album, photos)),
   deleteAlbum: albumId => dispatch(deleteAlbum(albumId)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AlbumGallery);
+)(Albums);

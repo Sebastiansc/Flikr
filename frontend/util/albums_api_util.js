@@ -16,7 +16,7 @@ export const postAlbum = (album, success) => {
   $.ajax({
     url: `api/albums`,
     type: 'post',
-    data: {album},
+    data: album,
     success
   });
 };

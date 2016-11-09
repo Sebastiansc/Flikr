@@ -1,6 +1,9 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all.includes(:photos)
+    @tags = Tag.joins(:taggings).
+            group('tags.id').
+            having('COUNT(*) > 0').
+            includes(:photos)
   end
 
   def create

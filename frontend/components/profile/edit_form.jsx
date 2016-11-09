@@ -9,6 +9,7 @@ const customStyle = {
     left: 0,
     right: 0,
     background: 'rgba(238,238,238, .6)',
+    zIndex: 2000
   },
   content: {
     width: '500px',

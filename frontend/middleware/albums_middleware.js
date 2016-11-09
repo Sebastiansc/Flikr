@@ -5,7 +5,9 @@ import {fetchUserAlbums,
         fetchAlbum,
         deleteAlbum,
         addPhoto,
-        createAndAddPhoto} from '../util/albums_api_util';
+        createAndAddPhoto,
+        dropPhoto,
+        changeCoverPhoto} from '../util/albums_api_util';
 import {FETCH_USER_ALBUMS,
         FETCH_PHOTO_ALBUMS,
         FETCH_ALBUM,
@@ -13,10 +15,13 @@ import {FETCH_USER_ALBUMS,
         DELETE_ALBUM,
         UPDATE_ALBUM,
         ADD_PHOTO,
+        DROP_PHOTO,
+        CHANGE_COVER_PHOTO,
         CREATE_AND_ADD_PHOTO,
         receiveAlbums,
         receiveAlbum,
-        removeAlbum} from '../actions/album_actions';
+        removeAlbum,
+        clearPhoto} from '../actions/album_actions';
 import { receivePhoto } from '../actions/photo_actions';
 
 const AlbumsMiddleware = ({dispatch}) => next => action => {
@@ -53,6 +58,13 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
     case CREATE_AND_ADD_PHOTO:
       success = photo => dispatch(receivePhoto(photo));
       createAndAddPhoto(action.albumId, action.photo, success);
+      return next(action);
+    case DROP_PHOTO:
+      success = photo => dispatch(clearPhoto(photo));
+      dropPhoto(action.albumId, action.photoId, success);
+      return next(action);
+    case CHANGE_COVER_PHOTO:
+      changeCoverPhoto(action.albumId, action.photoId);
       return next(action);
     default:
       return next(action);

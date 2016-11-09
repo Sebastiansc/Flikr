@@ -61,3 +61,18 @@ export const createAndAddPhoto = (albumId, photo, success) => {
     success
   });
 };
+
+export const dropPhoto = (albumId, photoId, success) => {
+  $.ajax({
+    type: 'delete',
+    url: `api/albums/${albumId}/${photoId}`,
+    success
+  });
+};
+
+export const changeCoverPhoto = (albumId, photoId) => {
+  $.ajax({
+    type: 'post',
+    url: `api/albums/${albumId}/${photoId}`
+  });
+};

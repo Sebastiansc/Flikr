@@ -1,6 +1,7 @@
 import {RECEIVE_ALBUMS,
         RECEIVE_ALBUM,
-        REMOVE_ALBUM} from '../actions/album_actions';
+        REMOVE_ALBUM,
+        CLEAR_PHOTO} from '../actions/album_actions';
 import merge from 'lodash/merge';
 
 const _nullAlbum = {
@@ -21,6 +22,9 @@ const AlbumReducer = (state = _nullAlbum, action) => {
       return newState;
     case REMOVE_ALBUM:
       delete newState[action.album.id];
+      return newState;
+    case CLEAR_PHOTO:
+      delete newState[action.photo.id];
       return newState;
     default:
       return state;

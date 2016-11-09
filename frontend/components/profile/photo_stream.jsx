@@ -1,13 +1,12 @@
 import React from 'react';
-import ExploreGallery from '../photos/explore';
+import JustifiedGallery from '../photos/justified_gallery';
 
 const PhotoStream = ({photos, requestPhotos}) => {
   const location = window.location.hash.slice(2);
   return(
-    <main>
+    <main className='photostream'>
       <div className='photo-stream-tools'></div>
-      <ExploreGallery photos={photos} requestPhotos={requestPhotos}
-        klass={'profile-gallery'}/>
+      <JustifiedGallery photos={photos} rowHeight={350}/>
     </main>
   );
 };

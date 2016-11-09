@@ -12,8 +12,9 @@ const _nullAlbum = {
   photos: []
 };
 
-const mapStateToProps = ({albums, photos}, {params}) => ({
+const mapStateToProps = ({albums, photos, session}, {params}) => ({
   album: albums[params.albumId] || _nullAlbum,
+  currentUser: session.currentUser,
   photos
 });
 

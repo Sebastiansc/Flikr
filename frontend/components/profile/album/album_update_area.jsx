@@ -29,7 +29,7 @@ export default class AlbumUpdateArea extends React.Component{
   }
 
   restoreDefault(){
-    if(!this.state.description){
+    if(this.state.description === this.defaultDesc){
       this.setState({
         description: this.state.description || this.defaultDesc,
         editing: false
@@ -68,13 +68,13 @@ export default class AlbumUpdateArea extends React.Component{
           <input type='text' className='album-editable-title'
             value={this.state.title}
             onChange={e => this.update('title', e)}
-            onClick={() => setTimeOut(() => this.edit(true), 750)}
-            onBlur={() => this.edit(false)}>
+            onClick={() =>  this.edit(true)}
+            onBlur={() => setTimeout(() => this.edit(false), 300)}>
           </input>
           <input type='text' className='album-editable-desc'
             onClick={() => this.clearDefaultDesc()}
             onFocus={() => this.clearDefaultDesc()}
-            onBlur={() => setTimeOut(() => this.restoreDefault(), 750)}
+            onBlur={() => setTimeout(() => this.restoreDefault(), 300)}
             onChange={e => this.update('description', e)}
             value={this.state.description}>
           </input>

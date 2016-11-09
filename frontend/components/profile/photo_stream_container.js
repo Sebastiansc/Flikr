@@ -3,8 +3,9 @@ import PhotoStream from './photo_stream';
 import {getUser} from '../../actions/person_actions';
 import {publicPhotos} from '../../reducers/selectors';
 
-const mapStateToProps = ({person, photos}) => ({
+const mapStateToProps = ({person, photos, session}) => ({
   photos: publicPhotos(photos),
+  currentUser: session.currentUser,
   person
 });
 

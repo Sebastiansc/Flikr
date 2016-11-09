@@ -35,8 +35,6 @@ const Root = ({ store }) => {
   };
 
   const fetchUser = nextState => {
-    const state = store.getState();
-
     store.dispatch(getUser(nextState.params.userId));
     savePrev(nextState);
   };
@@ -67,6 +65,7 @@ const Root = ({ store }) => {
   const getAlbum = nextState => {
     store.dispatch(fetchAlbum(nextState.params.albumId));
     store.dispatch(requestPhotos());
+    savePrev(nextState);
   };
 
   return(
@@ -74,15 +73,18 @@ const Root = ({ store }) => {
 
       <Router history={hashHistory}>
 
-        <Route path='/' component={Splash}/>
-        <Route path='signup' component={SessionFormContainer}/>
-        <Route path='signin' component={SessionFormContainer}/>
+        <Route path='/' component={Splash}
+            onEnter={(n,r) =>_redirectIfLoggedIn(n,r)}/>
+        <Route path='signup' component={SessionFormContainer}
+          onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
+        <Route path='signin' component={SessionFormContainer}
+          onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
 
         <Route path='/home' component={App}
                onEnter={(n, r) => _ensureLogin(n ,r)}>
+          <IndexRoute component={ImageContainer}
+            onEnter={n => savePrev(n)}/>
           <Route path='main' component={ImageContainer}/>
-          <Route path='explore' component={ImageContainer}
-                 onEnter={n => savePrev(n)}/>
           <Route path='trending' component={TrendingContainer}
             onEnter={n => getTags(n)}/>
           <Route path='trending/:tagId' component={ByTagContainer}

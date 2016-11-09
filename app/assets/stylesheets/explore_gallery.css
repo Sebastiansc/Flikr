@@ -78,3 +78,24 @@
   font-weight: 400;
   color: white;
 }
+
+/*----------------------------JUSTIFIED GALLERY-------------------------*/
+
+#caption-patch {
+  font-size: 14px;
+  color: white;
+  height: 60px;
+  opacity: 0;
+  background: transparent;
+  transition: opacity 100ms, background 100ms;
+  display: flex;
+  padding: 20px 15px;
+  align-items: flex-end;
+}
+
+.justified-gallery-item:hover #caption-patch {
+  opacity: 1;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0.34) 58%, rgba(0,0,0,0.52) 88%, rgba(0,0,0,0.52) 99%);
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0.34) 58%,rgba(0,0,0,0.52) 88%,rgba(0,0,0,0.52) 99%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0.34) 58%,rgba(0,0,0,0.52) 88%,rgba(0,0,0,0.52) 99%);
+}

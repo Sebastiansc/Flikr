@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
     @photos = Photo.feed_stream
   end
 
-  def by_tag()
+  def by_tag
     @photos = Photo.by_tag(params[:tag_id])
     render :index
   end

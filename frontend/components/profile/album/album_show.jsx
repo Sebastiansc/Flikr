@@ -3,6 +3,7 @@ import ExploreGallery from '../../photos/explore';
 import AlbumUpdateArea from './album_update_area';
 import PhotoUpload from '../../profile/photo_upload';
 import AlbumPhotoUpload from './album_photo_uploads';
+import JustifiedGallery from '../../photos/justified_gallery';
 
 export default class AlbumShow extends React.Component{
   constructor(props){
@@ -27,7 +28,10 @@ export default class AlbumShow extends React.Component{
                 fetchAlbum={this.props.fetchAlbum}
                 createPhoto={this.props.createPhoto}/>
         </div>
-        <ExploreGallery photos={this.props.album.photos}/>
+        <JustifiedGallery photos={this.props.album.photos}
+            rowHeight={200}
+            klass='album-show-item'/>
+          
       </div>
     );
   }

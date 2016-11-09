@@ -108,6 +108,11 @@
   height: 50px;
 }
 
+.photostream {
+  width: 80%;
+  margin: 0 auto;
+}
+
 /*-----------------CAMERAROLL----------------------*/
 .centered-camera-roll {
   width: 80%;

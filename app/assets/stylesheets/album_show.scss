@@ -116,3 +116,23 @@
 .hide-length {
   display: none;
 }
+
+.in-editable-block {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  opacity: 0;
+}
+
+.album-editable-block:hover .in-editable-block {
+  opacity: .8
+}
+
+.in-cover-photo {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+}

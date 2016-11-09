@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AlbumAdd from './album_add';
-import {addPhoto, fetchUserAlbums} from '../../actions/album_actions';
-import { toArray } from '../../reducers/selectors';
+import {addPhoto, fetchUserAlbums} from '../../../actions/album_actions';
+import { toArray } from '../../../reducers/selectors';
 
 const mapStateToProps = ({albums, editing}, ownProps) => ({
   albums: toArray(albums),

@@ -11,7 +11,6 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
-    debugger;
     @album = Album.new(album_params)
     @album.owner_id = current_user.id
     @album.cover_photo_id =  params[:photos][0]

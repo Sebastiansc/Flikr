@@ -2,7 +2,7 @@ import React from 'react';
 import CameraRollGallery from './camera_roll_gallery';
 import EditForm from './edit_form';
 import EditTray from './edit_tray';
-import AlbumAddContainer from './album_add_container';
+import AlbumAddContainer from './album/album_add_container';
 import Modal from 'react-modal';
 
 export default class CameraRoll extends React.Component {

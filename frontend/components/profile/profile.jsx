@@ -9,15 +9,20 @@ export default class Profile extends React.Component{
   }
 
   underline(){
-    const location = window.location.hash;
-    if (location.includes('cameraRoll')){
-      $('.profile-nav li:nth-child(2)').removeAttr('id');
+    let location = window.location.hash.split('/');
+    location = location[location.length -1];
+    if (location === 'cameraRoll'){
+      $('.profile-nav li').removeAttr('id');
       $('.profile-nav li:first-child').attr('id', 'nav-selected');
+    } else if (location === 'albums'){
+      $('.profile-nav li').removeAttr('id');
+      $('.profile-nav li:last-child').attr('id', 'nav-selected');
     } else {
-      $('.profile-nav li:first-child').removeAttr('id');
+      $('.profile-nav li').removeAttr('id');
       $('.profile-nav li:nth-child(2)').attr('id','nav-selected');
     }
   }
+
   componentDidMount(){
     this.underline();
   }

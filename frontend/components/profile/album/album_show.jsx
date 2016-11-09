@@ -11,6 +11,7 @@ const AlbumShow = ({album, updateAlbum, createAndAddPhoto}) => {
         <AlbumUpdateArea album={album} updateAlbum={updateAlbum}
             createAndAddPhoto={createAndAddPhoto}/>
         <span className='autorship'>{`By: ${album.owner.username}`}</span>
+        <i className="fa fa-pencil in-cover-photo" aria-hidden="true"></i>
       </div>
       <ExploreGallery photos={album.photos}/>
     </div>

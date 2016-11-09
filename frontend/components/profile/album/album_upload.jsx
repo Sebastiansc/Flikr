@@ -1,4 +1,5 @@
 import React from 'react';
+import AlbumUploadGallery from './album_upload_gallery';
 import Modal from 'react-modal';
 
 const customStyle = {
@@ -109,20 +110,25 @@ export default class AlbumUpload extends React.Component{
         </form>
 
         <span className='album-select'>Select photos to add</span>
-        <div className='album-upload-stream'>
-          {this.props.photos.map(photo => (
-            <div key={photo.id}
-                className={`album-upload-item ${this.setItemClass(photo.id)}`}
-                style={{backgroundImage: `url('${photo.feed_url}')`}}
-                onClick={() => this.toggleInclusion(photo.id)}>
-            <i className={`fa fa-check ${this.setCheckClass(photo.id)}`}
-               aria-hidden="true">
-            </i>
-            </div>
-          ))}
-        </div>
-
+        <AlbumUploadGallery setItemClass={() => this.setItemClass()}
+            setCheckClass={() => this.setCheckClass()}
+            toggleInclusion={() => this.toggleInclusion()}
+            photos={this.props.photos}/>
       </Modal>
     );
   }
 }
+
+//
+// <div className='album-upload-stream'>
+//   {this.props.photos.map(photo => (
+//     <div key={photo.id}
+//         className={`album-upload-item ${this.setItemClass(photo.id)}`}
+//         style={{backgroundImage: `url('${photo.feed_url}')`}}
+//         onClick={() => this.toggleInclusion(photo.id)}>
+//     <i className={`fa fa-check ${this.setCheckClass(photo.id)}`}
+//        aria-hidden="true">
+//     </i>
+//     </div>
+//   ))}
+// </div>

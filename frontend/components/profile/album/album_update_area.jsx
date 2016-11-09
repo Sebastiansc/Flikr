@@ -21,12 +21,21 @@ export default class AlbumUpdateArea extends React.Component{
   }
 
   clearDefaultDesc(){
-    this.setState({description: '', editing: true});
+    if (this.state.description === this.defaultDesc){
+      this.setState({description: '', editing: true});
+    } else {
+      this.setState({editing: true});
+    }
   }
 
   restoreDefault(){
     if(!this.state.description){
-      this.setState({description: this.defaultDesc, editing: false});
+      this.setState({
+        description: this.state.description || this.defaultDesc,
+        editing: false
+      });
+    } else {
+      this.setState({editing: false});
     }
   }
 
@@ -48,8 +57,8 @@ export default class AlbumUpdateArea extends React.Component{
       description: this.state.description,
       id: this.props.album.id
     };
-
     this.props.updateAlbum(album);
+    this.setState({editing: false});
   }
 
   render(){
@@ -69,6 +78,7 @@ export default class AlbumUpdateArea extends React.Component{
             onChange={e => this.update('description', e)}
             value={this.state.description}>
           </input>
+          <i className="fa fa-pencil in-editable-block" aria-hidden="true"></i>
         </div>
         <span className={`photo-length ${this.setLengthClass()}`}>
           {this.props.album.photos.length} photos

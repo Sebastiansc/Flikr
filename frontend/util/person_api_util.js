@@ -4,3 +4,11 @@ export const fetchUser = (id, success) => {
     success
   });
 };
+
+export const changeUserCover = (photoId, userId, success) => {
+  $.ajax({
+    url: `api/users/${userId}/cover_photo/${photoId}`,
+    type: 'post',
+    success
+  });
+};

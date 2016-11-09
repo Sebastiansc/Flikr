@@ -41,6 +41,7 @@ const Root = ({ store }) => {
 
   const fetchComments = nextState => {
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
+    store.dispatch(requestPhotos());
   };
 
   const savePrev = nextState => {

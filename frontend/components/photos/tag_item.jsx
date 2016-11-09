@@ -19,7 +19,7 @@ export default class TagItem extends React.Component{
   showClose(){
     if(this.state.hovering){
       return(
-        <i className="fa fa-times" aria-hidden="true"
+        <i className="fa fa-times" id='tag-close' aria-hidden="true"
            onClick={() => this.remove()}>
         </i>
       );
@@ -31,7 +31,9 @@ export default class TagItem extends React.Component{
       <li onMouseEnter={() => this.toggleClose()}
           onMouseLeave={() => this.toggleClose()}
         className='tag-item'>
-        <Link to=''>{this.props.tag.name}</Link>
+        <Link to={`home/trending/${this.props.tag.id}`}>
+          {this.props.tag.name}
+        </Link>
         {this.showClose()}
       </li>
     );

@@ -27,7 +27,7 @@ const PhotosReducer = (state = _defaultState, action) => {
       delete newState[action.photo.id];
       return newState;
     case RECEIVE_USER_INFO:
-      return action.userPhotos;
+      return action.user.photos;
     case RENEW_PHOTO:
       newState[action.photo.id] = null;
       newState[action.photo.id] = action.photo;

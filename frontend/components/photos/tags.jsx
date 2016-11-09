@@ -38,8 +38,10 @@ export default class Tags extends React.Component{
     return(
       <div className="tags-view">
         <div className='tag-header'>
-          <Link to=''>Tags</Link>
-          <span onClick={() => this.add()}>Add tags</span>
+          <Link to='home/trending'>Tags</Link>
+          <span className='add-tag' onClick={() => this.add()}>
+            Add tags
+          </span>
         </div>
         {this.addForm()}
         <ul className='tags'>

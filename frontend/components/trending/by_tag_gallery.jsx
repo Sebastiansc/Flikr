@@ -1,11 +1,11 @@
 import React from 'react';
-import ExploreGallery from '../photos/explore';
+import JustifiedGallery from '../photos/justified_gallery';
 
 const ByTagGallery = ({photos, tag}) => {
   return(
     <div className='centered-by-tag'>
       <h1>{tag.name}</h1>
-      <ExploreGallery photos={photos}/>
+      <JustifiedGallery rowHeight={250} photos={photos}/>
     </div>
   );
 };

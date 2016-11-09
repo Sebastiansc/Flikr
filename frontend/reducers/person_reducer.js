@@ -1,4 +1,4 @@
-import {RECEIVE_USER_INFO} from '../actions/person_actions';
+import {RECEIVE_USER_INFO, UPDATE_USER_COVER} from '../actions/person_actions';
 import {LOGOUT} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -14,7 +14,10 @@ const PersonReducer = (state = _nullPerson, action) => {
 
   switch (action.type) {
     case RECEIVE_USER_INFO:
-      return action.userPhotos.author;
+      return action.user.info;
+    case UPDATE_USER_COVER:
+      newState.cover_photo = action.user.info.cover_photo;
+      return newState;
     case LOGOUT:
       return _nullPerson;
     default:

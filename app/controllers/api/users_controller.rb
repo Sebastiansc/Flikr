@@ -21,6 +21,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def change_cover
+    @user = User.find(params[:user_id])
+    @photos = @user.photos
+    @user.update_attribute(:cover_photo, Photo.find(params[:photo_id]).show_url)
+    render :show
+  end
   private
   def user_params
     params.require(:user).permit(:username, :password, :cover_photo, :image_url)

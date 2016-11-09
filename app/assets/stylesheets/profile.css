@@ -408,3 +408,23 @@
 .album-selected {
   border: 2px solid #008ddf;
 }
+
+/*----------------------------CHANGE COVER PHOTO-------------------------*/
+
+.update-cover-photo {
+  position: absolute;
+  right: 180px;
+  top: 45px;
+  color: white;
+  font-size: 24px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity .2s ease,width .2s ease;
+  width: 0;
+}
+
+.cover-photo:hover .update-cover-photo {
+  width: 48px;
+  height: 48px;
+  opacity: 1;
+}

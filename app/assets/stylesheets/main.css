@@ -20,14 +20,13 @@
 }
 
 .logout {
-  width: 57px;
-  height: 50px;
+  width: 50px;
+  height: 40px;
 }
 
 .nav-container {
   width: 80%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -46,7 +45,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /*width: 35%;*/
+  margin-left: auto;
 }
 
 .nav-bar a {
@@ -108,12 +107,18 @@
   border-radius: 3px;
 }
 
-.search-box input{
+.search-input{
   padding: 9px 16px 9px 10px;
   font-size: 14px;
   background: transparent;
   border:none;
   border-radius: 5px;
+  transition: background 200ms;
+}
+
+.search-input:focus {
+  width: 300px;
+  outline: none;
 }
 
 .user-drop-down{

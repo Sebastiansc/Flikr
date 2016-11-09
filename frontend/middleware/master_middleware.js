@@ -5,6 +5,7 @@ import PersonMiddleware from './person_middleware';
 import CommentsMiddleware from './comments_middleware';
 import TagsMiddleware from './tags_middleware';
 import AlbumsMiddleware from './albums_middleware';
+import FavoritesMiddleware from './favorites_middleware';
 import createLogger from 'redux-logger';
 
 const logger = createLogger();
@@ -16,6 +17,7 @@ const RootMiddleware = applyMiddleware(
   CommentsMiddleware,
   TagsMiddleware,
   AlbumsMiddleware,
+  FavoritesMiddleware,
   logger
 );
 

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
       resources :tags, only: [:create]
       resources :albums, only: [:index]
-      resources :favorites, only: [:create, :destroy]
+      resources :favorites, only: [:create]
     end
 
     resources :comments, only: [:create, :destroy, :update]
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   get 'api/photos/tag/:tag_id', :to => 'api/photos#by_tag'
+
+  delete 'api/photos/:photo_id/favorites', :to => 'api/favorites#destroy'
 
   post 'api/users/:user_id/cover_photo/:photo_id', :to => 'api/users#change_cover'
 

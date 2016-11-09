@@ -110,9 +110,9 @@ export default class AlbumUpload extends React.Component{
         </form>
 
         <span className='album-select'>Select photos to add</span>
-        <AlbumUploadGallery setItemClass={() => this.setItemClass()}
-            setCheckClass={() => this.setCheckClass()}
-            toggleInclusion={() => this.toggleInclusion()}
+        <AlbumUploadGallery setCheckClass={id => this.setCheckClass(id)}
+          setItemClass={id => this.setItemClass(id)}
+            toggleInclusion={id => this.toggleInclusion(id)}
             photos={this.props.photos}/>
       </Modal>
     );

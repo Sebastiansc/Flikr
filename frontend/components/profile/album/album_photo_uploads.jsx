@@ -32,7 +32,8 @@ export default class AlbumPhotoUploads extends React.Component{
   render(){
     return(
       <li className='photo-upload' id='album-show-upload'
-        onClick={() => this.openWidget()}>
+        onClick={() => this.openWidget()}
+        style={{display: `${this.props.showIfOwner()}`}}>
         <i className="fa fa-upload in-cover-photo" aria-hidden="true"></i>
       </li>
     );

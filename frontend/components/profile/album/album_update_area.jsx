@@ -61,7 +61,7 @@ export default class AlbumUpdateArea extends React.Component{
     this.setState({editing: false});
   }
 
-  render(){
+  editableDisplay(){
     return(
       <div>
         <div className={`album-editable-block ${this.setContentClass()}`}>
@@ -87,6 +87,38 @@ export default class AlbumUpdateArea extends React.Component{
             onClick={() => this.handleSubmit()}>
           Done
         </button>
+      </div>
+    );
+  }
+
+  staticDisplay(){
+    return(
+      <div>
+        <div className={`album-editable-block`}>
+          <div type='text' className='album-editable-title'>
+            {this.props.album.title}
+          </div>
+          <div type='text' className='album-editable-desc'>
+            {this.props.album.description}
+          </div>
+        </div>
+        <span className={`photo-length ${this.setLengthClass()}`}>
+          {this.props.album.photos.length} photos
+        </span>
+      </div>
+    );
+  }
+
+  properDisplay(){
+    return this.props.editable ?
+      this.editableDisplay() :
+      this.staticDisplay();
+  }
+
+  render(){
+    return(
+      <div>
+        {this.properDisplay()}
       </div>
     );
   }

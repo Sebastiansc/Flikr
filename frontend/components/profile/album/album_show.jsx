@@ -16,8 +16,16 @@ export default class AlbumShow extends React.Component{
     this.setState({adding: !this.state.adding});
   }
 
+  owner(){
+    return this.props.currentUser.id === this.props.person.id;
+  }
+
   showIfOwner(){
-    return this.props.currentUser.id === this.props.person.id ? '' : 'none';
+    return this.owner() ? '' : 'none';
+  }
+
+  editable(){
+    this.owner();
   }
 
   render(){
@@ -46,7 +54,8 @@ export default class AlbumShow extends React.Component{
           <div className='dimining'></div>
           <AlbumUpdateArea album={this.props.album}
               updateAlbum={this.props.updateAlbum}
-              createAndAddPhoto={this.props.createAndAddPhoto}/>
+              createAndAddPhoto={this.props.createAndAddPhoto}
+              editable={this.editable()}/>
 
           <span className='autorship'>
             {`By: ${this.props.album.owner.username}`}
@@ -54,7 +63,8 @@ export default class AlbumShow extends React.Component{
 
           <AlbumPhotoUpload album={this.props.album}
               fetchAlbum={this.props.fetchAlbum}
-              createPhoto={this.props.createPhoto}/>
+              createPhoto={this.props.createPhoto}
+              showIfOwner={() => this.showIfOwner()}/>
         </div>
 
         <JustifiedGallery photos={this.props.album.photos}

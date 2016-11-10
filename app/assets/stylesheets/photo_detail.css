@@ -37,6 +37,11 @@
   transition: opacity 500ms, bottom 500ms;
 }
 
+
+.stream-selected {
+  border: 2px solid white;
+}
+
 .image-stream i {
   width: 30px;
   cursor: pointer;

@@ -8,7 +8,17 @@ class ImageStream extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    this.setState({start:0, end: 7, photos: newProps.photos.slice(0,7)});
+    const start = this.findStart(newProps.current);
+    this.setState({
+      start: start,
+      end: start + 7,
+      photos: newProps.photos.slice(start, start + 7)});
+  }
+
+  findStart(current){
+    for (var i = 0; i < this.props.photos.length; i++) {
+      if(this.props.photos[i].id === current) return i;
+    }
   }
 
   slide(offset){

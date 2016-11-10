@@ -20,7 +20,7 @@ const mapStateToProps = ({photos, comments}, {params}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPhotos: () => dispatch(requestPhotos()),
+  requestPhotos: (limit, offset) => dispatch(requestPhotos(limit,offset)),
   createTag: (photoId, tag) => dispatch(createTag(photoId, tag)),
   destroyTag: (photoId, tag) => dispatch(destroyTag(photoId, tag)),
 });

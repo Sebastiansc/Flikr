@@ -7,10 +7,12 @@ export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const RENEW_PHOTO = 'RENEW_PHOTO';
 export const FETCH_BY_TAG = 'FETCH_BY_TAG';
+export const RECEIVE_TAGGED_PHOTOS = 'RECEIVE_TAGGED_PHOTOS';
 
-export const requestPhotos = tags => ({
+export const requestPhotos = (limit = 30, offset = 0) => ({
   type: REQUEST_PHOTOS,
-  tags
+  limit,
+  offset
 });
 
 export const receivePhoto = photo => ({
@@ -51,4 +53,9 @@ export const renewPhoto = photo => ({
 export const fetchByTag = id => ({
   type: FETCH_BY_TAG,
   id
+});
+
+export const receiveTaggedPhotos = photos => ({
+  type: RECEIVE_TAGGED_PHOTOS,
+  photos
 });

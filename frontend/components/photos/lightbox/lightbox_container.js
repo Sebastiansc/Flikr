@@ -15,7 +15,7 @@ const mapStateToProps = ({photos}, {params}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPhotos: () => dispatch(requestPhotos())
+  requestPhotos: (limit, offset) => dispatch(requestPhotos(limit, offset))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LightBox);

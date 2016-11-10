@@ -1,8 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { fetchPhotos,
-         fetchByTag,
+import { fetchByTag,
          requestPhotos } from '../actions/photo_actions';
 import { getUser } from '../actions/person_actions';
 import { fetchTags } from '../actions/tag_actions';

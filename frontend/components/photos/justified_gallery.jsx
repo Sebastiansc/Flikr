@@ -31,6 +31,9 @@ export default class JustifiedGallery extends React.Component{
             key={photo.id}>
             <img alt={photo.title} src={photo.feed_url}/>
 
+            <Link to={`home/photos/${photo.id}`}
+                  className='justified-gallery-item-link'/>
+
             <i aria-hidden="true"
                style={{display: `${this.setDisplay()}`}}
                className={`fa fa-trash-o ${this.props.klass}`}
@@ -39,12 +42,14 @@ export default class JustifiedGallery extends React.Component{
 
               <div className='caption' id='caption-patch'>
                 <div className="explore-item-text">
-                  <span className='explore-item-title'>
+                  <Link to={`home/photos/${photo.id}`}
+                        className='explore-item-title'>
                     {photo.title}
-                  </span>
-                  <span className='explore-item-owner'>
+                  </Link>
+                  <Link to={`home/profile/${photo.author.id}`}
+                        className='explore-item-owner'>
                     by {photo.author.username}
-                  </span>
+                  </Link>
                 </div>
                 <div className='explore-item-tool'></div>
                 <div className='explore-item-tool'></div>

@@ -1,13 +1,8 @@
 import React from 'react';
 import { values } from 'lodash';
+import { formatUrl } from '../../reducers/selectors';
 
-const PhotoUpload = ({createPhoto, setId, albumId, show}) => {
-  const formatUrl = (url, size) => {
-    const rootUrl = url.slice(0,46);
-    const tailUrl = url.slice(46);
-    return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
-  };
-
+const PhotoUpload = ({createPhoto, show}) => {
   const openWidget = () => {
     window.cloudinary.openUploadWidget(window.cloudinaryOptions,
       (errors, photos) => {
@@ -24,7 +19,6 @@ const PhotoUpload = ({createPhoto, setId, albumId, show}) => {
                show_url: showUrl,
                feed_url: feedUrl
              },
-             album_id: albumId
            });
          });
         }
@@ -32,7 +26,7 @@ const PhotoUpload = ({createPhoto, setId, albumId, show}) => {
   };
 
   return(
-    <li id={setId} style={{display: `${show}`}}
+    <li style={{display: `${show}`}}
       className='photo-upload'
       onClick={() => openWidget()}>
       <i className="fa fa-upload in-cover-photo" aria-hidden="true"></i>

@@ -1,10 +1,12 @@
 import React from 'react';
+import { values } from 'lodash';
+import { formatUrl } from '../../reducers/selectors';
 import CoverPhotoChange from './cover_photo_change';
 
 export default class ProfileHeader extends React.Component{
   constructor(props){
     super(props);
-    this.state = {open: false};
+    this.state = {open: false, updating: false};
   }
 
   toggleOpen(){
@@ -13,6 +15,20 @@ export default class ProfileHeader extends React.Component{
 
   showIfOwner(){
     return this.props.person.id === this.props.currentUser.id ? '' : 'none';
+  }
+
+  toggleProfileUpload(){
+    this.setState({updating: !this.state.updating});
+  }
+
+  openWidget() {
+    window.cloudinary.openUploadWidget(window.cloudinaryOptions,
+      (errors, photos) => {
+        if(!values(errors).length) {
+         const imageUrl = formatUrl(photos[0].secure_url, 200);
+         this.props.changeProfilePic(this.props.currentUser.id, imageUrl);
+        }
+    });
   }
 
   render(){
@@ -24,12 +40,25 @@ export default class ProfileHeader extends React.Component{
           <div className='update-cover-photo'
               onClick={() => this.toggleOpen()}
               style={{display: `${this.showIfOwner()}`}}>
-            <i className="fa fa-pencil" aria-hidden="true"></i>
+              <i className="fa fa-pencil" aria-hidden="true"></i>
           </div>
           <div className='center-header'>
+
             <div className='edit'>
-              <img src={this.props.person.image_url}></img>
+              <div className='edit-img'
+                   style={{backgroundImage:
+                          `url('${this.props.person.image_url}')`
+                          }}>
+              </div>
+              <div className='pic-edit-container'>
+                <i className="fa fa-pencil-square-o p-pic-edit"
+                   aria-hidden="true"
+                   style={{display: `${this.showIfOwner()}`}}
+                   onClick={() => this.openWidget()}>
+                </i>
+              </div>
             </div>
+
             <div className='title-block-content'>
               <h1 className='title'>{this.props.person.username}</h1>
             </div>

@@ -24,3 +24,10 @@ export const findIndex = (tags, tag) => {
     if(tags[i].id === tag.id) return i;
   }
 };
+
+
+export const formatUrl = (url, size) => {
+  const rootUrl = url.slice(0,46);
+  const tailUrl = url.slice(46);
+  return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
+};

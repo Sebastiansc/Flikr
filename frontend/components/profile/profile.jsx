@@ -36,7 +36,7 @@ export default class Profile extends React.Component{
       <div>
         <ProfileHeader photos={this.props.photos} person={this.props.person}
         currentUser={this.props.currentUser}
-        changeUserCover={this.props.changeUserCover}/>
+        changeProfilePic={this.props.changeProfilePic}/>
         <ProfileNav id={this.props.person.id}
           photos={this.props.photos} createPhoto={this.props.createPhoto}
           currentUser={this.props.currentUser}/>

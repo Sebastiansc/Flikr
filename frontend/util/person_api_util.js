@@ -12,3 +12,12 @@ export const changeUserCover = (photoId, userId, success) => {
     success
   });
 };
+
+export const changeProfilePic = (userId, url, success) => {
+  $.ajax({
+    url: `api/users/${userId}/cover_photo`,
+    type: 'post',
+    data: {url},
+    success
+  });
+};

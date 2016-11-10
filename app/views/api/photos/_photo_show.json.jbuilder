@@ -4,10 +4,23 @@ json.set! :author do
   json.extract! photo.author, :username, :image_url, :cover_photo, :id
 end
 json.tags photo.tags, :name, :id
-json.set! :favorites do
-  photo.favorites.each do |favorite|
-    json.set! favorite.id do
-      json.user_id favorite.user_id
+
+if(photo.favorites.length > 0)
+  json.set! :favorites do
+    photo.favorites.each do |favorite|
+      json.set! favorite.user_id do
+        json.partial! partial: 'api/favorites/favorite', locals: {favorite: favorite}
+      end
+    end
+  end
+else
+  json.favorites({})
+end
+json.set! :albums do
+  photo.albums.each do |album|
+    json.set! album.id do
+      json.extract! album, :id, :cover_photo, :title
+      json.items album.photos.length
     end
   end
 end

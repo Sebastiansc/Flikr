@@ -13,11 +13,12 @@ export const unfavorite = (photoId) => ({
   photoId
 });
 
-export const receiveFavorite = (photoId) => ({
-  type: UNFAVORITE,
-  photoId
+export const receiveFavorite = (fav) => ({
+  type: RECEIVE_FAVORITE,
+  fav
 });
-export const removeFavorite = (photoId) => ({
-  type: UNFAVORITE,
-  photoId
+
+export const removeFavorite = (fav) => ({
+  type: REMOVE_FAVORITE,
+  fav
 });

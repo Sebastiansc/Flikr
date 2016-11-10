@@ -8,11 +8,11 @@ const FavoritesMiddleware = ({dispatch}) => next => action => {
   let success;
   switch (action.type) {
     case FAVORITE:
-      success = photo => dispatch(receiveFavorite(photo));
+      success = fav => dispatch(receiveFavorite(fav));
       favorite(action.photoId, success);
       return next(action);
     case UNFAVORITE:
-      success = photo => dispatch(removeFavorite(photo));
+      success = fav => dispatch(removeFavorite(fav));
       unfavorite(action.photoId, success);
       return next(action);
     default:

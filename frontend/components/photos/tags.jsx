@@ -9,7 +9,11 @@ export default class Tags extends React.Component{
   }
 
   add(){
-    this.setState({adding: !this.state.adding}, () => this.textInput.focus());
+    this.setState({adding: true}, () => this.textInput.focus());
+  }
+
+  stopAdding(){
+    this.setState({adding: false});
   }
 
   handleSubmit(e){
@@ -30,7 +34,7 @@ export default class Tags extends React.Component{
           className='tags-form'>
           <input onChange={e => this.update(e)} type="text"
             ref={input => { this.textInput = input; }}
-            onBlur={() => this.add()}></input>
+            onBlur={() => this.stopAdding()}></input>
         </form>
       );
     }

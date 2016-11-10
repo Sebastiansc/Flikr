@@ -1,10 +1,33 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {values} from 'lodash';
 import CommentContainer from './comments/comment_container';
 
 export default class UserDescription extends React.Component{
   constructor(props){
     super(props);
+  }
+
+  getLatestFans(){
+    const mainFavs = values(this.props.photo.favorites).slice(0,2);
+    return mainFavs.map((favorite,i) => {
+      const comma = i === 0 ? ',' : '';
+      return (
+        <span key={i} className='fav-fans'>
+          <i className="fa fa-heart" aria-hidden="true"></i>
+          {favorite.username}{comma}
+        </span>
+      );
+    });
+  }
+
+  showOthers(){
+    const otherFans = values(this.props.photo.favorites).length - 2;
+    if(otherFans > 0){
+      return `${otherFans} more people`;
+    } else {
+      return;
+    }
   }
 
   render(){
@@ -24,9 +47,12 @@ export default class UserDescription extends React.Component{
             <span>{this.props.photo.description}</span>
           </div>
         </div>
+
         <div className='favorites'>
-          Favorites will go here
+          <i className='fa fa-star mini-star' aria-hidden={true}></i>
+          <span>{this.getLatestFans()}{this.showOthers()} faved this</span>
         </div>
+
         <CommentContainer />
       </section>
     );

@@ -8,12 +8,15 @@ const _nullPhoto = {
   img_url: undefined,
   id: undefined,
   author: {},
-  tags: []
+  tags: [],
+  favorites: {},
+  albums: {}
 };
 
-const mapStateToProps = ({photos}, {params}) => ({
+const mapStateToProps = ({photos, comments}, {params}) => ({
   photo: photos[Number(params.photoId)] || _nullPhoto,
-  photos: toArray(photos)
+  photos: toArray(photos),
+  comments
 });
 
 const mapDispatchToProps = dispatch => ({

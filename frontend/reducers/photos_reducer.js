@@ -5,7 +5,7 @@ import {RECEIVE_PHOTOS,
 import {RECEIVE_USER_INFO} from '../actions/person_actions';
 import {RECEIVE_TAG, REMOVE_TAG} from '../actions/tag_actions';
 import {RECEIVE_FAVORITE,
-        REMOVE_FAVORITE} from '../actions/tag_actions';
+        REMOVE_FAVORITE} from '../actions/favorite_actions';
 import merge from 'lodash/merge';
 import {findIndex} from '../reducers/selectors';
 
@@ -42,10 +42,10 @@ const PhotosReducer = (state = _defaultState, action) => {
       newState[action.photoId].tags.splice(index, 1);
       return newState;
     case RECEIVE_FAVORITE:
-      newState.favorites[action.favorite.id] = action.favorite;
+      newState[action.fav.photo_id].favorites[action.fav.user_id] = action.fav;
       return newState;
     case REMOVE_FAVORITE:
-      delete newState[action.favorite.id];
+      delete newState[action.fav.photo_id].favorites[action.fav.user_id];
       return newState;
     default:
       return state;

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :photos, foreign_key: :author_id
   has_many :comments, foreign_key: :author_id
   has_many :albums, foreign_key: :owner_id
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   has_many :favorite_photos,
   through: :favorites,

@@ -1,12 +1,21 @@
 class Api::FavoritesController < ApplicationController
+  before_action :set_photo
+
   def create
-    Favorite.create!({user_id: current_user.id, photo_id: params[:photo_id]})
+    @favorite = Favorite.create!({user_id: current_user.id, photo_id: params[:photo_id]})
+    render :show
   end
 
   def destroy
-    Favorite.find_by({
-        current_user.id,
+    @favorite = Favorite.find_by({
+        user_id: current_user.id,
         photo_id: params[:photo_id]
       }).destroy
+    render :show
+  end
+
+  private
+  def set_photo
+    @photo = Photo.find(params[:photo_id])
   end
 end

@@ -60,7 +60,7 @@ const Root = ({ store }) => {
 
   const fetchAlbums = nextState => {
     store.dispatch(fetchUserAlbums(nextState.params.userId));
-    store.dispatch(requestPhotos());
+    store.dispatch(getUser(nextState.params.userId));
   };
 
   const getAlbum = nextState => {

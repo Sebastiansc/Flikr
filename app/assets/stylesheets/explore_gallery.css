@@ -65,6 +65,8 @@
   flex-direction: column;
   font-weight: normal;
   font-size: 12px
+  position: relative;
+  z-index: 600;
 }
 
 .explore-item-title {
@@ -101,7 +103,6 @@
   display: flex;
   padding: 20px 15px;
   align-items: flex-end;
-  z-index: 1000;
 }
 
 .justified-gallery-item:hover #caption-patch {

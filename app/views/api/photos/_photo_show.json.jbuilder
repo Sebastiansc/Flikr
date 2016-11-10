@@ -4,3 +4,10 @@ json.set! :author do
   json.extract! photo.author, :username, :image_url, :cover_photo, :id
 end
 json.tags photo.tags, :name, :id
+json.set! :favorites do
+  photo.favorites.each do |favorite|
+    json.set! favorite.id do
+      json.user_id favorite.user_id
+    end
+  end
+end

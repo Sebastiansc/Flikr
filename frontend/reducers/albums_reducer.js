@@ -3,6 +3,7 @@ import {RECEIVE_ALBUMS,
         REMOVE_ALBUM,
         CLEAR_PHOTO} from '../actions/album_actions';
 import merge from 'lodash/merge';
+import {findIndex} from '../reducers/selectors';
 
 const _nullAlbum = {
   owner: {},
@@ -24,7 +25,9 @@ const AlbumReducer = (state = _nullAlbum, action) => {
       delete newState[action.album.id];
       return newState;
     case CLEAR_PHOTO:
-      delete newState[action.photo.id];
+      const photos = newState[action.albumId].photos;
+      const index = findIndex(photos, action.photo);
+      photos.splice(index, 1);
       return newState;
     default:
       return state;

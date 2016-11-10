@@ -9,6 +9,10 @@ class Photo < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :favorites
 
+  has_many :fans,
+  through: :favorites,
+  source: :user
+
   has_many :tags,
   through: :taggings,
   source: :tag
@@ -20,13 +24,13 @@ class Photo < ApplicationRecord
 
   def self.feed_stream(limit = 50, offset = 0)
     Photo.where(public: true).
-      includes(:author, :tags).
+      includes(:author, :tags, :favorites).
       order('photos.created_at DESC').
       limit(limit).
       offset(offset)
   end
 
   def self.by_tag(tag_id)
-    Photo.joins(:taggings).where('taggings.tag_id = ?', tag_id).includes(:tags, :author)
+    Photo.joins(:taggings).where('taggings.tag_id = ?', tag_id).includes(:tags, :author, :favorites)
   end
 end

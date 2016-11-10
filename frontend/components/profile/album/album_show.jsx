@@ -29,9 +29,11 @@ export default class AlbumShow extends React.Component{
                 createPhoto={this.props.createPhoto}/>
         </div>
         <JustifiedGallery photos={this.props.album.photos}
+            albumId={this.props.album.id}
             rowHeight={200}
-            klass='album-show-item'/>
-          
+            klass='album-show-delete'
+            dropPhoto={this.props.dropPhoto}/>
+
       </div>
     );
   }

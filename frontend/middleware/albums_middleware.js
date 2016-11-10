@@ -60,7 +60,7 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
       createAndAddPhoto(action.albumId, action.photo, success);
       return next(action);
     case DROP_PHOTO:
-      success = photo => dispatch(clearPhoto(photo));
+      success = photo => dispatch(clearPhoto(photo, action.albumId));
       dropPhoto(action.albumId, action.photoId, success);
       return next(action);
     case CHANGE_COVER_PHOTO:

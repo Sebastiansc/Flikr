@@ -19,7 +19,7 @@ export const publicPhotos = photos => (
 );
 
 
-export const findTag = (tags, tag) => {
+export const findIndex = (tags, tag) => {
   for (let i = 0; i < tags.length; i++) {
     if(tags[i].id === tag.id) return i;
   }

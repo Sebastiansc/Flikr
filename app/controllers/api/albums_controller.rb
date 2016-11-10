@@ -57,7 +57,8 @@ class Api::AlbumsController < ApplicationController
 
   def remove_photo
     @album = Album.find(params[:album_id])
-    @album.album_photos.find_by(photo_id: params[:photo_id]).destroy
+    @photo = Photo.find(params[:photo_id])
+    @album.album_photos.find_by({album_id: params[:album_id], photo_id: params[:photo_id]}).destroy
     render 'api/photos/show'
   end
 

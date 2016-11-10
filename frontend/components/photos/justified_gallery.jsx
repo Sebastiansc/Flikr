@@ -15,13 +15,27 @@ export default class JustifiedGallery extends React.Component{
     });
   }
 
+  setDisplay(){
+    return this.props.klass ? 'block' : 'none';
+  }
+
+  remove(photoId){
+    this.props.dropPhoto(photoId, this.props.albumId);
+  }
+
   render(){
     return(
       <div id="gallery">
         {this.props.photos.map(photo => (
-          <Link className='justified-gallery-item'
-            key={photo.id} to={`home/photos/${photo.id}`}>
+          <div className='justified-gallery-item'
+            key={photo.id}>
             <img alt={photo.title} src={photo.feed_url}/>
+
+            <i aria-hidden="true"
+               style={{display: `${this.setDisplay()}`}}
+               className={`fa fa-trash-o ${this.props.klass}`}
+               onClick={() => this.remove(photo.id)}>
+            </i>
 
               <div className='caption' id='caption-patch'>
                 <div className="explore-item-text">
@@ -36,7 +50,7 @@ export default class JustifiedGallery extends React.Component{
                 <div className='explore-item-tool'></div>
               </div>
 
-          </Link>
+          </div>
         ))}
       </div>
     );

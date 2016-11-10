@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   Modal.setAppElement(document.body);
-
   window.path_history = [];
   window.store = store;
   const root = document.getElementById("root");

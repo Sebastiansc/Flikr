@@ -137,3 +137,14 @@
   color: white;
   font-size: 20px;
 }
+
+
+.album-cover-change {
+  position: absolute;
+  left: 55px;
+  top: 25px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  z-index: 999999;
+}

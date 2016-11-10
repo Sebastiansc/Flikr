@@ -21,7 +21,8 @@ import {FETCH_USER_ALBUMS,
         receiveAlbums,
         receiveAlbum,
         removeAlbum,
-        clearPhoto} from '../actions/album_actions';
+        clearPhoto,
+        updateCoverPhoto} from '../actions/album_actions';
 import { receivePhoto } from '../actions/photo_actions';
 
 const AlbumsMiddleware = ({dispatch}) => next => action => {
@@ -64,7 +65,8 @@ const AlbumsMiddleware = ({dispatch}) => next => action => {
       dropPhoto(action.albumId, action.photoId, success);
       return next(action);
     case CHANGE_COVER_PHOTO:
-      changeCoverPhoto(action.albumId, action.photoId);
+      success = coverPhoto => dispatch(updateCoverPhoto(coverPhoto, action.albumId));
+      changeCoverPhoto(action.albumId, action.photoId, success);
       return next(action);
     default:
       return next(action);

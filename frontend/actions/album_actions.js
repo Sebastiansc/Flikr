@@ -12,6 +12,7 @@ export const REMOVE_ALBUM = 'REMOVE_ALBUM';
 export const DROP_PHOTO = 'DROP_PHOTO';
 export const CLEAR_PHOTO = 'CLEAR_PHOTO';
 export const CHANGE_COVER_PHOTO = 'CHANGE_COVER_PHOTO';
+export const UPDATE_COVER_PHOTO = 'UPDATE_COVER_PHOTO';
 
 export const fetchUserAlbums = userId => ({
   type: FETCH_USER_ALBUMS,
@@ -86,5 +87,11 @@ export const clearPhoto = (photo, albumId) => ({
 export const changeCoverPhoto = (albumId, photoId) => ({
   type: CHANGE_COVER_PHOTO,
   albumId,
-  photoId,
+  photoId
+});
+
+export const updateCoverPhoto = (coverPhoto, albumId) => ({
+  type: UPDATE_COVER_PHOTO,
+  coverPhoto,
+  albumId
 });

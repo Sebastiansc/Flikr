@@ -62,6 +62,7 @@ class Api::AlbumsController < ApplicationController
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:photo_id])
     @album.update_attribute(:cover_photo, @photo)
+    render :cover_photo
   end
 
   private

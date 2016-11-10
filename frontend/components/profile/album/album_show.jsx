@@ -17,8 +17,7 @@ export default class AlbumShow extends React.Component{
   }
 
   showIfOwner(){
-    // return this.props.currentUser.id === this.props.person.id ? '' : 'none';
-    return '';
+    return this.props.currentUser.id === this.props.person.id ? '' : 'none';
   }
 
   render(){
@@ -33,16 +32,16 @@ export default class AlbumShow extends React.Component{
           <div className='album-cover-change'
               style={{display: `${this.showIfOwner()}`}}
               onClick={() => this.toggleOpen()}>
-            <i className="fa fa-plus-pencil-o" aria-hidden="true"></i>
+            <i className="fa fa-pencil" aria-hidden="true"></i>
           </div>
 
-          <AlbumUpload addPhoto={this.props.addPhoto}
-             processAction={this.props.changeCoverPhoto}
+          <AlbumUpload processAction={this.props.changeCoverPhoto}
              open={this.state.adding}
+             album={this.props.album}
              toggleOpen={() => this.toggleOpen()}
              photos={this.props.photos}
              show={this.showIfOwner()}
-             messages={["Add photos to this album", "Select Photos to add"]}/>
+             messages={["Change cover photo", "Select a photo"]}/>
 
           <div className='dimining'></div>
           <AlbumUpdateArea album={this.props.album}

@@ -1,7 +1,8 @@
 import {RECEIVE_ALBUMS,
         RECEIVE_ALBUM,
         REMOVE_ALBUM,
-        CLEAR_PHOTO} from '../actions/album_actions';
+        CLEAR_PHOTO,
+        UPDATE_COVER_PHOTO} from '../actions/album_actions';
 import merge from 'lodash/merge';
 import {findIndex} from '../reducers/selectors';
 
@@ -28,6 +29,9 @@ const AlbumReducer = (state = _nullAlbum, action) => {
       const photos = newState[action.albumId].photos;
       const index = findIndex(photos, action.photo);
       photos.splice(index, 1);
+      return newState;
+    case UPDATE_COVER_PHOTO:
+      newState[action.albumId].cover_photo = action.coverPhoto;
       return newState;
     default:
       return state;

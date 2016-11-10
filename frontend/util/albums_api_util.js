@@ -70,9 +70,10 @@ export const dropPhoto = (albumId, photoId, success) => {
   });
 };
 
-export const changeCoverPhoto = (albumId, photoId) => {
+export const changeCoverPhoto = (albumId, photoId, success) => {
   $.ajax({
     type: 'post',
-    url: `api/albums/${albumId}/${photoId}`
+    url: `api/albums/${albumId}/cover/${photoId}`,
+    success
   });
 };

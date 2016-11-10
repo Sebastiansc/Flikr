@@ -32,16 +32,20 @@ export default class AlbumUpload extends React.Component{
   }
 
   toggleInclusion(photoId){
-    if(this.state.photos.includes(photoId)){
-      for (let i = 0; i < this.state.photos.length; i++) {
-        if (this.state.photos[i] === photoId){
-          this.state.photos.splice(i, 1);
+    if(this.changing()){
+      this.setState({photos: [photoId]});
+    } else{
+      if(this.state.photos.includes(photoId)){
+        for (let i = 0; i < this.state.photos.length; i++) {
+          if (this.state.photos[i] === photoId){
+            this.state.photos.splice(i, 1);
+          }
         }
+      } else {
+        this.state.photos.push(photoId);
       }
-    } else {
-      this.state.photos.push(photoId);
+      this.setState({photos: this.state.photos});
     }
-    this.setState({photos: this.state.photos});
   }
 
   setItemClass(photoId){
@@ -57,22 +61,45 @@ export default class AlbumUpload extends React.Component{
   }
 
   uploadValid(){
-    return (
-      Boolean(this.state.title && this.state.photos.length > 0)
-    );
+    if(this.changing()){
+      return Boolean(this.state.photos[0]);
+    } else {
+      return (
+        Boolean(this.state.title && this.state.photos.length > 0)
+      );
+    }
+  }
+
+  display(){
+    return this.changing() ? 'none' : '';
+  }
+
+  changing(){
+    return this.props.messages[0] === "Change cover photo";
   }
 
   update(property, e){
     this.setState({[property]: e.target.value});
   }
 
+  album(){
+    if(this.changing()){
+      return this.props.album.id;
+    } else {
+      return {
+        title: this.state.title,
+        description: this.state.description
+      };
+    }
+  }
+
+  photos(){
+    return this.changing() ? this.state.photos[0] : this.state.photos;
+  }
+
   handleSubmit(){
-    const album = {
-      title: this.state.title,
-      description: this.state.description
-    };
     const photos = this.state.photos;
-    this.props.processAction(album, photos);
+    this.props.processAction(this.album(), this.photos());
     this.close();
   }
 
@@ -99,7 +126,8 @@ export default class AlbumUpload extends React.Component{
           </i>
         </div>
 
-        <form id='album-upload-form' className='edit-form'>
+        <form id='album-upload-form' className='edit-form'
+              style={{display: `${this.display()}`}}>
           <div className='edit-text'>
             <input type='text' placeholder='Change Title'
               onChange={e => this.update('title', e)}/>

@@ -6,6 +6,7 @@ import {updateAlbum,
         fetchAlbum,
         changeCoverPhoto} from '../../../actions/album_actions';
 import { createPhoto} from '../../../actions/photo_actions';
+import { toArray } from '../../../reducers/selectors';
 import AlbumShow from './album_show';
 
 const _nullAlbum = {
@@ -17,7 +18,7 @@ const _nullAlbum = {
 const mapStateToProps = ({albums, photos, session, person}, {params}) => ({
   album: albums[params.albumId] || _nullAlbum,
   currentUser: session.currentUser,
-  photos,
+  photos: toArray(photos),
   person
 });
 

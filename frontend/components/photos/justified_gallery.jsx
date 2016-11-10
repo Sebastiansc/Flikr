@@ -11,7 +11,7 @@ export default class JustifiedGallery extends React.Component{
 
   enableInfiniteScroll(){
     $(window).scroll(() => {
-      if($(window).scrollTop() + $(window).height() ===     $(document).height() - 500)
+      if($(window).scrollTop() + $(window).height() ===     $(document).height() - 400)
       {
         console.log("oh oh");
       }

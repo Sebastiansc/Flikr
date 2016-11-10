@@ -25,7 +25,7 @@ export default class AlbumShow extends React.Component{
   }
 
   editable(){
-    this.owner();
+    return this.owner();
   }
 
   render(){

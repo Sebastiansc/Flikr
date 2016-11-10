@@ -21,12 +21,12 @@ export default class AlbumShow extends React.Component{
           <AlbumUpdateArea album={this.props.album}
               updateAlbum={this.props.updateAlbum}
               createAndAddPhoto={this.props.createAndAddPhoto}/>
-            <span className='autorship'>
-              {`By: ${this.props.album.owner.username}`}
-            </span>
-            <AlbumPhotoUpload album={this.props.album}
-                fetchAlbum={this.props.fetchAlbum}
-                createPhoto={this.props.createPhoto}/>
+          <span className='autorship'>
+            {`By: ${this.props.album.owner.username}`}
+          </span>
+          <AlbumPhotoUpload album={this.props.album}
+              fetchAlbum={this.props.fetchAlbum}
+              createPhoto={this.props.createPhoto}/>
         </div>
         <JustifiedGallery photos={this.props.album.photos}
             albumId={this.props.album.id}

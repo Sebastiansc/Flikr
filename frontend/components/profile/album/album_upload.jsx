@@ -72,7 +72,7 @@ export default class AlbumUpload extends React.Component{
       description: this.state.description
     };
     const photos = this.state.photos;
-    this.props.createAlbum(album, photos);
+    this.props.processAction(album, photos);
     this.close();
   }
 

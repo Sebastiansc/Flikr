@@ -47,11 +47,7 @@ class Api::AlbumsController < ApplicationController
   def add_photo
     @photo = Photo.find(params[:photo_id])
     @album = Album.find(params[:album_id])
-    unless @album.cover_photo_id
-      @album.update_attribute(:cover_photo_id, @photo.id)
-    else
-      @album.photos << @photo
-    end
+    @album.photos << @photo
     render 'api/photos/show'
   end
 
@@ -65,7 +61,6 @@ class Api::AlbumsController < ApplicationController
   def change_cover_photo
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:photo_id])
-    @album.album_photos.find_by(photo_id: @photo.id).destroy!
     @album.update_attribute(:cover_photo, @photo)
   end
 

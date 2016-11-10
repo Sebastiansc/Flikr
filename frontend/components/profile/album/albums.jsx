@@ -28,11 +28,12 @@ export default class Albums extends React.Component{
           </span>
         </div>
         <AlbumUpload addPhoto={this.props.addPhoto}
-           createAlbum={this.props.createAlbum}
+           processAction={this.props.createAlbum}
            open={this.state.creating}
            toggleOpen={() => this.toggleOpen()}
            photos={this.props.photos}
-           show={this.showIfOwner()}/>
+           show={this.showIfOwner()}
+           messages={["Create a new album", "Select Photos to add"]}/>
         <AlbumGallery albums={this.props.albums}
            deleteAlbum={this.props.deleteAlbum}/>
       </div>

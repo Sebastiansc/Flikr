@@ -52,7 +52,7 @@
   line-height: 120%;
   font-weight: 300;
   margin: 0;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .album-gallery-tools span {
@@ -82,7 +82,7 @@
   color: #737b80;
   cursor: pointer;
   width: 80%;
-  text-align: right
+  text-align: right;
 }
 
 .create-album {
@@ -100,7 +100,7 @@
   color: #f2624f;
   margin-right: 25px;
   font-size: 20px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .album-upload-stream {
@@ -136,7 +136,7 @@
 }
 
 .album-info input:focus {
-  outline: none
+  outline: none;
 }
 
 #album-upload-form {

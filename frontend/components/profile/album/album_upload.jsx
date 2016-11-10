@@ -87,7 +87,7 @@ export default class AlbumUpload extends React.Component{
           isOpen={this.props.open}>
 
         <div className='album-upload-header'>
-          <span>Create a new album</span>
+          <span>{this.props.messages[0]}</span>
           <button id='album-upload-button'
               className={`photo-upload ${this.setButtonClass()}`}
               disabled={!this.uploadValid()}
@@ -109,7 +109,7 @@ export default class AlbumUpload extends React.Component{
           </div>
         </form>
 
-        <span className='album-select'>Select photos to add</span>
+        <span className='album-select'>{this.props.messages[1]}</span>
         <AlbumUploadGallery setCheckClass={id => this.setCheckClass(id)}
           setItemClass={id => this.setItemClass(id)}
             toggleInclusion={id => this.toggleInclusion(id)}

@@ -12,7 +12,9 @@ const AlbumMiniList = ({albums}) => (
             <Link className='mini-image-link 'to={`home/album/${album.id}`}/>
           </figure>
           <div className='mini-gallery-info'>
-            <Link to={`home/album/${album.id}`}>{album.title}</Link>
+            <Link
+               to={`home/album/${album.owner.id}/${album.id}`}>{album.title}
+             </Link>
             <span>
               {photos.length} {photos.length === 1 ? 'photo' : 'photos'}
             </span>

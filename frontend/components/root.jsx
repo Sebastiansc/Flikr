@@ -65,7 +65,7 @@ const Root = ({ store }) => {
 
   const getAlbum = nextState => {
     store.dispatch(fetchAlbum(nextState.params.albumId));
-    store.dispatch(requestPhotos());
+    store.dispatch(getUser(nextState.params.userId));
     savePrev(nextState);
   };
 
@@ -100,7 +100,7 @@ const Root = ({ store }) => {
                 onEnter={n => fetchAlbums(n)}/>
           </Route>
 
-          <Route path='album/:albumId' component={AlbumShowContainer}
+          <Route path='album/:userId/:albumId' component={AlbumShowContainer}
               onEnter={n => getAlbum(n)}/>
           <Route path='photos/:photoId' component={PhotoContainer}
             onEnter={(n) => fetchComments(n)}/>

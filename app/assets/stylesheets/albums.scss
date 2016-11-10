@@ -180,3 +180,11 @@
 .invalid-upload {
   opacity: 0.6;
 }
+
+.album-cover-change {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  font-size: 16px;
+  z-index: 999999;
+}

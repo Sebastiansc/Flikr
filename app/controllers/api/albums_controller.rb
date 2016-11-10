@@ -41,7 +41,7 @@ class Api::AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @photos = @album.photos.includes(:author, :tags)
+    @photos = @album.photos.includes(:author, :tags, :comments, :favorites)
   end
 
   def add_photo

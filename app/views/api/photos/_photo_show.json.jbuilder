@@ -4,6 +4,7 @@ json.set! :author do
   json.extract! photo.author, :username, :image_url, :cover_photo, :id
 end
 json.tags photo.tags, :name, :id
+json.commentCount photo.comments.length
 
 if(photo.favorites.length > 0)
   json.set! :favorites do

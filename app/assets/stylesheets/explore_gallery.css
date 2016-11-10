@@ -140,3 +140,18 @@
   right: 0;
   z-index: 500;
 }
+
+.explore-item-tool {
+  color: white;
+  padding-left: 15px;
+}
+
+.explore-item-tool i {
+  margin-right: 3px;
+}
+
+.photo-interactions {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}

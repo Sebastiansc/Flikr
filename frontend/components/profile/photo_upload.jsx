@@ -9,8 +9,8 @@ const PhotoUpload = ({createPhoto, show}) => {
         if(!values(errors).length) {
          photos.forEach(photo => {
            const thumbUrl = formatUrl(photo.secure_url, 145);
-           const showUrl = formatUrl(photo.secure_url, 1200);
-           const feedUrl = formatUrl(photo.secure_url, 500);
+           const showUrl = formatUrl(photo.secure_url, 1000);
+           const feedUrl = formatUrl(photo.secure_url, 350);
            createPhoto({
              photo: {
                img_url: photo.secure_url,

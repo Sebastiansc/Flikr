@@ -24,13 +24,13 @@ class Photo < ApplicationRecord
 
   def self.feed_stream(limit = 20, offset = 0)
     Photo.where(public: true).
-      includes(:author, :tags, :favorites, albums: :photos).
+      includes(:author, :tags, :favorites, :comments, albums: :photos).
       order('photos.created_at DESC').
       limit(limit).
       offset(offset)
   end
 
   def self.by_tag(tag_id)
-    Photo.joins(:taggings).where('taggings.tag_id = ?', tag_id).includes(:tags, :author, :favorites, albums: :photos)
+    Photo.joins(:taggings).where('taggings.tag_id = ?', tag_id).includes(:tags, :author, :favorites, :comments, albums: :photos)
   end
 end

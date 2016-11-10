@@ -3,10 +3,14 @@ json.set! :info do
   json.join_year @user.created_at.year
 end
 
-json.set! :photos do
-  @photos.each do |photo|
-    json.set! photo.id do
-      json.partial! partial: 'api/photos/photo_show', locals: {photo: photo}
+if(@photos.length > 0)
+  json.set! :photos do
+    @photos.each do |photo|
+      json.set! photo.id do
+        json.partial! partial: 'api/photos/photo_show', locals: {photo: photo}
+      end
     end
   end
+else
+  json.photos([])
 end

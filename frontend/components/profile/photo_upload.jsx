@@ -22,7 +22,7 @@ const PhotoUpload = ({createPhoto, setId, albumId, show}) => {
                title: photo.original_filename,
                thumb_url: thumbUrl,
                show_url: showUrl,
-               feed_url: showUrl
+               feed_url: feedUrl
              },
              album_id: albumId
            });

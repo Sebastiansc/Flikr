@@ -9,10 +9,10 @@ const AlbumMiniList = ({albums}) => (
         <div key={album.id} className='mini-gallery-item-container'>
           <figure className='mini-gallery-item'
             style={{backgroundImage: `url('${album.cover_photo.thumb_url}')`}}>
-            <Link to={`home/albums/${album.id}`}/>
+            <Link className='mini-image-link 'to={`home/album/${album.id}`}/>
           </figure>
           <div className='mini-gallery-info'>
-            <Link to={`home/albums/${album.id}`}>{album.title}</Link>
+            <Link to={`home/album/${album.id}`}>{album.title}</Link>
             <span>
               {photos.length} {photos.length === 1 ? 'photo' : 'photos'}
             </span>

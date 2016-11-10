@@ -8,10 +8,10 @@ export default class UserDescription extends React.Component{
     super(props);
   }
 
-  getLatestFans(){
-    const mainFavs = values(this.props.photo.favorites).slice(0,2);
-    return mainFavs.map((favorite,i) => {
-      const comma = i === 0 ? ',' : '';
+  getFans(){
+    this.mainFavs = values(this.props.photo.favorites).slice(0,2);
+    return this.mainFavs.map((favorite,i) => {
+      const comma = i === 0 && this.mainFavs.length === 2 ? ',' : '';
       return (
         <span key={i} className='fav-fans'>
           <i className="fa fa-heart" aria-hidden="true"></i>
@@ -24,9 +24,9 @@ export default class UserDescription extends React.Component{
   showOthers(){
     const otherFans = values(this.props.photo.favorites).length - 2;
     if(otherFans > 0){
-      return `${otherFans} more people`;
+      return `${otherFans} more people faved this`;
     } else {
-      return;
+      return this.mainFavs.length > 0 ?  'faved this' : 'No favorites yet';
     }
   }
 
@@ -50,7 +50,7 @@ export default class UserDescription extends React.Component{
 
         <div className='favorites'>
           <i className='fa fa-star mini-star' aria-hidden={true}></i>
-          <span>{this.getLatestFans()}{this.showOthers()} faved this</span>
+          <span>{this.getFans()} {this.showOthers()}</span>
         </div>
 
         <CommentContainer />

@@ -465,7 +465,7 @@
 
 /*--------------------------EXTRA SECTION--------------------------*/
 
-.album-mini-list {
+.albums-mini-list {
   padding-bottom: 15px;
 }
 .mini-gallery-item {
@@ -504,4 +504,13 @@
 .mini-gallery-info span {
   font-size: 14px;
   color: rgb(137,137,137)
+}
+
+.mini-image-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
 }

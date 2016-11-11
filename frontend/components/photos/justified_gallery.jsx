@@ -7,26 +7,45 @@ export default class JustifiedGallery extends React.Component{
     super(props);
     this.componentDidMount = this.justify;
     this.componentDidUpdate = this.justify;
+    this.limit = 30;
+    this.justified = false;
+    if(this.props.requestPhotos) this.enableInfiniteScroll();
   }
 
   enableInfiniteScroll(){
-    $(window).scroll(() => {
+    this.scrollHandler = () => {
       const fetchHeight = $(document).height() - 400;
       const actualHeight = $(window).scrollTop() + $(window).height();
-      if(actualHeight === fetchHeight) {
-        debugger;
-        this.props.requestPhotos(30, 30);
+      if(actualHeight >= fetchHeight && actualHeight <= fetchHeight + 60) {
+        this.props.requestPhotos(this.limit, this.props.photos.length);
       }
       console.log("in callback");
-    });
+    };
+
+    $(window).on('scroll', this.scrollHandler);
+  }
+
+  componentWillUnmount(){
+    $(window).off("scroll", this.scrollHandler);
   }
 
   justify(){
-    $("#gallery").justifiedGallery({
-      rowHeight: this.props.rowHeight,
-      margins: 5
-    });
-    // this.enableInfiniteScroll();
+    if(this.props.requestPhotos){
+      if(this.justified){
+        $('#gallery').justifiedGallery('norewind');
+      } else {
+        this.justified = true;
+        $("#gallery").justifiedGallery({
+          rowHeight: this.props.rowHeight,
+          margins: 5
+        });
+      }
+    } else {
+      $("#gallery").justifiedGallery({
+        rowHeight: this.props.rowHeight,
+        margins: 5
+      });
+    }
   }
 
   setDisplay(){

@@ -25,7 +25,7 @@ class Photo < ApplicationRecord
   def self.feed_stream(limit = 30, offset = 0)
     Photo.where(public: true).
       includes(:author, :tags, :favorites, :comments, albums: :photos).
-      order('photos.created_at DESC').
+      order('photos.created_at ASC').
       limit(limit).
       offset(offset)
   end

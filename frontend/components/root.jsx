@@ -31,6 +31,7 @@ const Root = ({ store }) => {
   const _ensureLogin = (nextState, replace) => {
     const state = store.getState();
     if(!state.session.currentUser.id) replace('/');
+    window.scrollTo(0, 0);
   };
 
   const fetchUser = nextState => {
@@ -40,7 +41,16 @@ const Root = ({ store }) => {
 
   const fetchComments = nextState => {
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
-    store.dispatch(requestPhotos());
+
+    let goFetch;
+    if(path_history[0].includes('home/profile') || path_history[0] === 'home'){
+      goFetch = requestPhotos;
+    } else if (window.path_history[0].includes('trending/')){
+      goFetch = () => fetchByTag(path_history[0].slice(14));
+    }
+    store.dispatch(goFetch());
+
+    window.scrollTo(0, 0);
   };
 
   const savePrev = nextState => {
@@ -50,11 +60,11 @@ const Root = ({ store }) => {
 
   const getTags = (nextState) => {
     store.dispatch(fetchTags());
-    savePrev(nextState);
   };
 
   const getByTag = nextState => {
     store.dispatch(fetchByTag(nextState.params.tagId));
+    savePrev(nextState);
   };
 
   const fetchAlbums = nextState => {

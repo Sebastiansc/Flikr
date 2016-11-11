@@ -15,8 +15,7 @@ export default class PhotoDetail extends React.Component{
   render(){
     return(
       <div>
-        <MainImage photo={this.props.photo} photos={this.props.photos}
-           requestPhotos={this.props.requestPhotos}/>
+        <MainImage photo={this.props.photo} photos={this.props.photos}/>
         <main className='p-detail-main cf'>
           <UserDescription author={this.props.photo.author}
             photo={this.props.photo}/>

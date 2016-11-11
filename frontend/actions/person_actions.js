@@ -4,6 +4,7 @@ export const CHANGE_USER_COVER = 'CHANGE_USER_COVER';
 export const UPDATE_USER_COVER = 'UPDATE_USER_COVER';
 export const CHANGE_PROFILE_PIC = 'CHANGE_PROFILE_PIC';
 export const UPDATE_PROFILE_PIC = 'UPDATE_PROFILE_PIC';
+export const FETCH_FAVORITES = 'FETCH_FAVORITES';
 
 
 export const getUser = id => ({
@@ -36,4 +37,9 @@ export const changeProfilePic = (userId, url) => ({
 export const updateProfilePic = (user) => ({
   type: UPDATE_PROFILE_PIC,
   user
+});
+
+export const fetchFavorites = (userId) => ({
+  type: FETCH_FAVORITES,
+  userId
 });

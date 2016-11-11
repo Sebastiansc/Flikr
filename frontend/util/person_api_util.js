@@ -21,3 +21,11 @@ export const changeProfilePic = (userId, url, success) => {
     success
   });
 };
+
+
+export const fetchFavorites = (userId, success) => {
+  $.ajax({
+    url: `/api/users/${userId}/favorites`,
+    success
+  });
+};

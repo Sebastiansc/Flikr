@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   post 'api/users/:user_id/cover_photo', :to => 'api/users#change_profile_pic'
 
+  get 'api/users/:user_id/favorites', :to => 'api/users#favorites'
+
   post 'api/albums/:album_id/photos',
     :to => 'api/photos#create_and_add_to_album'
 

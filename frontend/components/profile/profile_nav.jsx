@@ -13,6 +13,7 @@ const ProfileNav = ({id, photo, createPhoto, currentUser}) => {
         </li>
         <li><Link to={`home/profile/${id}`}>Photostream</Link></li>
         <li><Link to={`home/profile/${id}/albums`}>Albums</Link></li>
+        <li><Link to={`home/profile/${id}/favorites`}>Favorites</Link></li>
         <PhotoUpload show={showIfOwner}
           photos={photo} createPhoto={createPhoto}/>
       </ul>

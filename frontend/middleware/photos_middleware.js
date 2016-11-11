@@ -2,7 +2,7 @@ import { receivePhotos,
          removePhoto,
          receivePhoto,
          renewPhoto,
-         receiveTaggedPhotos,
+         receiveAndReplace,
          REQUEST_PHOTOS,
          CREATE_PHOTO,
          DELETE_PHOTO,
@@ -24,7 +24,7 @@ export default ({ getState, dispatch }) => next => action => {
       fetchPhotos(success, action.limit, action.offset);
       return next(action);
     case FETCH_BY_TAG:
-      success = photos => dispatch(receiveTaggedPhotos(photos));
+      success = photos => dispatch(receiveAndReplace(photos));
       fetchByTag(action.id, success);
       return next(action);
     case CREATE_PHOTO:

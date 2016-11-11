@@ -7,7 +7,8 @@ export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const RENEW_PHOTO = 'RENEW_PHOTO';
 export const FETCH_BY_TAG = 'FETCH_BY_TAG';
-export const RECEIVE_TAGGED_PHOTOS = 'RECEIVE_TAGGED_PHOTOS';
+export const EMPTY_PHOTOS = 'EMPTY_PHOTOS';
+export const RECEIVE_AND_REPLACE = 'RECEIVE_AND_REPLACE';
 
 export const requestPhotos = (limit = 30, offset = 0) => ({
   type: REQUEST_PHOTOS,
@@ -55,7 +56,12 @@ export const fetchByTag = id => ({
   id
 });
 
-export const receiveTaggedPhotos = photos => ({
-  type: RECEIVE_TAGGED_PHOTOS,
+export const receiveAndReplace = photos => ({
+  type: RECEIVE_AND_REPLACE,
   photos
+});
+
+
+export const emptyPhotos = () => ({
+  type: EMPTY_PHOTOS
 });

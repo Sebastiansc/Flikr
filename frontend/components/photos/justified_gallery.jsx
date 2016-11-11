@@ -9,7 +9,10 @@ export default class JustifiedGallery extends React.Component{
     this.componentDidUpdate = this.justify;
     this.limit = 30;
     this.justified = false;
-    if(this.props.requestPhotos) this.enableInfiniteScroll();
+  }
+
+  componentWillUnmount(){
+    debugger;
   }
 
   enableInfiniteScroll(){
@@ -19,7 +22,6 @@ export default class JustifiedGallery extends React.Component{
       if(actualHeight >= fetchHeight && actualHeight <= fetchHeight + 60) {
         this.props.requestPhotos(this.limit, this.props.photos.length);
       }
-      console.log("in callback");
     };
 
     $(window).on('scroll', this.scrollHandler);
@@ -39,6 +41,7 @@ export default class JustifiedGallery extends React.Component{
           rowHeight: this.props.rowHeight,
           margins: 5
         });
+        if(this.props.requestPhotos) this.enableInfiniteScroll();
       }
     } else {
       $("#gallery").justifiedGallery({

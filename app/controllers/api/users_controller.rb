@@ -4,9 +4,15 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
+  def favorites
+    @photos = User.find(params[:user_id]).favorite_photos.
+      includes(:tags, :author, :comments, :favorites, :albums)
+    render 'api/photos/index'
+  end
+
   def show
     @user = User.find(params[:id])
-    @photos = @user.photos.includes(:tags, :author)
+    @photos = @user.photos.includes(:tags, :author, :favorites, :albums, :comments)
   end
 
   def create

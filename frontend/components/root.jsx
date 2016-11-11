@@ -2,8 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { fetchByTag,
-         requestPhotos } from '../actions/photo_actions';
-import { getUser } from '../actions/person_actions';
+         requestPhotos,
+          emptyPhotos} from '../actions/photo_actions';
+import { getUser, fetchFavorites} from '../actions/person_actions';
 import { requestType } from '../reducers/selectors';
 import { fetchTags } from '../actions/tag_actions';
 import { fetchPhotoComments } from '../actions/comment_actions';
@@ -19,6 +20,8 @@ import LightBoxContainer from './photos/lightbox/lightbox_container';
 import ByTagContainer from './trending/by_tag_container';
 import TrendingContainer from '../components/trending/trending_container';
 import AlbumContainer from '../components/profile/album/album_container';
+import FavoritesContainer from
+  '../components/profile/favorites/favorites_container';
 import AlbumShowContainer from
        '../components/profile/album/album_show_container';
 import Splash from '../components/splash/splash';
@@ -73,6 +76,15 @@ const Root = ({ store }) => {
     savePrev(nextState);
   };
 
+  const getFavorites = nextState => {
+    store.dispatch(fetchFavorites(nextState.params.userId));
+    savePrev(nextState);
+  };
+
+  const clearPhotos = () => {
+    store.dispatch(emptyPhotos());
+  };
+
   return(
     <Provider store={store}>
 
@@ -93,15 +105,21 @@ const Root = ({ store }) => {
           <Route path='trending' component={TrendingContainer}
             onEnter={n => getTags(n)}/>
           <Route path='trending/:tagId' component={ByTagContainer}
-            onEnter={n => getByTag(n)}/>
+            onEnter={n => getByTag(n)}
+            onLeave={() => clearPhotos()}/>
 
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
-            <IndexRoute component={PhotoStreamContainer}/>
+            <IndexRoute component={PhotoStreamContainer}
+                         onLeave={() => clearPhotos()}/>
             <Route path={'cameraRoll'} component={CameraRollContainer}
               onEnter={n => fetchUser(n)}/>
             <Route path={'albums'} component={AlbumContainer}
                 onEnter={n => fetchAlbums(n)}/>
+
+              <Route path={'favorites'} component={FavoritesContainer}
+                onEnter={n => getFavorites(n)}
+                onLeave={() => clearPhotos()}/>
           </Route>
 
           <Route path='album/:userId/:albumId' component={AlbumShowContainer}

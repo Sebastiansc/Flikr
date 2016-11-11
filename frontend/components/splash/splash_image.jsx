@@ -11,7 +11,7 @@ export default class SplashImage extends React.Component{
     ];
     const randIndex = Math.floor(Math.random() * 3);
     this.state = {url: this.images[randIndex], current: randIndex};
-    this.autoplay = window.setInterval(() => this.next(), 4000);
+    this.autoplay = window.setInterval(() => this.next(), 6000);
   }
 
   next(){

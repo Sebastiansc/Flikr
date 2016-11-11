@@ -32,11 +32,13 @@ export const formatUrl = (url, size) => {
   return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
 };
 
-export const requestType = (fetchByTag, requestPhotos) => {
+export const requestType = (fetchByTag, requestPhotos, getUser, fetchFavorites) => {
   const location = window.path_history;
   if(location.length > 0){
-    if(location[0].includes('home/profile')){
-      return requestPhotos;
+    if (location[0].includes('favorites')){
+      return () => fetchFavorites(location[0].split('/')[2]);
+    } else if(location[0].includes('home/profile')){
+      return () => getUser(location[0].slice(13));
     } else if (location[0].includes('trending/')){
       return () => fetchByTag(location[0].slice(14));
     } else { return requestPhotos; }

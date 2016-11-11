@@ -17,6 +17,7 @@ export default class Tags extends React.Component{
   }
 
   handleSubmit(e){
+    e.preventDefault();
     const tags = this.state.tags.split(' ');
     const photoId = window.location.hash.slice(14);
     tags.forEach(tag => this.props.createTag(photoId, {name: tag}));

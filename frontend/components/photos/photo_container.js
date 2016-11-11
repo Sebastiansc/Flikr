@@ -3,6 +3,8 @@ import PhotoDetail from './photo_detail';
 import {toArray, requestType} from '../../reducers/selectors';
 import {requestPhotos, fetchByTag} from '../../actions/photo_actions';
 import {createTag, destroyTag} from '../../actions/tag_actions';
+import {getUser, fetchFavorites} from '../../actions/person_actions';
+import {publicPhotos} from '../../reducers/selectors';
 
 const _nullPhoto = {
   img_url: undefined,
@@ -20,7 +22,7 @@ const mapStateToProps = ({photos, comments}, {params}) => ({
 });
 
 const mapDispatchToProps = dispatch => {
-  const request = requestType(fetchByTag, requestPhotos);
+  const request = requestType(fetchByTag, requestPhotos, getUser, fetchFavorites);
   return{
     createTag: (photoId, tag) => dispatch(createTag(photoId, tag)),
     requestPhotos: () => dispatch(request()),

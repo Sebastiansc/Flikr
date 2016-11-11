@@ -40,11 +40,15 @@ const Root = ({ store }) => {
 
   const fetchUser = nextState => {
     store.dispatch(getUser(nextState.params.userId));
+  };
+
+  const fetchUserAndSave = nextState => {
+    store.dispatch(getUser(nextState.params.userId));
     savePrev(nextState);
   };
 
   const fetchComments = nextState => {
-    const request = requestType(fetchByTag, requestPhotos);
+    const request = requestType(fetchByTag, requestPhotos, getUser, fetchFavorites);
     store.dispatch(request());
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
 
@@ -108,12 +112,13 @@ const Root = ({ store }) => {
             onEnter={n => getByTag(n)}
             onLeave={() => clearPhotos()}/>
 
-          <Route path='profile/:userId' component={ProfileContainer}
-                 onEnter={(n) => fetchUser(n)}>
+          <Route path='profile/:userId' component={ProfileContainer}>
             <IndexRoute component={PhotoStreamContainer}
-                         onLeave={() => clearPhotos()}/>
+                         onLeave={() => clearPhotos()}
+                         onEnter={(n) => fetchUserAndSave(n)}/>
             <Route path={'cameraRoll'} component={CameraRollContainer}
-              onEnter={n => fetchUser(n)}/>
+              onEnter={n => fetchUser(n)}
+              onLeave={() => clearPhotos()}/>
             <Route path={'albums'} component={AlbumContainer}
                 onEnter={n => fetchAlbums(n)}/>
 
@@ -125,7 +130,8 @@ const Root = ({ store }) => {
           <Route path='album/:userId/:albumId' component={AlbumShowContainer}
               onEnter={n => getAlbum(n)}/>
           <Route path='photos/:photoId' component={PhotoContainer}
-            onEnter={(n) => fetchComments(n)}/>
+            onEnter={(n) => fetchComments(n)}
+            onLeave={() => clearPhotos()}/>
         </Route>
 
         <Route path='/lightbox/:photoId' component={LightBoxContainer}/>

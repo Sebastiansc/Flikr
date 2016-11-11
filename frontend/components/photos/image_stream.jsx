@@ -66,7 +66,8 @@ class ImageStream extends React.Component {
           </i>
           {this.state.photos.map(photo => (
             <StreamItem key={photo.id} photo={photo}
-                current={this.props.current}/>)
+                current={this.props.current}
+                path={this.props.path}/>)
           )}
           <i onClick={() => this.slide(7)}
              className="fa fa-chevron-right nav-arrow-right"

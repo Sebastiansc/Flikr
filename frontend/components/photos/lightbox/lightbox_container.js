@@ -9,10 +9,27 @@ const _nullPhoto = {
   author: {}
 };
 
-const mapStateToProps = ({photos}, {params}) => ({
-  photo: photos[Number(params.photoId)] || _nullPhoto,
-  photos: toArray(photos)
-});
+const mapStateToProps = ({photos}, {params, location}) => {
+  let fetch;
+  if(location.pathname.includes('explore')){
+    fetch  = 'explore';
+  } else if (location.pathname.includes('favorites')){
+    fetch = 'favorites';
+  } else {
+    fetch = 'userPhotos';
+  }
+  let path = location.pathname.split('/');
+  path.pop();
+  path.shift();
+  path = path.join('/');
+
+  return {
+    photo: photos[Number(params.photoId)] || _nullPhoto,
+    photos: toArray(photos),
+    fetch,
+    path
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   requestPhotos: (limit, offset) => dispatch(requestPhotos(limit, offset))

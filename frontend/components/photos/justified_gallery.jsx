@@ -11,10 +11,6 @@ export default class JustifiedGallery extends React.Component{
     this.justified = false;
   }
 
-  componentWillUnmount(){
-    debugger;
-  }
-
   enableInfiniteScroll(){
     this.scrollHandler = () => {
       const fetchHeight = $(document).height() - 400;
@@ -59,6 +55,16 @@ export default class JustifiedGallery extends React.Component{
     this.props.dropPhoto(photoId, this.props.albumId);
   }
 
+  photoLink(photoId){
+    if (this.props.explore){
+      return `home/explore/photos/${photoId}`;
+    } else if (this.props.favorites){
+      return `home/favorites/photos/${this.props.personId}/${photoId}`;
+    } else {
+      return `home/user/photos/${this.props.personId}/${photoId}`;
+    }
+  }
+
   render(){
     return(
       <div id="gallery">
@@ -67,7 +73,7 @@ export default class JustifiedGallery extends React.Component{
             key={photo.id}>
             <img alt={photo.title} src={photo.feed_url}/>
 
-            <Link to={`home/photos/${photo.id}`}
+            <Link to={this.photoLink(photo.id)}
                   className='justified-gallery-item-link'/>
 
             <i aria-hidden="true"

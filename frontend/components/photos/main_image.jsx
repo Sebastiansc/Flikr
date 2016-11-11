@@ -44,21 +44,22 @@ class MainImage extends React.Component{
         </div>
 
         <PhotoArrowNav klass='photo-nav-r-big'
-          root='home/photos'
+          path={this.props.path}
           index={this.image_queue}
           photos={this.props.photos}
           offset={1}
           arrow='fa fa-angle-right fa-2x'
-          code={39}/>
+          load={this.props.load}/>
         <PhotoArrowNav klass='photo-nav-l-big'
-          root='home/photos'
+          path={this.props.path}
           index={this.image_queue}
           photos={this.props.photos}
           offset={-1}
-          arrow='fa fa-angle-right fa-rotate-180 fa-2x'
-          code={37}/>
+          arrow='fa fa-angle-right fa-rotate-180 fa-2x'/>
 
-        <ImageStream photos={this.props.photos} current={this.props.photo.id}/>
+        <ImageStream photos={this.props.photos} current={this.props.photo.id}
+            load={this.props.load}
+            path={this.props.path}/>
       </div>
     );
   }

@@ -7,13 +7,15 @@ import { receivePhotos,
          CREATE_PHOTO,
          DELETE_PHOTO,
          UPDATE_PHOTO,
-         FETCH_BY_TAG} from '../actions/photo_actions';
+         FETCH_BY_TAG,
+         FETCH_IN_BATCH} from '../actions/photo_actions';
 
 import { fetchPhotos,
          postPhoto,
          patchPhoto,
          deletePhoto,
-         fetchByTag} from '../util/photos_api_util';
+         fetchByTag,
+         fetchInBatch} from '../util/photos_api_util';
 
 export default ({ getState, dispatch }) => next => action => {
   let success = photo => dispatch(receivePhoto(photo));
@@ -37,6 +39,10 @@ export default ({ getState, dispatch }) => next => action => {
     case UPDATE_PHOTO:
       success = photo => dispatch(renewPhoto(photo));
       patchPhoto(action.photo, success);
+      return next(action);
+    case FETCH_IN_BATCH:
+      success = photos => dispatch(receivePhotos(photos));
+      fetchInBatch(action.photoId, success);
       return next(action);
     default:
       return next(action);

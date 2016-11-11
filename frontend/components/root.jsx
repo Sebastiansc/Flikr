@@ -48,8 +48,6 @@ const Root = ({ store }) => {
   };
 
   const fetchComments = nextState => {
-    const request = requestType(fetchByTag, requestPhotos, getUser, fetchFavorites);
-    store.dispatch(request());
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
 
     window.scrollTo(0, 0);
@@ -129,9 +127,12 @@ const Root = ({ store }) => {
 
           <Route path='album/:userId/:albumId' component={AlbumShowContainer}
               onEnter={n => getAlbum(n)}/>
-          <Route path='photos/:photoId' component={PhotoContainer}
-            onEnter={(n) => fetchComments(n)}
-            onLeave={() => clearPhotos()}/>
+            <Route path='explore/photos/:photoId' component={PhotoContainer}
+            onEnter={(n) => fetchComments(n)}/>
+          <Route path='favorites/photos/:userId/:photoId' component={PhotoContainer}
+            onEnter={(n) => fetchComments(n)}/>
+          <Route path='user/photos/:userId/:photoId' component={PhotoContainer}
+            onEnter={(n) => fetchComments(n)}/>
         </Route>
 
         <Route path='/lightbox/:photoId' component={LightBoxContainer}/>

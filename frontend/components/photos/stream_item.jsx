@@ -1,8 +1,8 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
-const StreamItem = ({photo, current, router}) => {
-  const next = () => router.push(`home/photos/${photo.id}`);
+const StreamItem = ({photo, current, router, path}) => {
+  const next = () => router.push(path(photo.id));
   const klass = photo.id === current ? 'stream-selected' : '';
   return(
     <div onClick={() => next()} key={photo.id}

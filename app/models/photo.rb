@@ -22,7 +22,7 @@ class Photo < ApplicationRecord
   source: :album
 
   def self.in_proximity(start_id)
-    Photo.where(id: (start_id - 21)...(start_id + 21))
+    Photo.where(id: (start_id.to_i - 21)...(start_id.to_i + 21))
   end
 
   def self.feed_stream(limit = 30, offset = 0)

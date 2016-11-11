@@ -6,7 +6,8 @@ const ExploreGallery = ({photos, klass, requestPhotos}) =>{
     <div>
       <JustifiedGallery photos={photos}
         rowHeight={230}
-        requestPhotos={requestPhotos}/>
+        requestPhotos={requestPhotos}
+        explore={true}/>
     </div>
   );
 };

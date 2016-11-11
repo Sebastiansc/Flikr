@@ -7,6 +7,7 @@ export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const RENEW_PHOTO = 'RENEW_PHOTO';
 export const FETCH_BY_TAG = 'FETCH_BY_TAG';
+export const FETCH_IN_BATCH = 'FETCH_IN_BATCH';
 export const EMPTY_PHOTOS = 'EMPTY_PHOTOS';
 export const RECEIVE_AND_REPLACE = 'RECEIVE_AND_REPLACE';
 
@@ -64,4 +65,9 @@ export const receiveAndReplace = photos => ({
 
 export const emptyPhotos = () => ({
   type: EMPTY_PHOTOS
+});
+
+export const fetchInBatch = photoId => ({
+  type: FETCH_IN_BATCH,
+  photoId
 });

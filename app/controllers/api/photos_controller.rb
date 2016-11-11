@@ -9,7 +9,8 @@ class Api::PhotosController < ApplicationController
   end
 
   def batch
-    @photo = Photo.in_proximity(params[:photo_id])
+    @photos = Photo.in_proximity(params[:photo_id])
+    render :index
   end
 
   def show

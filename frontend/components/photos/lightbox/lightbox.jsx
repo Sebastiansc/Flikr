@@ -16,6 +16,30 @@ export default class LightBox extends React.Component{
     }
   }
 
+  load(){
+    switch (this.props.fetch) {
+      case 'explore':
+        this.props.fetchInBatch(this.props.photo.id);
+        break;
+      case 'favorites':
+        this.props.fetchFavorites(this.props.person.id);
+        break;
+      default:
+        this.props.getUser(this.props.person.id);
+        break;
+    }
+  }
+
+  photoLink(photoId){
+    if (this.props.explore){
+      return `home/explore/photos/${photoId}`;
+    } else if (this.props.favorites){
+      return `home/favorites/photos/${photoId}`;
+    } else {
+      return `home/user/photos/${photoId}`;
+    }
+  }
+
   componentWillMount(){
     if(this.props.photos.length === 0) this.props.requestPhotos();
   }
@@ -28,18 +52,20 @@ export default class LightBox extends React.Component{
     return(
       <div className='lightbox-container'>
         <LightBoxHeader author={this.props.photo.author}
-          id={this.props.photo.id}/>
+          id={this.props.photo.id}
+          path={this.props.path}/>
         <div className='lightbox-image'>
           <img src={this.props.photo.img_url}></img>
         </div>
         <PhotoArrowNav klass='photo-nav-r-big'
-          root='lightbox'
+          root={this.props.path}
           index={this.image_queue}
           photos={this.props.photos}
           offset={1}
-          arrow='fa fa-angle-right'/>
+          arrow='fa fa-angle-right'
+          load={() => this.load()}/>
         <PhotoArrowNav klass='photo-nav-l-big'
-          root='lightbox'
+          root={this.props.path}
           index={this.image_queue}
           photos={this.props.photos}
           offset={-1}
@@ -48,19 +74,3 @@ export default class LightBox extends React.Component{
     );
   }
 }
-
-//
-// photos = [1,2,3,4,5,6,7]
-// image_queue = [4]
-// clicks next
-// image_queue[0] = image_queue.pop + 1
-// this.props.router.push(`lightbox/${photos[image_queue[0+1].id]}`)
-//
-// Option 1
-// Component receives photos array in props and also receives currentPhoto being displayed
-// const current_index = this.props.photos.filter(photo => photo.id === currentPhoto.id)
-// store this.state = {image_queue: current_index}
-//
-//
-// Behavior needs to be shared with photo_detail component:
-//   Break functionality into <RightArrow /> <LeftArrow />

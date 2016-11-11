@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { fetchByTag,
          requestPhotos } from '../actions/photo_actions';
 import { getUser } from '../actions/person_actions';
+import { requestType } from '../reducers/selectors';
 import { fetchTags } from '../actions/tag_actions';
 import { fetchPhotoComments } from '../actions/comment_actions';
 import { fetchUserAlbums, fetchAlbum } from '../actions/album_actions';
@@ -40,15 +41,9 @@ const Root = ({ store }) => {
   };
 
   const fetchComments = nextState => {
+    const request = requestType(fetchByTag, requestPhotos);
+    store.dispatch(request());
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
-
-    let goFetch;
-    if(path_history[0].includes('home/profile') || path_history[0] === 'home'){
-      goFetch = requestPhotos;
-    } else if (window.path_history[0].includes('trending/')){
-      goFetch = () => fetchByTag(path_history[0].slice(14));
-    }
-    store.dispatch(goFetch());
 
     window.scrollTo(0, 0);
   };

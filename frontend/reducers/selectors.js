@@ -31,3 +31,14 @@ export const formatUrl = (url, size) => {
   const tailUrl = url.slice(46);
   return `${rootUrl}c_scale,h_${size}/${tailUrl}`;
 };
+
+export const requestType = (fetchByTag, requestPhotos) => {
+  const location = window.path_history;
+  if(location.length > 0){
+    if(location[0].includes('home/profile')){
+      return requestPhotos;
+    } else if (location[0].includes('trending/')){
+      return () => fetchByTag(location[0].slice(14));
+    } else { return requestPhotos; }
+  } else { return requestPhotos; }
+};

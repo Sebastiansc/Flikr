@@ -16,7 +16,7 @@ export default class Profile extends React.Component{
       $('.profile-nav li:first-child').attr('id', 'nav-selected');
     } else if (location === 'albums'){
       $('.profile-nav li').removeAttr('id');
-      $('.profile-nav li:last-child').attr('id', 'nav-selected');
+      $('.profile-nav li:nth-child(3)').attr('id', 'nav-selected');
     } else {
       $('.profile-nav li').removeAttr('id');
       $('.profile-nav li:nth-child(2)').attr('id','nav-selected');

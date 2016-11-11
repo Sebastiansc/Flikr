@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-const AlbumGalleryItem = ({klass, length, album, deleteAlbum, router}) => (
+const AlbumGalleryItem = ({klass, length, album, deleteAlbum, router, show}) => (
   <div className={`${klass}-item`}
     key={album.id}
     style={{backgroundImage: `url('${album.cover_photo.feed_url}')`}}>
@@ -16,7 +16,8 @@ const AlbumGalleryItem = ({klass, length, album, deleteAlbum, router}) => (
       </span>
     </div>
     <i className="fa fa-trash-o" id={`${klass}-delete`} aria-hidden="true"
-      onClick={() => deleteAlbum(album.id)}>
+      onClick={() => deleteAlbum(album.id)}
+      style={{display: `${show()}`}}>
     </i>
   </div>
 );

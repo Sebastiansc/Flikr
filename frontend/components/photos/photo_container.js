@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PhotoDetail from './photo_detail';
-import {toArray} from '../../reducers/selectors';
+import {toArray, requestType} from '../../reducers/selectors';
 import {requestPhotos, fetchByTag} from '../../actions/photo_actions';
 import {createTag, destroyTag} from '../../actions/tag_actions';
 
@@ -19,10 +19,14 @@ const mapStateToProps = ({photos, comments}, {params}) => ({
   comments
 });
 
-const mapDispatchToProps = dispatch => ({
-  createTag: (photoId, tag) => dispatch(createTag(photoId, tag)),
-  destroyTag: (photoId, tag) => dispatch(destroyTag(photoId, tag))
-});
+const mapDispatchToProps = dispatch => {
+  const request = requestType(fetchByTag, requestPhotos);
+  return{
+    createTag: (photoId, tag) => dispatch(createTag(photoId, tag)),
+    requestPhotos: () => dispatch(request()),
+    destroyTag: (photoId, tag) => dispatch(destroyTag(photoId, tag))
+  };
+};
 
 export default connect(
   mapStateToProps,

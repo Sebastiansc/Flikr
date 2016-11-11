@@ -35,8 +35,10 @@ export default class UserDescription extends React.Component{
       <section className='user-section'>
         <div className='main-info-container'>
           <Link to={`home/profile/${this.props.photo.author_id}`}>
-            <div className='u-section-avatar'>
-              <img src={`${this.props.author.image_url}`}></img>
+            <div className='u-section-avatar'
+              style={{
+                backgroundImage: `url('${this.props.author.image_url}')`
+              }}>
             </div>
           </Link>
           <div className='info'>

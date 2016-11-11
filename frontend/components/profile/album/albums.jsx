@@ -35,7 +35,8 @@ export default class Albums extends React.Component{
            show={this.showIfOwner()}
            messages={["Create a new album", "Select Photos to add"]}/>
         <AlbumGallery albums={this.props.albums}
-           deleteAlbum={this.props.deleteAlbum}/>
+           deleteAlbum={this.props.deleteAlbum}
+           show={() => this.showIfOwner()}/>
       </div>
     );
   }

@@ -39,3 +39,10 @@ export const fetchByTag = (id, success) => {
     success
   });
 };
+
+export const fetchInBatch = (photoId, success) => {
+  $.ajax({
+    url: `/api/photos/batch/${photoId}`,
+    success
+  });
+};

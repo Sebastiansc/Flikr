@@ -21,6 +21,9 @@ class Photo < ApplicationRecord
   through: :album_photos,
   source: :album
 
+  def self.in_proximity(start_id)
+    Photo.where(id: (start_id - 21)...(start_id + 21))
+  end
 
   def self.feed_stream(limit = 30, offset = 0)
     Photo.where(public: true).

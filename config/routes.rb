@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'api/photos/tag/:tag_id', :to => 'api/photos#by_tag'
 
+  get 'api/photos/batch/:photo_id', :to => 'api/photos#batch'
+
   delete 'api/photos/:photo_id/favorites', :to => 'api/favorites#destroy'
 
   post 'api/users/:user_id/cover_photo/:photo_id', :to => 'api/users#change_cover'

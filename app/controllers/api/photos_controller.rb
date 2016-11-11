@@ -8,6 +8,10 @@ class Api::PhotosController < ApplicationController
     render :index
   end
 
+  def batch
+    @photo = Photo.in_proximity(params[:photo_id])
+  end
+
   def show
     @photo = Photo.find(params[:id])
   end

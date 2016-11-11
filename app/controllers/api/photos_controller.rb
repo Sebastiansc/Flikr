@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.feed_stream
+    @photos = Photo.feed_stream(params[:limit], params[:offset])
   end
 
   def by_tag

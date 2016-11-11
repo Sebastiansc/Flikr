@@ -10,10 +10,7 @@ import {RECEIVE_FAVORITE,
 import merge from 'lodash/merge';
 import {findIndex} from '../reducers/selectors';
 
-const _defaultState = {
-  author: {},
-  tags: []
-};
+const _defaultState = {};
 
 
 const PhotosReducer = (state = _defaultState, action) => {

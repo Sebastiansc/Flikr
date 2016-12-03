@@ -1,6 +1,5 @@
 import {RECEIVE_PHOTOS,
-        REMOVE_PHOTO,
-        RENEW_PHOTO} from '../actions/photo_actions';
+        REMOVE_PHOTO} from '../actions/photo_actions';
 import {RECEIVE_TAG, REMOVE_TAG} from '../actions/tag_actions';
 import {RECEIVE_FAVORITE,
         REMOVE_FAVORITE} from '../actions/favorite_actions';
@@ -16,10 +15,6 @@ const PhotosReducer = (state = {}, action) => {
       return action.photos;
     case REMOVE_PHOTO:
       delete newState[action.photo.id];
-      return newState;
-    case RENEW_PHOTO:
-      newState[action.photo.id] = null;
-      newState[action.photo.id] = action.photo;
       return newState;
     case RECEIVE_TAG:
       newState[action.photoId].tags.push(action.tag);

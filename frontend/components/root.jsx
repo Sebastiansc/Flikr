@@ -36,8 +36,9 @@ const Root = ({ store }) => {
       replace('/');
       return;
     } else {
-      if(isEmpty(state.photos)) store.dispatch(requestPhotos());
+      store.dispatch(requestPhotos());
     }
+    savePrev(nextState);
   };
 
   const fetchUser = nextState => {
@@ -89,10 +90,9 @@ const Root = ({ store }) => {
         <Route path='signin' component={SessionFormContainer}
           onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
 
-        <Route path='/home' component={App}
-               onEnter={(n, r) => _ensureLogin(n ,r)}>
+        <Route path='/home' component={App}>
           <IndexRoute component={ImageContainer}
-            onEnter={n => savePrev(n)}/>
+            onEnter={(n, r) => _ensureLogin(n ,r)}/>
           <Route path='main' component={ImageContainer}/>
           <Route path='trending' component={TrendingContainer}
             onEnter={n => getTags(n)}/>

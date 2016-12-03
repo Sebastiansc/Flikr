@@ -10,8 +10,8 @@ const UserPhotosReducer = (state = {}, action) => {
     case RECEIVE_USER_INFO:
       return action.user.photos;
     case RECEIVE_PHOTO:
-    newState.unshift(action.photo);
-    return newState;
+      newState[action.photo.id] = action.photo;
+      return newState;
     default:
       return state;
   }

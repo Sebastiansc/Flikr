@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   get 'api/photos/tag/:tag_id', to: 'api/photos#by_tag'
-  get 'api/user/:user_id/photos', to: 'api/users#user_photos'
+  get 'api/users/:user_id/photos', to: 'api/users#user_photos'
 
   delete 'api/photos/:photo_id/favorites', to: 'api/favorites#destroy'
 

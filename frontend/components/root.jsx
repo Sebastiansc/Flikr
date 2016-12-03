@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { fetchPhotos,
          fetchByTag,
          requestPhotos } from '../actions/photo_actions';
-import { getUser } from '../actions/user_actions';
+import { getUser, fetchUserPhotos } from '../actions/user_actions';
 import { fetchTags } from '../actions/tag_actions';
 import { fetchPhotoComments } from '../actions/comment_actions';
 import { fetchUserAlbums, fetchAlbum } from '../actions/album_actions';
@@ -48,12 +48,21 @@ const Root = ({ store }) => {
     savePrev(nextState);
   };
 
-  // Determines what photo slice to fetch from store depending on pathname
+  // Determines where to fetch photos from depending on pathname.
   const photoDetailFetch = nextState => {
-    const slice = store.getState()[nextState.location.pathname.split('/')[1]];
-    if (isEmpty(slice)){
+    const slice = nextState.location.pathname.split('/')[2];
+    if (isEmpty(store.getState()[slice])){
+      store.dispatch(determineAction(slice, nextState.params)());
       store.dispatch(fetchPhotoComments(nextState.params.photoId));
-      store.dispatch(requestPhotos());
+    }
+  };
+
+  const determineAction = (slice, params) => {
+    switch (slice) {
+      case "userPhotos":
+        return () => fetchUserPhotos(params.userId);
+      case "photos":
+        return requestPhotos;
     }
   };
 
@@ -114,7 +123,7 @@ const Root = ({ store }) => {
               onEnter={n => getAlbum(n)}/>
           <Route path='photos/:photoId' component={PhotoContainer}
             onEnter={(n) => photoDetailFetch(n)}/>
-          <Route path='userPhotos/:photoId' component={PhotoContainer}
+          <Route path='userPhotos/:userId/:photoId' component={PhotoContainer}
             onEnter={(n) => photoDetailFetch(n)}/>
         </Route>
 

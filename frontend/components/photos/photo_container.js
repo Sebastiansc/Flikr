@@ -4,11 +4,14 @@ import {toArray} from '../../reducers/selectors';
 import {requestPhotos} from '../../actions/photo_actions';
 import {createTag, destroyTag} from '../../actions/tag_actions';
 
-const mapStateToProps = ({photos, comments}, {params}) => ({
-  photo: photos[Number(params.photoId)],
-  photos: toArray(photos),
-  comments
-});
+const mapStateToProps = (state, {params, location}) => {
+  const slice = location.pathname.split('/')[2];
+  return {
+    photo: state[slice][Number(params.photoId)],
+    photos: toArray(state[slice]),
+    comments: state["comments"]
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   requestPhotos: () => dispatch(requestPhotos()),

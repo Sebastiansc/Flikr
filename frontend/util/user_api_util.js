@@ -21,3 +21,12 @@ export const changeProfilePic = (userId, url, success) => {
     success
   });
 };
+
+
+export const fetchUserPhotos = (userId, success) => {
+  $.ajax({
+    url: `api/users/${userId}/photos`,
+    type: 'get',
+    success
+  });
+};

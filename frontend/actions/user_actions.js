@@ -4,6 +4,9 @@ export const CHANGE_USER_COVER = 'CHANGE_USER_COVER';
 export const UPDATE_USER_COVER = 'UPDATE_USER_COVER';
 export const CHANGE_PROFILE_PIC = 'CHANGE_PROFILE_PIC';
 export const UPDATE_PROFILE_PIC = 'UPDATE_PROFILE_PIC';
+export const FETCH_USER_PHOTOS = 'FETCH_USER_PHOTOS';
+export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
+
 
 
 export const getUser = id => ({
@@ -33,7 +36,19 @@ export const changeProfilePic = (userId, url) => ({
   url
 });
 
-export const updateProfilePic = (user) => ({
+export const updateProfilePic = user => ({
   type: UPDATE_PROFILE_PIC,
   user
+});
+
+
+export const fetchUserPhotos = userId => ({
+  type: FETCH_USER_PHOTOS,
+  userId
+});
+
+
+export const receiveUserPhotos = photos => ({
+  type: RECEIVE_USER_PHOTOS,
+  photos
 });

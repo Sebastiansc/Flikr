@@ -1,4 +1,5 @@
-import { RECEIVE_USER_INFO } from '../actions/user_actions';
+import {RECEIVE_USER_INFO,
+        RECEIVE_USER_PHOTOS} from '../actions/user_actions';
 import { RECEIVE_PHOTO } from '../actions/photo_actions';
 import merge from 'lodash/merge';
 
@@ -12,6 +13,9 @@ const UserPhotosReducer = (state = {}, action) => {
     case RECEIVE_PHOTO:
       newState[action.photo.id] = action.photo;
       return newState;
+    case RECEIVE_USER_PHOTOS:
+    debugger;
+      return action.photos;
     default:
       return state;
   }

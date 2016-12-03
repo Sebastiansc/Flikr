@@ -36,6 +36,10 @@ export default class JustifiedGallery extends React.Component{
     this.props.dropPhoto(photoId, this.props.albumId);
   }
 
+  link(photo){
+    return this.props.link + photo.id;
+  }
+
   render(){
     return(
       <div id="gallery">
@@ -44,7 +48,7 @@ export default class JustifiedGallery extends React.Component{
             key={photo.id}>
             <img alt={photo.title} src={photo.feed_url}/>
 
-            <Link to={`home/photos/${photo.id}`}
+            <Link to={this.link(photo)}
                   className='justified-gallery-item-link'/>
 
             <i aria-hidden="true"
@@ -55,7 +59,7 @@ export default class JustifiedGallery extends React.Component{
 
               <div className='caption' id='caption-patch'>
                 <div className="explore-item-text">
-                  <Link to={`home/photos/${photo.id}`}
+                  <Link to={this.link(photo)}
                         className='explore-item-title'>
                     {photo.title}
                   </Link>

@@ -35,7 +35,8 @@ class Api::UsersController < ApplicationController
   end
 
   def user_photos
-    @photos = photos(User.find(params[:id]))
+    @user = User.find(params[:user_id])
+    @photos = photos(@user)
     render 'api/photos/index'
   end
 

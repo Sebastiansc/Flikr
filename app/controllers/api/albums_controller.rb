@@ -1,4 +1,5 @@
 class Api::AlbumsController < ApplicationController
+
   def index
     if params[:user_id]
       @albums = Album.where(owner_id: params[:user_id]).
@@ -16,6 +17,7 @@ class Api::AlbumsController < ApplicationController
     @album.cover_photo_id =  params[:photos][0]
     if @album.valid?
       @album.save!
+      @photos = photos(@album)
       params[:photos][1..-1].each{|id| @album.photos << Photo.find(id)}
       render :show
     else
@@ -26,6 +28,7 @@ class Api::AlbumsController < ApplicationController
   def destroy
     @album = Album.find(params[:id])
     return unless @album
+    @photos = photos(@album)
     @album.destroy!
     render :show
   end
@@ -33,6 +36,7 @@ class Api::AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
     if @album.update_attributes(album_params)
+      @photos = photos(@album)
       render :show
     else
       render json: @album.errors.full_messages, status: 401
@@ -41,7 +45,7 @@ class Api::AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @photos = @album.photos.includes(:author, :tags)
+    @photos = photos(@album)
   end
 
   def add_photo
@@ -66,6 +70,10 @@ class Api::AlbumsController < ApplicationController
   end
 
   private
+
+  def photos(album)
+    album.photos.includes(:tags, :author, :favorites, :comments, :albums)
+  end
 
   def album_params
     params.require(:album).permit(:title, :description)

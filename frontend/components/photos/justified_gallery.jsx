@@ -1,11 +1,24 @@
 import React from 'react';
 import {Link} from 'react-router';
+import { values } from 'lodash';
 
 export default class JustifiedGallery extends React.Component{
   constructor(props){
     super(props);
     this.componentDidMount = this.justify;
     this.componentDidUpdate = this.justify;
+    // this.infinite = this.enableInfiniteScroll();
+  }
+
+  enableInfiniteScroll(){
+    $(window).scroll(() => {
+      if(this.props.requestPhotos){
+        if($(window).scrollTop() + $(window).height() === $(document).height())
+        {
+          this.props.requestPhotos(20, 20);
+        }
+      }
+    });
   }
 
   justify(){
@@ -51,8 +64,16 @@ export default class JustifiedGallery extends React.Component{
                     by {photo.author.username}
                   </Link>
                 </div>
-                <div className='explore-item-tool'></div>
-                <div className='explore-item-tool'></div>
+                <div className='photo-interactions'>
+                  <div className='explore-item-tool'>
+                    <i className="fa fa-comment-o" aria-hidden="true"></i>
+                    15
+                  </div>
+                  <div className='explore-item-tool'>
+                    <i className="fa fa-star-o" aria-hidden="true"></i>
+                    {values(photo.favorites).length}
+                  </div>
+                </div>
               </div>
 
           </div>

@@ -1,1 +1,1 @@
-json.partial! partial: 'api/albums/album', locals: {album: @album}
+json.partial! partial: 'api/albums/album', locals: {album: @album, photos: @photos}

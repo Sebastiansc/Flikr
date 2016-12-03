@@ -13,7 +13,7 @@ json.set! :owner do
   json.extract! album.owner, :username, :id
 end
 json.set! :photos do
-  json.array! album.photos do |photo|
+  json.array! photos do |photo|
     json.partial! partial: 'api/photos/photo_show', locals: {photo: photo}
   end
 end

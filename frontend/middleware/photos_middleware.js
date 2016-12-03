@@ -20,7 +20,7 @@ export default ({ getState, dispatch }) => next => action => {
   switch(action.type) {
     case REQUEST_PHOTOS:
       success = photos => dispatch(receivePhotos(photos));
-      fetchPhotos(success);
+      fetchPhotos(20, 0, success);
       return next(action);
     case FETCH_BY_TAG:
       success = photos => dispatch(receivePhotos(photos));

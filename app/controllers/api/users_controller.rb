@@ -6,14 +6,14 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @photos = @user.photos.includes(:tags, :author)
+    @photos = photos(@user)
   end
 
   def create
     @user = User.new(user_params)
     if @user.valid?
       @user.save!
-      @photos = @user.photos
+      @photos = photos(@user)
       login(@user)
       render 'api/sessions/show'
     else
@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
 
   def change_cover
     @user = User.find(params[:user_id])
-    @photos = @user.photos.includes(:tags, :author, :favorites)
+    @photos = photos(@user)
     @user.update_attribute(:cover_photo, Photo.find(params[:photo_id]).show_url)
     render :show
   end
@@ -31,12 +31,16 @@ class Api::UsersController < ApplicationController
 
   def change_profile_pic
     @user = User.find(params[:user_id])
-    @photos = @user.photos.includes(:tags, :author, :favorites)
+    @photos = photos(@user)
     @user.update_attribute(:image_url, params[:url])
     render :show;
   end
 
   private
+  def photos(user)
+    user.photos.includes(:tags, :author, :favorites, :comments, :albums)
+  end
+
   def user_params
     params.require(:user).permit(:username, :password, :cover_photo, :image_url)
   end

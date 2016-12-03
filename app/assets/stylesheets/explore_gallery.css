@@ -69,6 +69,21 @@
   z-index: 600;
 }
 
+.explore-item-tool {
+  color: white;
+  padding-left: 15px;
+}
+
+.explore-item-tool i {
+  margin-right: 3px;
+}
+
+.photo-interactions {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
 .explore-item-title {
   font-weight: 600;
   font-size: 14px;

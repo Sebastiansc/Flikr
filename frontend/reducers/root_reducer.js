@@ -17,6 +17,7 @@ export default combineReducers({
   userPhotos: UserPhotosReducer,
   editing: EditReducer,
   tags: TagsReducer,
+  tagPhotos: TagPhotosReducer,
   albums: AlbumsReducer,
   comments: CommentsReducer
 });

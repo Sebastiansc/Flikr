@@ -6,24 +6,24 @@ import PhotoArrowNav from './arrow';
 class MainImage extends React.Component{
   constructor(props){
     super(props);
-    this.image_queue = 1;
+    this.componentWillMount = this.componentWillReceiveProps = this.findIndex;
   }
 
   changePhoto(id){
     this.router.push(`home/photos/${id}`);
   }
 
+  findIndex(props = this.props){
+    this.image_index = this.currentIndex(props);
+  }
+
   fullSize(){
     this.props.router.push(`lightbox/${this.props.photo.id}`);
   }
 
-  componentWillUpdate(newProps){
-    this.image_queue = this.currentIndex(newProps);
-  }
-
-  currentIndex(newProps){
-    for (let i = 0; i < newProps.photos.length; i++) {
-      if(newProps.photos[i].id === newProps.photo.id){
+  currentIndex(props){
+    for (let i = 0; i < props.photos.length; i++) {
+      if(props.photos[i].id === props.photo.id){
         return i;
       }
     }
@@ -52,13 +52,13 @@ class MainImage extends React.Component{
 
         <PhotoArrowNav klass='photo-nav-r-big'
           root={this.linkRoot()}
-          index={this.image_queue}
+          index={this.image_index}
           photos={this.props.photos}
           offset={1}
           arrow='fa fa-angle-right fa-2x'/>
         <PhotoArrowNav klass='photo-nav-l-big'
           root={this.linkRoot()}
-          index={this.image_queue}
+          index={this.image_index}
           photos={this.props.photos}
           offset={-1}
           arrow='fa fa-angle-right fa-rotate-180 fa-2x'/>

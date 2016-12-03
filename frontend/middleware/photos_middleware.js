@@ -5,14 +5,12 @@ import { receivePhotos,
          REQUEST_PHOTOS,
          CREATE_PHOTO,
          DELETE_PHOTO,
-         UPDATE_PHOTO,
-         FETCH_BY_TAG} from '../actions/photo_actions';
+         UPDATE_PHOTO} from '../actions/photo_actions';
 
 import { fetchPhotos,
          postPhoto,
          patchPhoto,
-         deletePhoto,
-         fetchByTag} from '../util/photos_api_util';
+         deletePhoto} from '../util/photos_api_util';
 
 export default ({ getState, dispatch }) => next => action => {
   let success = photo => dispatch(receivePhoto(photo));
@@ -21,10 +19,6 @@ export default ({ getState, dispatch }) => next => action => {
     case REQUEST_PHOTOS:
       success = photos => dispatch(receivePhotos(photos));
       fetchPhotos(20, 0, success);
-      return next(action);
-    case FETCH_BY_TAG:
-      success = photos => dispatch(receivePhotos(photos));
-      fetchByTag(action.id, success);
       return next(action);
     case CREATE_PHOTO:
       postPhoto(action.photo, success);

@@ -5,7 +5,8 @@ const ByTagGallery = ({photos, tag}) => {
   return(
     <div className='centered-by-tag'>
       <h1>{tag.name}</h1>
-      <JustifiedGallery rowHeight={250} photos={photos}/>
+      <JustifiedGallery rowHeight={250} photos={photos}
+        link={`/home/tagPhotos/${tag.id}/`}/>
     </div>
   );
 };

@@ -1,27 +1,47 @@
 import React from 'react';
+
 import { Provider } from 'react-redux';
+
 import { isEmpty } from 'lodash';
+
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { fetchPhotos,
-         fetchByTag,
-         requestPhotos } from '../actions/photo_actions';
+
+import { fetchPhotos, requestPhotos } from '../actions/photo_actions';
+
 import { getUser, fetchUserPhotos } from '../actions/user_actions';
+
 import { fetchTags } from '../actions/tag_actions';
+import { fetchByTag } from '../actions/tag_photos_actions';
+
 import { fetchPhotoComments } from '../actions/comment_actions';
+
 import { fetchUserAlbums, fetchAlbum } from '../actions/album_actions';
+
 import App from './app';
+
 import SessionFormContainer from './session/session_form_container';
+
 import ImageContainer from './photos/images_container';
+
 import PhotoContainer from './photos/photo_container';
+
 import ProfileContainer from './profile/profile_container';
+
 import PhotoStreamContainer from './profile/photo_stream_container';
+
 import CameraRollContainer from './profile/camera_roll_container';
+
 import LightBoxContainer from './photos/lightbox/lightbox_container';
+
 import ByTagContainer from './trending/by_tag_container';
+
 import TrendingContainer from '../components/trending/trending_container';
+
 import AlbumContainer from '../components/profile/album/album_container';
+
 import AlbumShowContainer from
        '../components/profile/album/album_show_container';
+
 import Splash from '../components/splash/splash';
 
 const Root = ({ store }) => {
@@ -51,8 +71,11 @@ const Root = ({ store }) => {
   // Determines where to fetch photos from depending on pathname.
   const photoDetailFetch = nextState => {
     const slice = nextState.location.pathname.split('/')[2];
-    if (isEmpty(store.getState()[slice])){
-      store.dispatch(determineAction(slice, nextState.params)());
+    const action = determineAction(slice, nextState.params);
+    if (slice === "tagPhotos"){
+      store.dispatch(action());
+    } else if (isEmpty(store.getState()[slice])){
+      store.dispatch(action());
     }
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
   };
@@ -63,6 +86,8 @@ const Root = ({ store }) => {
         return () => fetchUserPhotos(params.userId);
       case "photos":
         return requestPhotos;
+      case "tagPhotos":
+      return () => fetchByTag(params.tagId);
     }
   };
 
@@ -124,6 +149,8 @@ const Root = ({ store }) => {
           <Route path='photos/:photoId' component={PhotoContainer}
             onEnter={(n) => photoDetailFetch(n)}/>
           <Route path='userPhotos/:userId/:photoId' component={PhotoContainer}
+            onEnter={(n) => photoDetailFetch(n)}/>
+          <Route path='tagPhotos/:tagId/:photoId' component={PhotoContainer}
             onEnter={(n) => photoDetailFetch(n)}/>
         </Route>
 

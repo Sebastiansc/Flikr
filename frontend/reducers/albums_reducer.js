@@ -6,13 +6,7 @@ import {RECEIVE_ALBUMS,
 import merge from 'lodash/merge';
 import {findIndex} from '../reducers/selectors';
 
-const _nullAlbum = {
-  owner: {},
-  cover_photo: {},
-  photos: []
-};
-
-const AlbumReducer = (state = _nullAlbum, action) => {
+const AlbumReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = merge({}, state);
 

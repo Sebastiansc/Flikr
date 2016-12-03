@@ -1,7 +1,7 @@
 import {values} from 'lodash';
 
 export const toArray = object => {
-  return values(object) || [];
+  return values(object).reverse() || [];
 };
 
 export const commentsArray = comments => {
@@ -15,7 +15,7 @@ export const selectPhoto = (photos, id) => {
 };
 
 export const publicPhotos = photos => (
-  values(photos).filter(photo => photo.public)
+  toArray(photos).filter(photo => photo.public)
 );
 
 

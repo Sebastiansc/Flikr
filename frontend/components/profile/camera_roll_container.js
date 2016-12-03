@@ -4,9 +4,9 @@ import {updatePhoto, deletePhoto} from '../../actions/photo_actions';
 import {selectPhoto, toArray} from '../../reducers/selectors';
 import {toggleModal, setEditId} from '../../actions/edit_actions';
 
-const mapStateToProps = ({photos, editing}, {params}) => ({
-  photo: selectPhoto(photos, editing.id),
-  photos: toArray(photos),
+const mapStateToProps = ({userPhotos, editing}, {params}) => ({
+  photo: selectPhoto(userPhotos, editing.id),
+  photos: toArray(userPhotos),
   open: editing.modalOpen,
   userId: params.userId
 });

@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @photos = @user.photos
+    @photos = @user.photos.includes(:tags, :albums)
   end
 
   def create

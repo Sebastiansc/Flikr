@@ -35,8 +35,7 @@ const Root = ({ store }) => {
   };
 
   const fetchUser = nextState => {
-    debugger;
-    if(store.getState().user.id !== nextState.params.userId){
+    if(store.getState().user.id !== Number(nextState.params.userId)){
       store.dispatch(getUser(nextState.params.userId));
     }
     savePrev(nextState);

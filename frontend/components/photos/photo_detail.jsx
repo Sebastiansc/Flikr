@@ -9,6 +9,8 @@ export default class PhotoDetail extends React.Component{
   }
 
   render(){
+    if (!this.props.photo) return <div></div>;
+      
     return(
       <div>
         <MainImage photo={this.props.photo} photos={this.props.photos}

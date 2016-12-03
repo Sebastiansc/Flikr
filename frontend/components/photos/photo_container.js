@@ -4,15 +4,8 @@ import {toArray} from '../../reducers/selectors';
 import {requestPhotos} from '../../actions/photo_actions';
 import {createTag, destroyTag} from '../../actions/tag_actions';
 
-const _nullPhoto = {
-  author: {},
-  tags: [],
-  favorites: {},
-  albums: {}
-};
-
 const mapStateToProps = ({photos, comments}, {params}) => ({
-  photo: photos[Number(params.photoId)] || _nullPhoto,
+  photo: photos[Number(params.photoId)],
   photos: toArray(photos),
   comments
 });

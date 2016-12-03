@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Favorite = ({currentUser, photo, favorite, unfavorite}) => {
-  debugger;
   const included = Boolean(photo.favorites[currentUser.id]);
 
   const toLikeOrNotToLike = () => {

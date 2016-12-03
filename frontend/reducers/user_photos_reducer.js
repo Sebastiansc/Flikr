@@ -14,7 +14,6 @@ const UserPhotosReducer = (state = {}, action) => {
       newState[action.photo.id] = action.photo;
       return newState;
     case RECEIVE_USER_PHOTOS:
-    debugger;
       return action.photos;
     default:
       return state;

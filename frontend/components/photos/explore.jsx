@@ -4,7 +4,7 @@ import JustifiedGallery from './justified_gallery';
 const ExploreGallery = ({photos, klass}) =>(
   <div>
     <JustifiedGallery photos={photos} rowHeight={230}
-      link={`home/photos/`}/>
+      link={`/home/photos/`}/>
   </div>
 );
 

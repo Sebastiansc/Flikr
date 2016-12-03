@@ -53,8 +53,8 @@ const Root = ({ store }) => {
     const slice = nextState.location.pathname.split('/')[2];
     if (isEmpty(store.getState()[slice])){
       store.dispatch(determineAction(slice, nextState.params)());
-      store.dispatch(fetchPhotoComments(nextState.params.photoId));
     }
+    store.dispatch(fetchPhotoComments(nextState.params.photoId));
   };
 
   const determineAction = (slice, params) => {

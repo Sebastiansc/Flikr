@@ -29,6 +29,13 @@ class MainImage extends React.Component{
     }
   }
 
+  linkRoot(){
+    const path = this.props.router.location.pathname.split('/');
+    return(
+      path.slice(0, path.length - 1).join('/')
+    );
+  }
+
   render(){
     return (
       <div className='main-image-container'>
@@ -44,21 +51,20 @@ class MainImage extends React.Component{
         </div>
 
         <PhotoArrowNav klass='photo-nav-r-big'
-          root='home/photos'
+          root={this.linkRoot()}
           index={this.image_queue}
           photos={this.props.photos}
           offset={1}
-          arrow='fa fa-angle-right fa-2x'
-          code={39}/>
+          arrow='fa fa-angle-right fa-2x'/>
         <PhotoArrowNav klass='photo-nav-l-big'
-          root='home/photos'
+          root={this.linkRoot()}
           index={this.image_queue}
           photos={this.props.photos}
           offset={-1}
-          arrow='fa fa-angle-right fa-rotate-180 fa-2x'
-          code={37}/>
+          arrow='fa fa-angle-right fa-rotate-180 fa-2x'/>
 
-        <ImageStream photos={this.props.photos} current={this.props.photo.id}/>
+        <ImageStream photos={this.props.photos} current={this.props.photo.id}
+        root={this.linkRoot()}/>
       </div>
     );
   }

@@ -32,7 +32,7 @@ class MainImage extends React.Component{
   render(){
     return (
       <div className='main-image-container'>
-        <Link className='back-link' to={path_history[0]}>
+        <Link className='back-link' to={window.path_history[0]}>
           <i className="fa fa-long-arrow-left" aria-hidden="true"></i> Go back
         </Link>
         <i onClick={() => this.fullSize()}

@@ -4,40 +4,45 @@ import StreamItem from './stream_item';
 class ImageStream extends React.Component {
   constructor(props) {
     super(props);
-    this.state= {start:0, end: 7, photos: props.photos.slice(0,7)};
+    this.state= { start:0, end: 0, photos: [] };
+    this.componentWillMount = this.componentWillReceiveProps = this.initialState;
   }
 
-  componentWillReceiveProps(newProps){
-    const start = this.findStart(newProps.current);
+  initialState(){
+    const start = Math.max(0, this.findStart());
+    const end = start + 7;
     this.setState({
-      start: start,
-      end: start + 7,
-      photos: newProps.photos.slice(start, start + 7)});
+      photos: this.props.photos.slice(start, end),
+      start,
+      end
+    });
   }
 
-  findStart(current){
+  // This function finds the start of the stream relative to the
+  // selected item that should sit in the middle
+  findStart(){
     for (var i = 0; i < this.props.photos.length; i++) {
-      if(this.props.photos[i].id === current) return i;
+      if(this.props.photos[i].id === this.props.current) return i - 3;
     }
   }
 
   slide(offset){
-    if (this.state.end === this.props.photos.length){
-      let start = this.state.start + offset;
-      let end = this.state.end - (this.state.end - this.state.start);
-      this.setState({
-        photos: this.props.photos.slice(start, end),
-        start,
-        end
-      });
-      return;
-    }
+    // if (this.state.end === this.props.photos.length){
+    //   let start = this.state.start + offset;
+    //   let end = this.state.end - (this.state.end - this.state.start);
+    //   this.setState({
+    //     photos: this.props.photos.slice(start, end),
+    //     start,
+    //     end
+    //   });
+    //   return;
+    // }
 
-    let start = this.state.start + offset;
+    let start = Math.max(0, this.state.start + offset);
     let end = this.state.end + offset;
-    if (end >= this.props.photos.length){
-      end = this.props.photos.length;
-    }
+    // if (end >= this.props.photos.length){
+    //   end = this.props.photos.length;
+    // }
 
     this.setState({
       start,
@@ -51,14 +56,15 @@ class ImageStream extends React.Component {
   }
 
   atEnd(){
-    return this.state.end === this.props.photos.length ? 'none' : '';
+    return this.state.end >= this.props.photos.length ? 'none' : '';
   }
 
   render(){
+    window.that = this;
     return (
       <div className="centered-image-stream">
         <div className='image-stream'>
-          <i onClick={() => this.slide(-7)}
+          <i onClick={() => this.slide(-3)}
              className="fa fa-chevron-right fa-rotate-180 nav-arrow-left"
              style={{display: `${this.atStart()}`}}
              aria-hidden="true"
@@ -68,7 +74,7 @@ class ImageStream extends React.Component {
             <StreamItem key={photo.id} photo={photo}
                 current={this.props.current}/>)
           )}
-          <i onClick={() => this.slide(7)}
+          <i onClick={() => this.slide(3)}
              className="fa fa-chevron-right nav-arrow-right"
              aria-hidden="true"
              style={{display: `${this.atEnd()}`}}

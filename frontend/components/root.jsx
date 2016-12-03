@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { isEmpty } from 'lodash';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { fetchPhotos,
          fetchByTag,
@@ -31,7 +32,12 @@ const Root = ({ store }) => {
 
   const _ensureLogin = (nextState, replace) => {
     const state = store.getState();
-    if(!state.session.currentUser.id) replace('/');
+    if(!state.session.currentUser.id){
+      replace('/');
+      return;
+    } else {
+      if(isEmpty(state.photos)) store.dispatch(requestPhotos());
+    }
   };
 
   const fetchUser = nextState => {

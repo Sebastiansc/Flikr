@@ -24,7 +24,7 @@ json.tags photo.tags, :name, :id
 json.set! :albums do
   photo.albums.each do |album|
     json.set! album.id do
-      json.extract! album, :id, :cover_photo, :title, :owner_id;
+      json.extract! album, :id, :cover_photo, :title, :owner_id
       json.items album.photos.length
     end
   end

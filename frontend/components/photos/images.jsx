@@ -20,10 +20,6 @@ class Images extends React.Component{
     }
   }
 
-  componentWillMount(){
-    this.props.requestPhotos();
-  }
-
   render(){
     this.getChild();
     return (

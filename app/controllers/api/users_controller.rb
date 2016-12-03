@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @photos = @user.photos.includes(:tags, :albums, :fans)
+    @photos = photos(@user)
   end
 
   def create
@@ -34,10 +34,15 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def user_photos
+    @photos = photos(User.find(params[:id]))
+    render 'api/photos/index'
+  end
+
   private
 
   def photos(user)
-    user.photos.includes(:tags, :author, :favorites, :comments, :albums)
+    user.photos.includes(*Photo.preload)
   end
 
   def user_params

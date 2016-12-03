@@ -27,23 +27,8 @@ class ImageStream extends React.Component {
   }
 
   slide(offset){
-    // if (this.state.end === this.props.photos.length){
-    //   let start = this.state.start + offset;
-    //   let end = this.state.end - (this.state.end - this.state.start);
-    //   this.setState({
-    //     photos: this.props.photos.slice(start, end),
-    //     start,
-    //     end
-    //   });
-    //   return;
-    // }
-
     let start = Math.max(0, this.state.start + offset);
     let end = this.state.end + offset;
-    // if (end >= this.props.photos.length){
-    //   end = this.props.photos.length;
-    // }
-
     this.setState({
       start,
       end,

@@ -20,22 +20,22 @@ Rails.application.routes.draw do
     resources :albums, only: [:show, :create, :destroy, :update]
   end
 
-  get 'api/photos/tag/:tag_id', :to => 'api/photos#by_tag'
+  get 'api/photos/tag/:tag_id', to: 'api/photos#by_tag'
+  get 'api/user/:user_id/photos', to: 'api/users#user_photos'
 
-  delete 'api/photos/:photo_id/favorites', :to => 'api/favorites#destroy'
+  delete 'api/photos/:photo_id/favorites', to: 'api/favorites#destroy'
 
-  post 'api/users/:user_id/cover_photo/:photo_id', :to => 'api/users#change_cover'
+  post 'api/users/:user_id/cover_photo/:photo_id', to: 'api/users#change_cover'
 
-  post 'api/users/:user_id/cover_photo', :to => 'api/users#change_profile_pic'
+  post 'api/users/:user_id/cover_photo', to: 'api/users#change_profile_pic'
 
-  post 'api/albums/:album_id/photos',
-    :to => 'api/photos#create_and_add_to_album'
+  post 'api/albums/:album_id/photos', to: 'api/photos#create_and_add_to_album'
 
-  post 'api/albums/:album_id/:photo_id', :to => 'api/albums#add_photo'
+  post 'api/albums/:album_id/:photo_id', to: 'api/albums#add_photo'
 
-  delete 'api/albums/:album_id/:photo_id', :to => 'api/albums#remove_photo'
+  delete 'api/albums/:album_id/:photo_id', to: 'api/albums#remove_photo'
 
-  post 'api/albums/:album_id/cover/:photo_id', :to => 'api/albums#change_cover_photo'
+  post 'api/albums/:album_id/cover/:photo_id', to: 'api/albums#change_cover_photo'
 
-  delete 'api/photos/:photo_id/tags/:tag_id', :to => 'api/tags#untag'
+  delete 'api/photos/:photo_id/tags/:tag_id', to: 'api/tags#untag'
 end

@@ -48,9 +48,13 @@ const Root = ({ store }) => {
     savePrev(nextState);
   };
 
-  const fetchComments = nextState => {
-    store.dispatch(fetchPhotoComments(nextState.params.photoId));
-    store.dispatch(requestPhotos());
+  // Determines what photo slice to fetch from store depending on pathname
+  const photoDetailFetch = nextState => {
+    const slice = store.getState()[nextState.location.pathname.split('/')[1]];
+    if (isEmpty(slice)){
+      store.dispatch(fetchPhotoComments(nextState.params.photoId));
+      store.dispatch(requestPhotos());
+    }
   };
 
   const savePrev = nextState => {
@@ -109,7 +113,9 @@ const Root = ({ store }) => {
           <Route path='album/:userId/:albumId' component={AlbumShowContainer}
               onEnter={n => getAlbum(n)}/>
           <Route path='photos/:photoId' component={PhotoContainer}
-            onEnter={(n) => fetchComments(n)}/>
+            onEnter={(n) => photoDetailFetch(n)}/>
+          <Route path='userPhotos/:photoId' component={PhotoContainer}
+            onEnter={(n) => photoDetailFetch(n)}/>
         </Route>
 
         <Route path='/lightbox/:photoId' component={LightBoxContainer}/>

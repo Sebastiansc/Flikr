@@ -21,11 +21,25 @@ end
 
 json.tags photo.tags, :name, :id
 
-json.set! :albums do
-  photo.albums.each do |album|
-    json.set! album.id do
-      json.extract! album, :id, :cover_photo, :title, :owner_id
-      json.items album.photos.length
+if photo.fans.empty?
+  json.favorites({})
+else
+  json.set! :favorites do
+    photo.fans.each do |fan|
+      json.partial! partial: 'api/users/user', locals: { user: fan }
+    end
+  end
+end
+
+if photo.albums.empty?
+  json.albums({})
+else
+  json.set! :albums do
+    photo.albums.each do |album|
+      json.set! album.id do
+        json.extract! album, :id, :cover_photo, :title, :owner_id
+        json.items album.photos.length
+      end
     end
   end
 end

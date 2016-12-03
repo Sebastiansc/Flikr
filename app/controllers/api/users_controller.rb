@@ -1,12 +1,11 @@
 class Api::UsersController < ApplicationController
-
   def index
     @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
-    @photos = @user.photos.includes(:tags, :albums)
+    @photos = @user.photos.includes(:tags, :albums, :fans)
   end
 
   def create
@@ -28,15 +27,15 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
-
   def change_profile_pic
     @user = User.find(params[:user_id])
     @photos = photos(@user)
     @user.update_attribute(:image_url, params[:url])
-    render :show;
+    render :show
   end
 
   private
+
   def photos(user)
     user.photos.includes(:tags, :author, :favorites, :comments, :albums)
   end

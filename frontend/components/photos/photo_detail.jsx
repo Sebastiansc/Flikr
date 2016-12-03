@@ -8,10 +8,6 @@ export default class PhotoDetail extends React.Component{
     super(props);
   }
 
-  componentWillMount(){
-    if(this.props.photos.length === 0) this.props.requestPhotos();
-  }
-
   render(){
     return(
       <div>

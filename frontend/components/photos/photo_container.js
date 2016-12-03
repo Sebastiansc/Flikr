@@ -5,8 +5,6 @@ import {requestPhotos} from '../../actions/photo_actions';
 import {createTag, destroyTag} from '../../actions/tag_actions';
 
 const _nullPhoto = {
-  img_url: undefined,
-  id: undefined,
   author: {},
   tags: [],
   favorites: {},

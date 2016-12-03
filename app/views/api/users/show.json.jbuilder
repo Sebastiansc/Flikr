@@ -6,7 +6,10 @@ end
 json.set! :photos do
   @photos.each do |photo|
     json.set! photo.id do
-      json.partial! partial: 'api/photos/photo_show', locals: {photo: photo, author: @user}
+      json.partial!(
+        partial: 'api/photos/photo_show',
+        locals: { photo: photo, author: @user }
+      )
     end
   end
 end

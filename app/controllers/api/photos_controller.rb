@@ -17,7 +17,7 @@ class Api::PhotosController < ApplicationController
     @photo.author_id = current_user.id
     if @photo.valid?
       @photo.save!
-      if (params[:album_id])
+      if params[:album_id]
         Album.find(params[:album_id]).photos << @photo
       end
       render :show
@@ -48,10 +48,10 @@ class Api::PhotosController < ApplicationController
     @photo.author_id = current_user.id
     if @photo.valid?
       @photo.save!
-      unless @album.cover_photo_id
-        @album.update_attribute(:cover_photo_id, @photo.id)
-      else
+      if @album.cover_photo_id
         @album.photos << @photo
+      else
+        @album.update_attribute(:cover_photo_id, @photo.id)
       end
       render :show
     else
@@ -62,6 +62,14 @@ class Api::PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:img_url, :title, :description, :thumb_url, :show_url, :feed_url, :public)
+    params.require(:photo).permit(
+      :img_url,
+      :title,
+      :description,
+      :thumb_url,
+      :show_url,
+      :feed_url,
+      :public
+    )
   end
 end

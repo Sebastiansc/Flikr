@@ -52,7 +52,7 @@ export default class CoverPhotoChange extends React.Component{
   }
 
   handleSubmit(){
-    this.props.changeUserCover(this.state.photo, this.props.person.id);
+    this.props.changeUserCover(this.state.photo, this.props.user.id);
     this.close();
   }
 

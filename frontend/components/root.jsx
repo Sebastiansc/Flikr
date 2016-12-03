@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { fetchPhotos,
          fetchByTag,
          requestPhotos } from '../actions/photo_actions';
-import { getUser } from '../actions/person_actions';
+import { getUser } from '../actions/user_actions';
 import { fetchTags } from '../actions/tag_actions';
 import { fetchPhotoComments } from '../actions/comment_actions';
 import { fetchUserAlbums, fetchAlbum } from '../actions/album_actions';
@@ -35,7 +35,10 @@ const Root = ({ store }) => {
   };
 
   const fetchUser = nextState => {
-    store.dispatch(getUser(nextState.params.userId));
+    debugger;
+    if(store.getState().user.id !== nextState.params.userId){
+      store.dispatch(getUser(nextState.params.userId));
+    }
     savePrev(nextState);
   };
 
@@ -94,10 +97,8 @@ const Root = ({ store }) => {
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
             <IndexRoute component={PhotoStreamContainer}/>
-            <Route path={'cameraRoll'} component={CameraRollContainer}
-              onEnter={n => fetchUser(n)}/>
-            <Route path={'albums'} component={AlbumContainer}
-                onEnter={n => fetchAlbums(n)}/>
+            <Route path={'cameraRoll'} component={CameraRollContainer}/>
+            <Route path={'albums'} component={AlbumContainer}/>
           </Route>
 
           <Route path='album/:userId/:albumId' component={AlbumShowContainer}

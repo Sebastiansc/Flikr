@@ -14,7 +14,7 @@ export default class ProfileHeader extends React.Component{
   }
 
   showIfOwner(){
-    return this.props.person.id === this.props.currentUser.id ? '' : 'none';
+    return this.props.user.id === this.props.currentUser.id ? '' : 'none';
   }
 
   toggleProfileUpload(){
@@ -35,7 +35,7 @@ export default class ProfileHeader extends React.Component{
     return(
       <section>
         <div className='cover-photo'
-          style={{backgroundImage: `url('${this.props.person.cover_photo}')`}}>
+          style={{backgroundImage: `url('${this.props.user.cover_photo}')`}}>
           <div className='cover-photo-gradient'></div>
           <div className='update-cover-photo'
               onClick={() => this.toggleOpen()}
@@ -47,7 +47,7 @@ export default class ProfileHeader extends React.Component{
             <div className='edit'>
               <div className='edit-img'
                    style={{backgroundImage:
-                          `url('${this.props.person.image_url}')`
+                          `url('${this.props.user.image_url}')`
                           }}>
               </div>
               <div className='pic-edit-container'>
@@ -60,18 +60,18 @@ export default class ProfileHeader extends React.Component{
             </div>
 
             <div className='title-block-content'>
-              <h1 className='title'>{this.props.person.username}</h1>
+              <h1 className='title'>{this.props.user.username}</h1>
             </div>
             <ul>
               <li>{this.props.photos.length} photos</li>
-              <li>Joined {this.props.person.join_year}</li>
+              <li>Joined {this.props.user.join_year}</li>
             </ul>
           </div>
 
           <CoverPhotoChange photos={this.props.photos}
               toggleOpen={() => this.toggleOpen()}
               open={this.state.open}
-              person={this.props.person}
+              user={this.props.user}
               changeUserCover={this.props.changeUserCover}/>
 
         </div>

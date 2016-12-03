@@ -3,12 +3,12 @@ import {GET_USER,
         CHANGE_PROFILE_PIC,
         updateProfilePic,
         receiveUserInfo,
-        updateUserCover} from '../actions/person_actions';
+        updateUserCover} from '../actions/user_actions';
 import {fetchUser,
         changeUserCover,
-        changeProfilePic} from '../util/person_api_util';
+        changeProfilePic} from '../util/user_api_util';
 
-const PersonMiddleware = ({dispatch}) => next => action => {
+const UserMiddleware = ({dispatch}) => next => action => {
   let success = user => {
     dispatch(receiveUserInfo(user));
   };
@@ -30,4 +30,4 @@ const PersonMiddleware = ({dispatch}) => next => action => {
   }
 };
 
-export default PersonMiddleware;
+export default UserMiddleware;

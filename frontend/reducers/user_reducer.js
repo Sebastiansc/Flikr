@@ -1,16 +1,10 @@
 import {RECEIVE_USER_INFO,
         UPDATE_USER_COVER,
-        UPDATE_PROFILE_PIC} from '../actions/person_actions';
+        UPDATE_PROFILE_PIC} from '../actions/user_actions';
 import {LOGOUT} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
-const _nullPerson = {
-  photos: []
-};
-
-
-
-const PersonReducer = (state = _nullPerson, action) => {
+const UserReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = merge({}, state);
 
@@ -24,10 +18,10 @@ const PersonReducer = (state = _nullPerson, action) => {
       newState.image_url = action.user.info.image_url;
       return newState;
     case LOGOUT:
-      return _nullPerson;
+      return {};
     default:
       return state;
   }
 };
 
-export default PersonReducer;
+export default UserReducer;

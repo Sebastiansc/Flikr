@@ -1,7 +1,7 @@
 import { applyMiddleware } from 'redux';
 import SessionMiddleware from './session_middleware';
 import PhotosMiddleware from './photos_middleware';
-import PersonMiddleware from './person_middleware';
+import UserMiddleware from './user_middleware';
 import CommentsMiddleware from './comments_middleware';
 import TagsMiddleware from './tags_middleware';
 import AlbumsMiddleware from './albums_middleware';
@@ -13,7 +13,7 @@ const logger = createLogger();
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
   PhotosMiddleware,
-  PersonMiddleware,
+  UserMiddleware,
   CommentsMiddleware,
   TagsMiddleware,
   AlbumsMiddleware,

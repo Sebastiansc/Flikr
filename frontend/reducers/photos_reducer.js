@@ -2,7 +2,6 @@ import {RECEIVE_PHOTOS,
         RECEIVE_PHOTO,
         REMOVE_PHOTO,
         RENEW_PHOTO} from '../actions/photo_actions';
-import {RECEIVE_USER_INFO} from '../actions/person_actions';
 import {RECEIVE_TAG, REMOVE_TAG} from '../actions/tag_actions';
 import {RECEIVE_FAVORITE,
         REMOVE_FAVORITE} from '../actions/favorite_actions';
@@ -28,8 +27,6 @@ const PhotosReducer = (state = _defaultState, action) => {
     case REMOVE_PHOTO:
       delete newState[action.photo.id];
       return newState;
-    case RECEIVE_USER_INFO:
-      return action.user.photos;
     case RENEW_PHOTO:
       newState[action.photo.id] = null;
       newState[action.photo.id] = action.photo;

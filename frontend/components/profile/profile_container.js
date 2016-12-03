@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import Profile from './profile';
 import {createPhoto, requestPhoto} from '../../actions/photo_actions';
-import {getUser, changeProfilePic} from '../../actions/person_actions';
+import {getUser, changeProfilePic} from '../../actions/user_actions';
 import {toArray} from '../../reducers/selectors';
 
-const mapStateToProps = ({person, photos, session}) => ({
-    photos: toArray(photos),
+const mapStateToProps = ({user, userPhotos, session}) => ({
+    photos: userPhotos,
     currentUser: session.currentUser,
-    person
+    user
 });
 
 const mapDispatchToProps = dispatch => ({

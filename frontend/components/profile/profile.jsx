@@ -34,10 +34,11 @@ export default class Profile extends React.Component{
   render(){
     return(
       <div>
-        <ProfileHeader photos={this.props.photos} person={this.props.person}
+        <ProfileHeader photos={this.props.photos}
+        user={this.props.user}
         currentUser={this.props.currentUser}
         changeProfilePic={this.props.changeProfilePic}/>
-        <ProfileNav id={this.props.person.id}
+        <ProfileNav id={this.props.user.id}
           photos={this.props.photos} createPhoto={this.props.createPhoto}
           currentUser={this.props.currentUser}/>
         {this.props.children}

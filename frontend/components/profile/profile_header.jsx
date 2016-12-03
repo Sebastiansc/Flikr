@@ -1,5 +1,5 @@
 import React from 'react';
-import { values } from 'lodash';
+import { values, isEmpty } from 'lodash';
 import { formatUrl } from '../../reducers/selectors';
 import CoverPhotoChange from './cover_photo_change';
 
@@ -32,6 +32,7 @@ export default class ProfileHeader extends React.Component{
   }
 
   render(){
+    if (isEmpty(this.props.user)) return <div></div>;
     return(
       <section>
         <div className='cover-photo'

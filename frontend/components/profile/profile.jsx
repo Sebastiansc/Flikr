@@ -32,6 +32,7 @@ export default class Profile extends React.Component{
   }
 
   render(){
+    debugger;
     return(
       <div>
         <ProfileHeader photos={this.props.photos}

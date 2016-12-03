@@ -26,7 +26,9 @@ if photo.fans.empty?
 else
   json.set! :favorites do
     photo.fans.each do |fan|
-      json.partial! partial: 'api/users/user', locals: { user: fan }
+      json.set! fan.id do
+        json.partial! partial: 'api/users/user', locals: { user: fan }
+      end
     end
   end
 end

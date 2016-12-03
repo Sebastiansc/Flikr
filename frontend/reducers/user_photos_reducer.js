@@ -8,7 +8,7 @@ const UserPhotosReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_USER_INFO:
-      return action.user.photos;
+      return action.user.photos || [];
     case RECEIVE_PHOTO:
       newState[action.photo.id] = action.photo;
       return newState;

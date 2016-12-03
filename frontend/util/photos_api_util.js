@@ -9,7 +9,7 @@ export const postPhoto = (photo, success) => {
   $.ajax({
     url: '/api/photos',
     type: "post",
-    data: photo,
+    data: {photo},
     success
   });
 };

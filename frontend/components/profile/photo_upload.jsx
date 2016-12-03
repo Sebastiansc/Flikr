@@ -7,22 +7,21 @@ const PhotoUpload = ({createPhoto, show}) => {
     window.cloudinary.openUploadWidget(window.cloudinaryOptions,
       (errors, photos) => {
         if(!values(errors).length) {
-         photos.forEach(photo => {
-           const thumbUrl = formatUrl(photo.secure_url, 145);
-           const showUrl = formatUrl(photo.secure_url, 1200);
-           const feedUrl = formatUrl(photo.secure_url, 500);
-           createPhoto({
-             photo: {
-               img_url: photo.secure_url,
-               title: photo.original_filename,
-               thumb_url: thumbUrl,
-               show_url: showUrl,
-               feed_url: feedUrl
-             },
-           });
-         });
+          photos.forEach(photo => {
+            const thumbUrl = formatUrl(photo.secure_url, 145);
+            const showUrl = formatUrl(photo.secure_url, 1200);
+            const feedUrl = formatUrl(photo.secure_url, 500);
+            createPhoto({
+              img_url: photo.secure_url,
+              title: photo.original_filename,
+              thumb_url: thumbUrl,
+              show_url: showUrl,
+              feed_url: feedUrl
+            });
+          });
         }
-    });
+      }
+    );
   };
 
   return(

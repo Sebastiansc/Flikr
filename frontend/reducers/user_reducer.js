@@ -10,7 +10,6 @@ const UserReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_USER_INFO:
-    debugger;
       return action.user.info;
     case UPDATE_USER_COVER:
       newState.cover_photo = action.user.info.cover_photo;

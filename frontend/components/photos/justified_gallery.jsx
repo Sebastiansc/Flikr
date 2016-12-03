@@ -37,7 +37,6 @@ export default class JustifiedGallery extends React.Component{
   }
 
   render(){
-    debugger;
     return(
       <div id="gallery">
         {this.props.photos.map(photo => (

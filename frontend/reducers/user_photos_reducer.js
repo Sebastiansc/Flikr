@@ -11,6 +11,7 @@ const UserPhotosReducer = (state = {}, action) => {
     case RECEIVE_USER_INFO:
       return action.user.photos || [];
     case RECEIVE_PHOTO:
+    debugger;
       newState[action.photo.id] = action.photo;
       return newState;
     case RECEIVE_USER_PHOTOS:

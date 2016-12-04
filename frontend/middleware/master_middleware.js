@@ -19,8 +19,7 @@ const RootMiddleware = applyMiddleware(
   TagsMiddleware,
   AlbumsMiddleware,
   FavoritesMiddleware,
-  FansMiddleware,
-  logger
+  FansMiddleware
 );
 
 export default RootMiddleware;

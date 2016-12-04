@@ -115,7 +115,7 @@ export default class JustifiedGallery extends React.Component{
           Load more
         </div>
         <i className={`fa fa-spinner fa-pulse fa-3x fa-fw`}
-           style={ { display: `${!this.state.fetching ? 'none' : '' }` } }></i>
+           style={ { display: `${!this.state.fetching && this.props.scroll ? 'none' : '' }` } }></i>
       </div>
     );
   }

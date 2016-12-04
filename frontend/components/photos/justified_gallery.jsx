@@ -20,6 +20,11 @@ export default class JustifiedGallery extends React.Component{
     $(window).off('scroll', this.infinite);
   }
 
+  componentWillReceiveProps(newProps){
+    this.offset = newProps.photos.length + 1;
+    this.limit = this.offset + 80;
+  }
+
   enableInfiniteScroll(){
     $(window).scroll(() => {
       if($(window).scrollTop() + $(window).height() === $(document).height()){
@@ -34,8 +39,6 @@ export default class JustifiedGallery extends React.Component{
     if (this.justified){
       $("#gallery").justifiedGallery('norewind');
     } else {
-      this.offset = this.props.photos.length + 1;
-      this.limit = this.offset + 80;
       this.justified = true;
       $("#gallery").justifiedGallery({
         rowHeight: this.props.rowHeight,

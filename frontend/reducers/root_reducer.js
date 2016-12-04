@@ -6,6 +6,7 @@ import EditReducer from './edit_reducer';
 import CommentsReducer from './comments_reducer';
 import TagsReducer from './tags_reducer';
 import AlbumsReducer from './albums_reducer';
+import AlbumPhotosReducer from './album_photos_reducer';
 import UserPhotosReducer from './user_photos_reducer';
 import TagPhotosReducer from './tag_photos_reducer';
 // import FavoritePhotosReducer from './favorites_reducer';
@@ -21,5 +22,6 @@ export default combineReducers({
   tagPhotos: TagPhotosReducer,
   fans: FansReducer,
   albums: AlbumsReducer,
+  albumPhotos: AlbumPhotosReducer,
   comments: CommentsReducer
 });

@@ -70,6 +70,12 @@ class Api::AlbumsController < ApplicationController
     render :cover_photo
   end
 
+  def album_photos
+    @photos = Album.find(params[:album_id]).photos
+                   .includes(*Photo.preload)
+    render 'api/photos/index'
+  end
+
   private
 
   def photos(album)

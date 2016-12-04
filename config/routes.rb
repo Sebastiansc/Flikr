@@ -26,19 +26,23 @@ Rails.application.routes.draw do
 
   get 'api/photos/:photo_id/fans', to: 'api/photos#fans'
 
-  delete 'api/photos/:photo_id/favorites', to: 'api/favorites#destroy'
+  get 'api/albums/:album_id/photos', to: 'api/albums#album_photos'
 
-  post 'api/users/:user_id/cover_photo/:photo_id', to: 'api/users#change_cover'
+  post 'api/users/:user_id/cover_photo/:photo_id',
+       to: 'api/users#change_cover'
 
   post 'api/users/:user_id/cover_photo', to: 'api/users#change_profile_pic'
 
   post 'api/albums/:album_id/photos', to: 'api/photos#create_and_add_to_album'
 
+  post 'api/albums/:album_id/cover/:photo_id',
+       to: 'api/albums#change_cover_photo'
+
   post 'api/albums/:album_id/:photo_id', to: 'api/albums#add_photo'
 
-  delete 'api/albums/:album_id/:photo_id', to: 'api/albums#remove_photo'
+  delete 'api/photos/:photo_id/favorites', to: 'api/favorites#destroy'
 
-  post 'api/albums/:album_id/cover/:photo_id', to: 'api/albums#change_cover_photo'
+  delete 'api/albums/:album_id/:photo_id', to: 'api/albums#remove_photo'
 
   delete 'api/photos/:photo_id/tags/:tag_id', to: 'api/tags#untag'
 end

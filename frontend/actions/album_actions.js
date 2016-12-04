@@ -13,6 +13,8 @@ export const DROP_PHOTO = 'DROP_PHOTO';
 export const CLEAR_PHOTO = 'CLEAR_PHOTO';
 export const CHANGE_COVER_PHOTO = 'CHANGE_COVER_PHOTO';
 export const UPDATE_COVER_PHOTO = 'UPDATE_COVER_PHOTO';
+export const FETCH_ALBUM_PHOTOS = 'FETCH_ALBUM_PHOTOS';
+export const RECEIVE_ALBUM_PHOTOS = 'RECEIVE_ALBUM_PHOTOS';
 
 export const fetchUserAlbums = userId => ({
   type: FETCH_USER_ALBUMS,
@@ -94,4 +96,14 @@ export const updateCoverPhoto = (coverPhoto, albumId) => ({
   type: UPDATE_COVER_PHOTO,
   coverPhoto,
   albumId
+});
+
+export const fetchAlbumPhotos = albumId => ({
+  type: FETCH_ALBUM_PHOTOS,
+  albumId
+});
+
+export const receiveAlbumPhotos = photos => ({
+  type: RECEIVE_ALBUM_PHOTOS,
+  photos
 });

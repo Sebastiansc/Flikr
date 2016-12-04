@@ -9,10 +9,10 @@ const ProfileNav = ({id, photo, createPhoto, currentUser}) => {
     <div className='profile-nav sub-nav'>
       <ul>
         <li style={{display: `${showIfOwner}`}}>
-          <Link to={`home/profile/${id}/cameraRoll`}>CameraRoll</Link>
+          <Link to={`/home/profile/${id}/cameraRoll`}>CameraRoll</Link>
         </li>
-        <li><Link to={`home/profile/${id}`}>Photostream</Link></li>
-        <li><Link to={`home/profile/${id}/albums`}>Albums</Link></li>
+        <li><Link to={`/home/profile/${id}`}>Photostream</Link></li>
+        <li><Link to={`/home/profile/${id}/albums`}>Albums</Link></li>
         <PhotoUpload show={showIfOwner}
           photos={photo} createPhoto={createPhoto}/>
       </ul>

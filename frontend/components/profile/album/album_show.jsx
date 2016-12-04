@@ -71,7 +71,8 @@ export default class AlbumShow extends React.Component{
             albumId={this.props.album.id}
             rowHeight={200}
             klass={this.editable() ? 'album-show-delete' : ''}
-            dropPhoto={this.props.dropPhoto}/>
+            dropPhoto={this.props.dropPhoto}
+            link={`/home/albumPhotos/${this.props.album.id}/`}/>
 
       </div>
     );

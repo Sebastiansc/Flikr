@@ -77,3 +77,10 @@ export const changeCoverPhoto = (albumId, photoId, success) => {
     success
   });
 };
+
+export const fetchAlbumPhotos = (albumId, success) => {
+  $.ajax({
+    url: `api/albums/${albumId}/photos`,
+    success
+  });
+};

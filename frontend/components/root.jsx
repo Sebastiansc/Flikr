@@ -16,7 +16,9 @@ import { fetchByTag } from '../actions/tag_photos_actions';
 
 import { fetchPhotoComments } from '../actions/comment_actions';
 
-import { fetchUserAlbums, fetchAlbum } from '../actions/album_actions';
+import { fetchUserAlbums,
+         fetchAlbum,
+         fetchAlbumPhotos } from '../actions/album_actions';
 
 import App from './app';
 
@@ -72,8 +74,9 @@ const Root = ({ store }) => {
   // Determines where to fetch photos from depending on pathname.
   const photoDetailFetch = nextState => {
     const slice = nextState.location.pathname.split('/')[2];
+    // debugger;
     const action = determineAction(slice, nextState.params);
-    if (slice === "tagPhotos"){
+    if (slice === "tagPhotos" || slice === "albumPhotos"){
       store.dispatch(action());
     } else if (isEmpty(store.getState()[slice])){
       store.dispatch(action());
@@ -90,6 +93,8 @@ const Root = ({ store }) => {
         return requestPhotos;
       case "tagPhotos":
       return () => fetchByTag(params.tagId);
+      case "albumPhotos":
+      return () => fetchAlbumPhotos(params.albumId);
     }
   };
 
@@ -160,6 +165,8 @@ const Root = ({ store }) => {
                  onEnter={(n) => photoDetailFetch(n)}/>
           <Route path='userPhotos/:userId/:photoId' component={PhotoContainer}
                  onEnter={(n) => photoDetailFetch(n)}/>
+          <Route path='albumPhotos/:albumId/:photoId' component={PhotoContainer}
+                 onEnter={(n) => photoDetailFetch(n)}/>
           <Route path='tagPhotos/:tagId/:photoId' component={PhotoContainer}
                  onEnter={(n) => photoDetailFetch(n)}/>
         </Route>
@@ -169,7 +176,10 @@ const Root = ({ store }) => {
         <Route path='/lightbox/userPhotos/:userId/:photoId'
                component={LightBoxContainer}
                onEnter={n => getPhotos(n)}/>
-             <Route path='/lightbox/tagPhotos/:tagId/:photoId'
+             <Route path='/lightbox/albumPhotos/:albumId/:photoId'
+               component={LightBoxContainer}
+               onEnter={n => getPhotos(n)}/>
+        <Route path='/lightbox/tagPhotos/:tagId/:photoId'
                component={LightBoxContainer}
                onEnter={n => getPhotos(n)}/>
       </Router>

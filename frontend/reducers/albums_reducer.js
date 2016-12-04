@@ -19,11 +19,6 @@ const AlbumReducer = (state = {}, action) => {
     case REMOVE_ALBUM:
       delete newState[action.album.id];
       return newState;
-    case CLEAR_PHOTO:
-      const photos = newState[action.albumId].photos;
-      const index = findIndex(photos, action.photo);
-      photos.splice(index, 1);
-      return newState;
     case UPDATE_COVER_PHOTO:
       newState[action.albumId].cover_photo = action.coverPhoto;
       return newState;

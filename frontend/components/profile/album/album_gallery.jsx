@@ -7,7 +7,7 @@ const AlbumGallery = ({albums, deleteAlbum}) => (
   <main className='albums-gallery'>
     {albums.map(album => (
       <AlbumGalleryItem key={album.id} album={album}
-          length={album.photos.length}
+          length={album.num_photos}
           deleteAlbum={deleteAlbum}
           klass='album-gallery'/>
     ))}

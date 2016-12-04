@@ -5,11 +5,12 @@ export default class AlbumUpdateArea extends React.Component{
     super(props);
     this.defaultDesc = 'Click here to change description';
     this.state = {title: '', description: this.defaultDesc, editing: false};
+    this.componentWillMount = this.componentWillReceiveProps = this.initState;
   }
 
-  componentWillReceiveProps(newProps){
-    this.setState({title: newProps.album.title,
-                  description: newProps.album.description || this.defaultDesc});
+  initState(props = this.props){
+    this.setState({title: props.album.title,
+                  description: props.album.description || this.defaultDesc});
   }
 
   update(property, e){
@@ -81,7 +82,7 @@ export default class AlbumUpdateArea extends React.Component{
           <i className="fa fa-pencil in-editable-block" aria-hidden="true"></i>
         </div>
         <span className={`photo-length ${this.setLengthClass()}`}>
-          {this.props.album.photos.length} photos
+          {this.props.album.num_photos} photos
         </span>
         <button className={`album-update ${this.setButtonClass()}`}
             onClick={() => this.handleSubmit()}>
@@ -103,7 +104,7 @@ export default class AlbumUpdateArea extends React.Component{
           </div>
         </div>
         <span className={`photo-length ${this.setLengthClass()}`}>
-          {this.props.album.photos.length} photos
+          {this.props.album.num_photos} photos
         </span>
       </div>
     );

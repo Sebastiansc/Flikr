@@ -29,6 +29,8 @@ export default class AlbumShow extends React.Component{
   }
 
   render(){
+    if (!this.props.album) return <div></div>;
+
     return(
       <div className='album-show'>
 
@@ -47,7 +49,7 @@ export default class AlbumShow extends React.Component{
              open={this.state.adding}
              album={this.props.album}
              toggleOpen={() => this.toggleOpen()}
-             photos={this.props.photos}
+             photos={this.props.userPhotos}
              show={this.showIfOwner()}
              messages={["Change cover photo", "Select a photo"]}/>
 
@@ -63,11 +65,11 @@ export default class AlbumShow extends React.Component{
 
           <AlbumPhotoUpload album={this.props.album}
               fetchAlbum={this.props.fetchAlbum}
-              createPhoto={this.props.createPhoto}
+              createAndAddPhoto={this.props.createAndAddPhoto}
               showIfOwner={() => this.showIfOwner()}/>
         </div>
 
-        <JustifiedGallery photos={this.props.album.photos}
+        <JustifiedGallery photos={this.props.photos}
             albumId={this.props.album.id}
             rowHeight={200}
             klass={this.editable() ? 'album-show-delete' : ''}

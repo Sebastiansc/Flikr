@@ -119,6 +119,7 @@ const Root = ({ store }) => {
   const getAlbum = nextState => {
     store.dispatch(fetchAlbum(nextState.params.albumId));
     store.dispatch(getUser(nextState.params.userId));
+    store.dispatch(fetchAlbumPhotos(nextState.params.albumId));
     savePrev(nextState);
   };
 

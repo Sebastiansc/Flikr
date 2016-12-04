@@ -35,6 +35,7 @@ export default class JustifiedGallery extends React.Component{
   enableInfiniteScroll(){
     this.infinite = () => {
       if($(window).scrollTop() + $(window).height() === $(document).height()){
+        debugger;
         this.props.requestPhotos(this.offset, this.limit);
         this.offset += 80;
       }

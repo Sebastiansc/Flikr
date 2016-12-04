@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get 'api/users/:user_id/photos', to: 'api/users#user_photos'
 
-  get 'api/photos/:photo_id/fans', to: 'api/photos#fans'
+  get 'api/fans/photos/:photo_id', to: 'api/photos#fans'
 
   get 'api/tags/photo/:photo_id', to: 'api/tags#photos'
 

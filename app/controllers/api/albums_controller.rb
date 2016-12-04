@@ -14,10 +14,9 @@ class Api::AlbumsController < ApplicationController
     @album = Album.new(album_params)
     @album.owner_id = current_user.id
     @album.cover_photo_id = params[:photos][0]
-    if @album.valid?
-      @album.save!
+    if @album.save
       @photos = photos(@album)
-      params[:photos][1..-1].each { |id| @album.photos << Photo.find(id) }
+      params[:photos].each { |id| @album.photos << Photo.find(id) }
       render :show
     else
       render json: @album.errors.full_messages, status: 422

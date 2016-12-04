@@ -27,7 +27,10 @@ else
   json.set! :albums do
     photo.albums.each do |album|
       json.set! album.id do
-        json.extract! album, :id, :cover_photo, :title, :owner_id
+        json.extract! album, :id, :title, :owner_id
+        json.set! :cover_photo do
+          json.extract! album.cover_photo, :thumb_url, :author_id, :id
+        end
         json.items album.photos.length
       end
     end

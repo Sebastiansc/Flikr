@@ -59,6 +59,7 @@ const Root = ({ store }) => {
       replace('/');
       return;
     } else if (isEmpty(store.getState().photos)){
+      debugger;
       store.dispatch(requestPhotos(0, 80));
     }
     savePrev(nextState);

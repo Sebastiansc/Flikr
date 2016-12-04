@@ -1,6 +1,6 @@
 export const fetchFans = (photoId, success) => {
   $.ajax({
-    url: `api/photos/${photoId}/fans`,
+    url: `api/fans/photos/${photoId}`,
     success
   });
 };

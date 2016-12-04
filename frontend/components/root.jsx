@@ -58,8 +58,8 @@ const Root = ({ store }) => {
     if(!state.session.currentUser.id){
       replace('/');
       return;
-    } else {
-      store.dispatch(requestPhotos());
+    } else if (isEmpty(store.getState().photos)){
+      store.dispatch(requestPhotos(0, 80));
     }
     savePrev(nextState);
   };

@@ -7,10 +7,10 @@ export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const RENEW_PHOTO = 'RENEW_PHOTO';
 
-export const requestPhotos = (limit, offset) => ({
+export const requestPhotos = (offset, limit) => ({
   type: REQUEST_PHOTOS,
-  limit,
-  offset
+  offset,
+  limit
 });
 
 export const receivePhoto = photo => ({

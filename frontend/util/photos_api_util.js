@@ -1,6 +1,6 @@
-export const fetchPhotos = (limit, offset, success) => {
+export const fetchPhotos = (offset, limit, success) => {
   $.ajax({
-    url: '/api/photos',
+    url: `/api/photos/${offset}/${limit}`,
     success
   });
 };

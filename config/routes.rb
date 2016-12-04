@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
-    resources :photos, only: [:index, :show, :create, :destroy, :update] do
+    resources :photos, only: [:show, :create, :destroy, :update] do
       resources :comments, only: [:index]
       resources :tags, only: [:create]
       resources :albums, only: [:index]
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   get 'api/photos/tag/:tag_id', to: 'api/photos#by_tag'
+
+  get 'api/photos/:offset/:limit', to: 'api/photos#index'
 
   get 'api/users/:user_id/photos', to: 'api/users#user_photos'
 

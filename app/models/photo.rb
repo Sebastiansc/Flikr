@@ -29,12 +29,10 @@ class Photo < ApplicationRecord
     source: :album
   )
 
-  def self.feed_stream(limit = 20, offset = 0)
+  def self.feed_stream
     Photo.where(public: true)
          .includes(*preload)
          .order('photos.created_at DESC')
-         .limit(limit)
-         .offset(offset)
   end
 
   def self.preload

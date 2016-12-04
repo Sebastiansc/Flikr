@@ -6,33 +6,41 @@ export default class JustifiedGallery extends React.Component{
   constructor(props){
     super(props);
     this.componentDidMount = this.componentDidUpdate = this.justify;
+    this.componentWillUnmount = this.disableInfiniteScroll;
   }
 
   componentWillMount(){
     if (this.props.scroll){
       this.justified = false;
-      this.infinite = this.enableInfiniteScroll;
-      this.infinite();
+      this.init = false;
+      this.enableInfiniteScroll();
     }
   }
 
-  componentWillUnmount(){
+
+  disableInfiniteScroll(){
     $(window).off('scroll', this.infinite);
   }
 
   componentWillReceiveProps(newProps){
-    this.offset = newProps.photos.length + 1;
-    this.limit = this.offset + 80;
+    if (newProps.photos.length % 80 !== 0){
+      this.disableInfiniteScroll();
+    } else if (!this.init){
+      this.offset = newProps.photos.length;
+      this.limit = 80;
+      this.init = true;
+    }
   }
 
   enableInfiniteScroll(){
-    $(window).scroll(() => {
+    this.infinite = () => {
       if($(window).scrollTop() + $(window).height() === $(document).height()){
         this.props.requestPhotos(this.offset, this.limit);
         this.offset += 80;
-        this.limit += 80;
       }
-    });
+    };
+
+    $(window).scroll(this.infinite);
   }
 
   justify(){

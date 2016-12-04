@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const LightBoxHeader = ({author, id}) => {
+const LightBoxHeader = ({author, photoId, root}) => {
   return(
     <div className='lightbox-header'>
       <Link to={`home/profile/${author.id}`}>
@@ -10,7 +10,7 @@ const LightBoxHeader = ({author, id}) => {
         </div>
       </Link>
         <Link to={`home/profile/${author.id}`}>{author.username}</Link>
-        <Link className='minimize' to={`home/photos/${id}`}>
+        <Link className='minimize' to={`${root}/${photoId}`}>
           <i className="minimize fa fa-expand" aria-hidden="true"></i>
 
         </Link>

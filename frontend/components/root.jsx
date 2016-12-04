@@ -124,20 +124,20 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
 
         <Route path='/' component={Splash}
-            onEnter={(n,r) =>_redirectIfLoggedIn(n,r)}/>
+               onEnter={(n,r) =>_redirectIfLoggedIn(n,r)}/>
         <Route path='signup' component={SessionFormContainer}
-          onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
+               onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
         <Route path='signin' component={SessionFormContainer}
-          onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
+               onEnter={(n, r) => _redirectIfLoggedIn(n, r)}/>
 
         <Route path='/home' component={App}>
           <IndexRoute component={ImageContainer}
-            onEnter={(n, r) => _ensureLogin(n ,r)}/>
+                      onEnter={(n, r) => _ensureLogin(n ,r)}/>
           <Route path='main' component={ImageContainer}/>
           <Route path='trending' component={TrendingContainer}
-            onEnter={n => getTags(n)}/>
+                 onEnter={n => getTags(n)}/>
           <Route path='trending/:tagId' component={ByTagContainer}
-            onEnter={n => getByTag(n)}/>
+                 onEnter={n => getByTag(n)}/>
 
           <Route path='profile/:userId' component={ProfileContainer}
                  onEnter={(n) => fetchUser(n)}>
@@ -147,16 +147,20 @@ const Root = ({ store }) => {
           </Route>
 
           <Route path='album/:userId/:albumId' component={AlbumShowContainer}
-              onEnter={n => getAlbum(n)}/>
+                 onEnter={n => getAlbum(n)}/>
           <Route path='photos/:photoId' component={PhotoContainer}
-            onEnter={(n) => photoDetailFetch(n)}/>
+                 onEnter={(n) => photoDetailFetch(n)}/>
           <Route path='userPhotos/:userId/:photoId' component={PhotoContainer}
-            onEnter={(n) => photoDetailFetch(n)}/>
+                 onEnter={(n) => photoDetailFetch(n)}/>
           <Route path='tagPhotos/:tagId/:photoId' component={PhotoContainer}
-            onEnter={(n) => photoDetailFetch(n)}/>
+                 onEnter={(n) => photoDetailFetch(n)}/>
         </Route>
 
-        <Route path='/lightbox/:photoId' component={LightBoxContainer}/>
+        <Route path='/lightbox/photos/:photoId' component={LightBoxContainer}/>
+        <Route path='/lightbox/userPhotos/:userId/:photoId'
+               component={LightBoxContainer}/>
+             <Route path='/lightbox/tagPhotos/:tagId/:photoId'
+               component={LightBoxContainer}/>
       </Router>
 
     </Provider>

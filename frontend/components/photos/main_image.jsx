@@ -18,7 +18,8 @@ class MainImage extends React.Component{
   }
 
   fullSize(){
-    this.props.router.push(`lightbox/${this.props.photo.id}`);
+    const slicePath = this.pathArray().slice(2, this.pathArray().length - 1).join('/');
+    this.props.router.push(`/lightbox/${slicePath}/${this.props.photo.id}`);
   }
 
   currentIndex(props){
@@ -29,8 +30,12 @@ class MainImage extends React.Component{
     }
   }
 
+  pathArray(){
+    return this.props.router.location.pathname.split('/');
+  }
+
   linkRoot(){
-    const path = this.props.router.location.pathname.split('/');
+    const path = this.pathArray();
     return(
       path.slice(0, path.length - 1).join('/')
     );

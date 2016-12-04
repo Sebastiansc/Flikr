@@ -13,7 +13,7 @@ export default class Albums extends React.Component{
   }
 
   showIfOwner(){
-    return this.props.currentUser.id === this.props.person.id ? '' : 'none';
+    return this.props.currentUser.id === this.props.user.id ? '' : 'none';
   }
 
   render(){

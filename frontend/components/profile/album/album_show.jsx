@@ -17,7 +17,7 @@ export default class AlbumShow extends React.Component{
   }
 
   owner(){
-    return this.props.currentUser.id === this.props.person.id;
+    return this.props.currentUser.id === this.props.user.id;
   }
 
   showIfOwner(){

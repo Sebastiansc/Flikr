@@ -6,11 +6,11 @@ import {createAlbum,
         deleteAlbum,
         updateAlbum } from '../../../actions/album_actions';
 
-const mapStateToProps = ({albums, photos, session, person}) => ({
+const mapStateToProps = ({albums, userPhotos, session, user}) => ({
   albums: toArray(albums),
   currentUser: session.currentUser,
-  photos: toArray(photos),
-  person
+  photos: toArray(userPhotos),
+  user
 });
 
 const mapDispatchToProps = dispatch => ({

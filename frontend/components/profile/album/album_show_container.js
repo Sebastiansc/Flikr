@@ -15,11 +15,11 @@ const _nullAlbum = {
   photos: []
 };
 
-const mapStateToProps = ({albums, photos, session, person}, {params}) => ({
+const mapStateToProps = ({albums, userPhotos, session, user}, {params}) => ({
   album: albums[params.albumId] || _nullAlbum,
   currentUser: session.currentUser,
-  photos: toArray(photos),
-  person
+  photos: toArray(userPhotos),
+  user
 });
 
 const mapDispatchToProps = dispatch => ({

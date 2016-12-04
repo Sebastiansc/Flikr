@@ -1,24 +1,23 @@
 class Api::AlbumsController < ApplicationController
-
   def index
     if params[:user_id]
-      @albums = Album.where(owner_id: params[:user_id]).
-        includes(:cover_photo, photos: [:author, :tags])
+      @albums = Album.where(owner_id: params[:user_id])
+                     .includes(:cover_photo, photos: Photo.preload)
     else
-      @albums = Album.joins(:album_photos).
-                where('album_photos.photo_id = ?', params[:photo_id]).
-                includes(:cover_photo, photos: [:author, :tags])
+      @albums = Album.joins(:album_photos)
+                     .where('album_photos.photo_id = ?', params[:photo_id])
+                     .includes(:cover_photo, photos: Photo.preload)
     end
   end
 
   def create
     @album = Album.new(album_params)
     @album.owner_id = current_user.id
-    @album.cover_photo_id =  params[:photos][0]
+    @album.cover_photo_id = params[:photos][0]
     if @album.valid?
       @album.save!
       @photos = photos(@album)
-      params[:photos][1..-1].each{|id| @album.photos << Photo.find(id)}
+      params[:photos][1..-1].each { |id| @album.photos << Photo.find(id) }
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -58,7 +57,9 @@ class Api::AlbumsController < ApplicationController
   def remove_photo
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:photo_id])
-    @album.album_photos.find_by({album_id: params[:album_id], photo_id: params[:photo_id]}).destroy
+    @album.album_photos.find_by(
+      album_id: params[:album_id], photo_id: params[:photo_id]
+    ).destroy
     render 'api/photos/show'
   end
 
@@ -72,7 +73,7 @@ class Api::AlbumsController < ApplicationController
   private
 
   def photos(album)
-    album.photos.includes(:tags, :author, :favorites, :comments, :albums)
+    album.photos.includes(*Photo.preload)
   end
 
   def album_params

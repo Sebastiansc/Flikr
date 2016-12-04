@@ -18,8 +18,9 @@ export default class Tags extends React.Component{
 
   handleSubmit(e){
     const tags = this.state.tags.split(' ');
-    const photoId = window.location.hash.slice(14);
-    tags.forEach(tag => this.props.createTag(photoId, {name: tag}));
+    tags.forEach(tag => (
+      this.props.createTag(this.props.photoId, {name: tag})
+    ));
     this.setState({adding: false, tags: ''});
   }
 
@@ -53,7 +54,9 @@ export default class Tags extends React.Component{
         <ul className='tags'>
           {this.props.tags.map(tag => (
             <TagItem key={tag.id} tag={tag}
-               destroyTag={this.props.destroyTag}/>)
+                     destroyTag={this.props.destroyTag}
+                     photoId={this.props.photoId}/>
+            )
           )}
         </ul>
       </div>

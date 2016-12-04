@@ -16,13 +16,6 @@ const PhotosReducer = (state = {}, action) => {
     case REMOVE_PHOTO:
       delete newState[action.photo.id];
       return newState;
-    case RECEIVE_TAG:
-      newState[action.photoId].tags.push(action.tag);
-      return newState;
-    case REMOVE_TAG:
-      const index = findIndex(newState[action.photoId].tags, action.tag);
-      newState[action.photoId].tags.splice(index, 1);
-      return newState;
     default:
       return state;
   }

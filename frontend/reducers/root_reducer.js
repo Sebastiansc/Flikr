@@ -9,6 +9,7 @@ import AlbumsReducer from './albums_reducer';
 import AlbumPhotosReducer from './album_photos_reducer';
 import UserPhotosReducer from './user_photos_reducer';
 import TagPhotosReducer from './tag_photos_reducer';
+import PhotoTagsReducer from './photo_tags_reducer';
 // import FavoritePhotosReducer from './favorites_reducer';
 import FansReducer from './fans_reducer';
 
@@ -20,6 +21,7 @@ export default combineReducers({
   editing: EditReducer,
   tags: TagsReducer,
   tagPhotos: TagPhotosReducer,
+  photoTags: PhotoTagsReducer,
   fans: FansReducer,
   albums: AlbumsReducer,
   albumPhotos: AlbumPhotosReducer,

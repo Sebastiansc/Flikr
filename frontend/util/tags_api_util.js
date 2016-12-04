@@ -21,3 +21,10 @@ export const fetchTags = success => {
     success
   });
 };
+
+export const fetchPhotoTags = (photoId, success) => {
+  $.ajax({
+    url: `api/tags/photo/${photoId}`,
+    success
+  });
+};

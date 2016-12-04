@@ -11,7 +11,7 @@ import { fetchFans } from '../actions/fan_actions';
 
 import { getUser, fetchUserPhotos } from '../actions/user_actions';
 
-import { fetchTags } from '../actions/tag_actions';
+import { fetchTags, fetchPhotoTags } from '../actions/tag_actions';
 import { fetchByTag } from '../actions/tag_photos_actions';
 
 import { fetchPhotoComments } from '../actions/comment_actions';
@@ -82,6 +82,7 @@ const Root = ({ store }) => {
     }
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
     store.dispatch(fetchFans(nextState.params.photoId));
+    store.dispatch(fetchPhotoTags(nextState.params.photoId));
   };
 
   const determineAction = (slice, params) => {

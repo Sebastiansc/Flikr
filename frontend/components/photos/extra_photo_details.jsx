@@ -1,10 +1,10 @@
 import React from 'react';
-import Tags from './tags';
+import TagsContainer from './tags_container';
 import {values} from 'lodash';
 import AlbumMiniList from './album_mini_list';
 import FavoriteContainer from './favorites_container';
 
-const ExtraPhotoDetail = ({photo, fans, comments, createTag, destroyTag}) => {
+const ExtraPhotoDetail = ({photo, fans, comments}) => {
   return(
     <section className='extras-section'>
       <div className='extra-top-row'>
@@ -23,7 +23,7 @@ const ExtraPhotoDetail = ({photo, fans, comments, createTag, destroyTag}) => {
         </div>
       </div>
       <AlbumMiniList albums={values(photo.albums)}/>
-      <Tags tags={photo.tags} createTag={createTag} destroyTag={destroyTag}/>
+      <TagsContainer photoId={photo.id}/>
     </section >
   );
 };

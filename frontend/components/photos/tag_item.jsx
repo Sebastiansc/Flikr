@@ -12,8 +12,7 @@ export default class TagItem extends React.Component{
   }
 
   remove(){
-    const photoId = window.location.hash.slice(14);
-    this.props.destroyTag(photoId, this.props.tag.id);
+    this.props.destroyTag(this.props.photoId, this.props.tag.id);
   }
 
   showClose(){

@@ -21,6 +21,10 @@ end
 
 json.tags photo.tags, :name, :id
 
+json.comments photo.comments.length
+
+json.favorites photo.fans.length
+
 if photo.albums.empty?
   json.albums({})
 else

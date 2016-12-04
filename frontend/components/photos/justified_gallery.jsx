@@ -18,12 +18,12 @@ export default class JustifiedGallery extends React.Component{
   }
 
   componentWillReceiveProps(newProps){
-    if (newProps.photos.length % 80 !== 0){
+    if (newProps.photos.length % 50 !== 0){
       this.offset = this.limit = 0;
       this.over = true;
     } else if (!this.init){
       this.offset = newProps.photos.length;
-      this.limit = 80;
+      this.limit = 50;
       this.init = true;
     }
     this.setState({ fetching: false });
@@ -33,7 +33,7 @@ export default class JustifiedGallery extends React.Component{
     if (!this.over){
       this.setState({ fetching: true });
       this.props.requestPhotos(this.offset, this.limit);
-      this.offset += 80;
+      this.offset += 50;
     }
   }
 
@@ -97,11 +97,11 @@ export default class JustifiedGallery extends React.Component{
                   <div className='photo-interactions'>
                     <div className='explore-item-tool'>
                       <i className="fa fa-comment-o" aria-hidden="true"></i>
-                      15
+                      {photo.comments}
                     </div>
                     <div className='explore-item-tool'>
                       <i className="fa fa-star-o" aria-hidden="true"></i>
-                      {values(photo.favorites).length}
+                      {photo.favorites}
                     </div>
                   </div>
                 </div>

@@ -36,10 +36,12 @@ class Photo < ApplicationRecord
            .order('photos.created_at DESC')
            .offset(offset)
            .limit(limit)
+           .includes(*Photo.preload)
     else
       Photo.where(public: true)
            .includes(*preload)
            .order('photos.created_at DESC')
+           .includes(*Photo.preload)
     end
   end
 

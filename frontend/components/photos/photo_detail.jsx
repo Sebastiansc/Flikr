@@ -8,6 +8,10 @@ export default class PhotoDetail extends React.Component{
     super(props);
   }
 
+  componentWillMount(){
+    $(document).scrollTop(0);
+  }
+
   render(){
     if (!this.props.photo) return <div></div>;
 

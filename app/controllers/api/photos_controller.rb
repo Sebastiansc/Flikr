@@ -4,7 +4,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def by_tag
-    @photos = Photo.by_tag(params[:tag_id])
+    @photos = Photo.by_tag(params[:tag_id]).includes(*Photo.preload)
     render :index
   end
 

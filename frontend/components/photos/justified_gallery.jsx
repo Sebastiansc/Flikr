@@ -17,13 +17,13 @@ export default class JustifiedGallery extends React.Component{
     }
   }
 
-
   disableInfiniteScroll(){
     $(window).off('scroll', this.infinite);
   }
 
   componentWillReceiveProps(newProps){
     if (newProps.photos.length % 80 !== 0){
+      this.offset = this.limit = 0;
       this.disableInfiniteScroll();
     } else if (!this.init){
       this.offset = newProps.photos.length;
@@ -64,7 +64,11 @@ export default class JustifiedGallery extends React.Component{
   }
 
   link(photo){
-    return this.props.link + photo.id;
+    if (this.props.scroll && this.limit > 0){
+      return `${this.props.link}${photo.id}/${this.offset}/${this.limit}`;
+    } else {
+      return this.props.link + photo.id;
+    }
   }
 
   render(){

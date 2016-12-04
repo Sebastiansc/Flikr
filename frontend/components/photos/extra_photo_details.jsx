@@ -5,7 +5,6 @@ import AlbumMiniList from './album_mini_list';
 import FavoriteContainer from './favorites_container';
 
 const ExtraPhotoDetail = ({photo, fans, comments}) => {
-  debugger;
   return(
     <section className='extras-section'>
       <div className='extra-top-row'>

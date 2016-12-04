@@ -59,7 +59,6 @@ const Root = ({ store }) => {
       replace('/');
       return;
     } else if (isEmpty(store.getState().photos)){
-      debugger;
       store.dispatch(requestPhotos(0, 80));
     }
     savePrev(nextState);
@@ -91,11 +90,11 @@ const Root = ({ store }) => {
       case "userPhotos":
         return () => fetchUserPhotos(params.userId);
       case "photos":
-        return requestPhotos;
+        return () => requestPhotos(0, 500);
       case "tagPhotos":
-      return () => fetchByTag(params.tagId);
+        return () => fetchByTag(params.tagId);
       case "albumPhotos":
-      return () => fetchAlbumPhotos(params.albumId);
+        return () => fetchAlbumPhotos(params.albumId);
     }
   };
 

@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const AlbumMiniList = ({albums}) => {
-  debugger;
   return (
     <div className='albums-mini-list'>
-      {albums.map(album => {
-        return(
+      {albums.map(album => (
           <div key={album.id} className='mini-gallery-item-container'>
             <figure className='mini-gallery-item'
               style={{backgroundImage: `url('${album.cover_photo.thumb_url}')`}}>
@@ -22,8 +20,8 @@ const AlbumMiniList = ({albums}) => {
               </span>
             </div>
           </div>
-        );
-      })}
+        )
+      )}
     </div>
   );
 };

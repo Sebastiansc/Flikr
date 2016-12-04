@@ -5,19 +5,19 @@ import PhotoArrowNav from '../arrow.jsx';
 export default class LightBox extends React.Component{
   constructor(props){
     super(props);
-    this.image_queue = 1;
+    this.componentWillMount = this.componentWillReceiveProps = this.findIndex;
   }
 
-  currentIndex(){
-    for (let i = 0; i < this.props.photos.length; i++) {
-      if(this.props.photos[i].id === this.props.photo.id){
+  findIndex(props = this.props){
+    this.image_index = this.currentIndex(props);
+  }
+
+  currentIndex(props){
+    for (let i = 0; i < props.photos.length; i++) {
+      if(props.photos[i].id === props.photo.id){
         return i;
       }
     }
-  }
-
-  componentWillUpdate(){
-    this.image_queue = this.currentIndex();
   }
 
   linkRoot(){
@@ -34,7 +34,6 @@ export default class LightBox extends React.Component{
 
   render(){
     if(!this.props.photo) return <div></div>;
-
     return(
       <div className='lightbox-container'>
         <LightBoxHeader author={this.props.photo.author}
@@ -45,13 +44,13 @@ export default class LightBox extends React.Component{
         </div>
         <PhotoArrowNav klass='photo-nav-r-big'
           root={this.linkRoot()}
-          index={this.image_queue}
+          index={this.image_index}
           photos={this.props.photos}
           offset={1}
           arrow='fa fa-angle-right'/>
         <PhotoArrowNav klass='photo-nav-l-big'
           root={this.linkRoot()}
-          index={this.image_queue}
+          index={this.image_index}
           photos={this.props.photos}
           offset={-1}
           arrow='fa fa-angle-right fa-rotate-180'/>

@@ -18,8 +18,10 @@ class MainImage extends React.Component{
   }
 
   fullSize(){
-    const slicePath = this.pathArray().slice(2, this.pathArray().length - 1).join('/');
-    this.props.router.push(`/lightbox/${slicePath}/${this.props.photo.id}`);
+    const slicePath = this.pathArray().slice(2, this.pathArray().length-1);
+    this.props.router.push(
+      `/lightbox/${slicePath.join('/')}/${this.props.photo.id}`
+    );
   }
 
   currentIndex(props){

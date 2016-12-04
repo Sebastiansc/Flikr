@@ -118,6 +118,13 @@ const Root = ({ store }) => {
     savePrev(nextState);
   };
 
+  const getPhotos = nextState => {
+    const slice = nextState.location.pathname.split('/')[2];
+    if (isEmpty(store.getState()[slice])){
+      store.dispatch(determineAction(slice, nextState.params)());
+    }
+  };
+
   return(
     <Provider store={store}>
 
@@ -156,11 +163,14 @@ const Root = ({ store }) => {
                  onEnter={(n) => photoDetailFetch(n)}/>
         </Route>
 
-        <Route path='/lightbox/photos/:photoId' component={LightBoxContainer}/>
+        <Route path='/lightbox/photos/:photoId' component={LightBoxContainer}
+               onEnter={n => getPhotos(n)}/>
         <Route path='/lightbox/userPhotos/:userId/:photoId'
-               component={LightBoxContainer}/>
+               component={LightBoxContainer}
+               onEnter={n => getPhotos(n)}/>
              <Route path='/lightbox/tagPhotos/:tagId/:photoId'
-               component={LightBoxContainer}/>
+               component={LightBoxContainer}
+               onEnter={n => getPhotos(n)}/>
       </Router>
 
     </Provider>

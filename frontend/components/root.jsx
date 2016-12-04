@@ -90,7 +90,7 @@ const Root = ({ store }) => {
       case "userPhotos":
         return () => fetchUserPhotos(params.userId);
       case "photos":
-        return () => requestPhotos(0, 500);
+        return () => requestPhotos();
       case "tagPhotos":
         return () => fetchByTag(params.tagId);
       case "albumPhotos":

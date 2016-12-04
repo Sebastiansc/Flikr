@@ -30,11 +30,17 @@ class Photo < ApplicationRecord
   )
 
   def self.feed_stream(offset, limit)
-    Photo.where(public: true)
-         .includes(*preload)
-         .order('photos.created_at DESC')
-         .offset(offset)
-         .limit(limit)
+    if limit != "undefined"
+      Photo.where(public: true)
+           .includes(*preload)
+           .order('photos.created_at DESC')
+           .offset(offset)
+           .limit(limit)
+    else
+      Photo.where(public: true)
+           .includes(*preload)
+           .order('photos.created_at DESC')
+    end
   end
 
   def self.preload

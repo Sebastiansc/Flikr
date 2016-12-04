@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import {favorite, unfavorite} from '../../actions/favorite_actions';
 import Favorite from './favorite';
 
-const mapStateToProps = ({session}, {photo}) => ({
+const mapStateToProps = ({session, fans}, {photo}) => ({
   currentUser: session.currentUser,
-  photo
+  photo,
+  fans
 });
 
 const mapDispatchToProps = dispatch => ({

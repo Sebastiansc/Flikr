@@ -9,7 +9,8 @@ const mapStateToProps = (state, {params, location}) => {
   return {
     photo: state[slice][Number(params.photoId)],
     photos: toArray(state[slice]),
-    comments: state["comments"]
+    comments: state["comments"],
+    fans: state["fans"]
   };
 };
 

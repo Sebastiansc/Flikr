@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Favorite = ({currentUser, photo, favorite, unfavorite}) => {
-  const included = Boolean(photo.favorites[currentUser.id]);
+const Favorite = ({currentUser, fans, photo, favorite, unfavorite}) => {
+  const included = Boolean(fans[currentUser.id]);
 
   const toLikeOrNotToLike = () => {
     const perform = included ? unfavorite : favorite;

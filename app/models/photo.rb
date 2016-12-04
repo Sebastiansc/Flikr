@@ -41,7 +41,6 @@ class Photo < ApplicationRecord
     [
       :tags,
       :author,
-      :fans,
       :comments,
       albums: :photos
     ]

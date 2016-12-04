@@ -16,11 +16,13 @@ export default class PhotoDetail extends React.Component{
         <MainImage photo={this.props.photo} photos={this.props.photos}/>
         <main className='p-detail-main cf'>
           <UserDescription author={this.props.photo.author}
-            photo={this.props.photo}/>
+            photo={this.props.photo}
+            fans={this.props.fans}/>
           <ExtraPhotoDetails photo={this.props.photo}
             createTag={this.props.createTag}
             destroyTag={this.props.destroyTag}
-            comments={this.props.comments}/>
+            comments={this.props.comments}
+            fans={this.props.fans}/>
         </main>
       </div>
     );

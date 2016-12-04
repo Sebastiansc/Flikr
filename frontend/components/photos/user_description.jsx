@@ -9,7 +9,7 @@ export default class UserDescription extends React.Component{
   }
 
   getFans(){
-    this.mainFavs = values(this.props.photo.favorites).slice(0,2);
+    this.mainFavs = values(this.props.fans).slice(0,2);
     return this.mainFavs.map((favorite,i) => {
       const comma = i === 0 && this.mainFavs.length === 2 ? ',' : '';
       return (
@@ -22,7 +22,7 @@ export default class UserDescription extends React.Component{
   }
 
   showOthers(){
-    const otherFans = values(this.props.photo.favorites).length - 2;
+    const otherFans = values(this.props.fans).length - 2;
     if(otherFans > 0){
       return `${otherFans} more people faved this`;
     } else {

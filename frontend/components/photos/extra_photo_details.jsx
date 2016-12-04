@@ -4,7 +4,7 @@ import {values} from 'lodash';
 import AlbumMiniList from './album_mini_list';
 import FavoriteContainer from './favorites_container';
 
-const ExtraPhotoDetail = ({photo, comments, createTag, destroyTag}) => {
+const ExtraPhotoDetail = ({photo, fans, comments, createTag, destroyTag}) => {
   return(
     <section className='extras-section'>
       <div className='extra-top-row'>
@@ -13,7 +13,7 @@ const ExtraPhotoDetail = ({photo, comments, createTag, destroyTag}) => {
           <span>comments</span>
         </div>
         <div className='count'>
-          <span>{values(photo.favorites).length}</span>
+          <span>{values(fans).length}</span>
           <span>faves</span>
         </div>
         <FavoriteContainer photo={photo}/>

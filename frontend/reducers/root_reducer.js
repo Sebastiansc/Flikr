@@ -8,7 +8,8 @@ import TagsReducer from './tags_reducer';
 import AlbumsReducer from './albums_reducer';
 import UserPhotosReducer from './user_photos_reducer';
 import TagPhotosReducer from './tag_photos_reducer';
-import FavoritePhotosReducer from './favorites_reducer';
+// import FavoritePhotosReducer from './favorites_reducer';
+import FansReducer from './fans_reducer';
 
 export default combineReducers({
   session: SessionReducer,
@@ -18,6 +19,7 @@ export default combineReducers({
   editing: EditReducer,
   tags: TagsReducer,
   tagPhotos: TagPhotosReducer,
+  fans: FansReducer,
   albums: AlbumsReducer,
   comments: CommentsReducer
 });

@@ -21,18 +21,6 @@ end
 
 json.tags photo.tags, :name, :id
 
-if photo.fans.empty?
-  json.favorites({})
-else
-  json.set! :favorites do
-    photo.fans.each do |fan|
-      json.set! fan.id do
-        json.partial! partial: 'api/users/user', locals: { user: fan }
-      end
-    end
-  end
-end
-
 if photo.albums.empty?
   json.albums({})
 else

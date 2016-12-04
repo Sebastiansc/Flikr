@@ -59,6 +59,11 @@ class Api::PhotosController < ApplicationController
     end
   end
 
+  def fans
+    @users = Photo.find(params[:photo_id]).fans
+    render 'api/users/index'
+  end
+
   private
 
   def photo_params

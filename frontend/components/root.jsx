@@ -7,6 +7,7 @@ import { isEmpty } from 'lodash';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import { fetchPhotos, requestPhotos } from '../actions/photo_actions';
+import { fetchFans } from '../actions/fan_actions';
 
 import { getUser, fetchUserPhotos } from '../actions/user_actions';
 
@@ -78,6 +79,7 @@ const Root = ({ store }) => {
       store.dispatch(action());
     }
     store.dispatch(fetchPhotoComments(nextState.params.photoId));
+    store.dispatch(fetchFans(nextState.params.photoId));
   };
 
   const determineAction = (slice, params) => {

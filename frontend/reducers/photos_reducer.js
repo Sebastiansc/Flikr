@@ -23,12 +23,6 @@ const PhotosReducer = (state = {}, action) => {
       const index = findIndex(newState[action.photoId].tags, action.tag);
       newState[action.photoId].tags.splice(index, 1);
       return newState;
-    case RECEIVE_FAVORITE:
-      newState[action.fav.photo_id].favorites[action.fav.user_id] = action.fav;
-      return newState;
-    case REMOVE_FAVORITE:
-      delete newState[action.fav.photo_id].favorites[action.fav.user_id];
-      return newState;
     default:
       return state;
   }

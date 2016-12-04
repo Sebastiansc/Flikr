@@ -15,7 +15,7 @@ class CommentForm extends React.Component{
   sendComment(){
     const comment = {
       body: this.state.body,
-      photo_id: Number(window.location.hash.slice(14))
+      photo_id: this.props.photoId
     };
     this.props.createComment(comment);
     this.setState({body: ''});

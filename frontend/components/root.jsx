@@ -74,7 +74,6 @@ const Root = ({ store }) => {
   // Determines where to fetch photos from depending on pathname.
   const photoDetailFetch = nextState => {
     const slice = nextState.location.pathname.split('/')[2];
-    // debugger;
     const action = determineAction(slice, nextState.params);
     if (slice === "tagPhotos" || slice === "albumPhotos"){
       store.dispatch(action());

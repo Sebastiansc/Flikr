@@ -53,7 +53,7 @@ export default class UserDescription extends React.Component{
           <span>{this.getFans()} {this.showOthers()}</span>
         </div>
 
-        <CommentContainer />
+        <CommentContainer photoId={this.props.photo.id}/>
       </section>
     );
   }

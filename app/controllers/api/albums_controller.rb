@@ -2,11 +2,11 @@ class Api::AlbumsController < ApplicationController
   def index
     if params[:user_id]
       @albums = Album.where(owner_id: params[:user_id])
-                     .includes(:cover_photo, photos: Photo.preload)
+                     .includes(:cover_photo, :photos)
     else
       @albums = Album.joins(:album_photos)
                      .where('album_photos.photo_id = ?', params[:photo_id])
-                     .includes(:cover_photo, photos: Photo.preload)
+                     .includes(:cover_photo, :photos)
     end
   end
 

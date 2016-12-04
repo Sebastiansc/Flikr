@@ -79,7 +79,7 @@ export default class AlbumAdd extends React.Component{
               </li>
               <div className='album-list-details'>
                 <span>{album.title}</span>
-                <span>{album.photos.length} photos</span>
+                <span>{album.num_photos} photos</span>
               </div>
             </div>
           ))}

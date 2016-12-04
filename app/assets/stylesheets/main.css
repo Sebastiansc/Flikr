@@ -20,8 +20,13 @@
 }
 
 .logout {
-  width: 50px;
-  height: 40px;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  background: #009bdb;
+  border: none;
+  border-radius: 5px;
 }
 
 .nav-container {

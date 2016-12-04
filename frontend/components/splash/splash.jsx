@@ -3,12 +3,22 @@ import NavBar from './nav_bar';
 import SplashImage from './splash_image';
 import Footer from '../shared/footer';
 
-const Splash = () => (
-  <div>
-    <NavBar/>
-    <SplashImage />
-    <Footer/>
-  </div>
-);
+export default class Splash extends React.Component {
+  componentWillMount(){
+    $('body').attr('id', 'splash-body');
+  }
 
-export default Splash;
+  componentWillUnmount(){
+    $('body').removeAttr('id', 'splash-body');
+  }
+
+  render(){
+    return(
+      <div>
+        <NavBar/>
+        <SplashImage />
+        <Footer/>
+      </div>
+    );
+  }
+}

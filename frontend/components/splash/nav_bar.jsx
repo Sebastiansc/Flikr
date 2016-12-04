@@ -12,7 +12,7 @@ const NavBar = () => (
                src='https://res.cloudinary.com/flikr/image/upload/v1478498324/logo3_vehkaq.svg'>
             </img>
           </li>
-          <Link to='signup'className='photo-upload' id='splash-sign-up'>
+          <Link to='signup' className='splash-sign-up'>
             Sign Up
           </Link>
           <Link to='/signin' className='splash-signin'>Sign in</Link>

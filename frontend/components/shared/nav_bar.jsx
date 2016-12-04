@@ -25,7 +25,6 @@ export default class NavBar extends React.Component {
               </Link></li>
           </ul>
           <div className='nav-right'>
-            <SearchBox />
             <UserDropDown logout={this.props.logout}
                user={this.props.currentUser}/>
           </div>

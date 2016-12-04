@@ -25,8 +25,8 @@ export default class JustifiedGallery extends React.Component{
       this.offset = newProps.photos.length;
       this.limit = 80;
       this.init = true;
-      this.setState({ fetching: false });
     }
+    this.setState({ fetching: false });
   }
 
   fetchMore(){
@@ -110,7 +110,8 @@ export default class JustifiedGallery extends React.Component{
           ))}
         </div>
         <div className={`fetcher ${this.showMore()}`}
-             onClick={() => this.fetchMore()}>
+             onClick={() => this.fetchMore()}
+             style={ { display: `${this.state.fetching ? 'none' : '' }` } }>
           Load more
         </div>
         <i className={`fa fa-spinner fa-pulse fa-3x fa-fw`}

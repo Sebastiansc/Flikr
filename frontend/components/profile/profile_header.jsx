@@ -32,7 +32,6 @@ export default class ProfileHeader extends React.Component{
   }
 
   render(){
-    if (isEmpty(this.props.user)) return <div></div>;
     return(
       <section>
         <div className='cover-photo'

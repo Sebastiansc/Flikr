@@ -9,12 +9,11 @@ const masonryOptions = {
 const CameraRollGallery = ({photos, setEditId}) => {
   return(
     <Masonry className='camera-roll-gallery' options={masonryOptions}>
-      {photos.map( photo => {
-        return (
+      {photos.map( photo => (
           <CameraRollGalleryItem
             key={photo.id} setEditId={setEditId} photo={photo}/>
-        );
-      })}
+        )
+      )}
     </Masonry>
   );
 };

@@ -32,6 +32,9 @@ export default class Profile extends React.Component{
   }
 
   render(){
+    if (!this.props.user) return (
+      <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    );
     return(
       <div>
         <ProfileHeader photos={this.props.photos}

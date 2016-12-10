@@ -29,6 +29,9 @@ export default class JustifiedGallery extends React.Component{
 
 
   render(){
+    if (!this.props.photos) return (
+      <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    );
     return(
       <div id="gallery">
         {this.props.photos.map(photo => (

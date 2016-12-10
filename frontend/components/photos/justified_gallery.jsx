@@ -29,7 +29,7 @@ export default class JustifiedGallery extends React.Component{
 
 
   render(){
-    if (!this.props.photos) return (
+    if (!this.props.photos.length) return (
       <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
     );
     return(

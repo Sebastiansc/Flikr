@@ -5,9 +5,9 @@ export default class SplashImage extends React.Component{
   constructor(){
     super();
     this.images = [
-      'https://res.cloudinary.com/flikr/image/upload/v1478504249/01-interior-contest-grand-prize-winner_dt4n10.jpg',
-      'https://res.cloudinary.com/flikr/image/upload/v1478504274/i5zceqigrcldqgktf6wj_g5asvq.jpg',
-      'https://res.cloudinary.com/flikr/image/upload/v1478504263/78722_1600x1200-wallpaper-cb1398895960_yvyebw.jpg'
+      "https://res.cloudinary.com/flikr/image/upload/v1480895023/uwpp8domhaaumeagyofk.jpg",
+      "https://res.cloudinary.com/flikr/image/upload/v1480895018/hfmxd90emboaxqat15sx.jpg",
+      "https://res.cloudinary.com/flikr/image/upload/v1480894472/o76rnyobplpdwfkfxg4u.jpg"
     ];
     const randIndex = Math.floor(Math.random() * 3);
     this.state = {url: this.images[randIndex], current: randIndex};

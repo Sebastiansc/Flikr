@@ -13,7 +13,6 @@ export default class CameraRoll extends React.Component {
 
   togglePhotoAdd(){
     this.setState({adding: !this.state.adding});
-
   }
 
   render(){
